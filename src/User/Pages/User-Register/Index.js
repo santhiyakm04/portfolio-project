@@ -1,4 +1,32 @@
+import axios from "axios"
+import { details } from "../../Slices/registerslice"
+import { useSelector,useDispatch } from "react-redux"
+import { Link } from "react-router-dom"
+
+
 export const User_Register = () => {
+     const registervalue=useSelector((state)=>state.register)
+     const uservalue=registervalue.user_details
+     console.log(registervalue)
+     const dispatch=useDispatch()
+
+     const register=()=>{
+        const formData=new FormData();
+        // formData.append(" request",redata.request)
+        formData.append(" name",uservalue.name)
+        formData.append(" email",uservalue.email)
+        formData.append(" password",uservalue.password)
+        formData.append(" aadhar",uservalue.aadhar)
+        formData.append(" address",uservalue.address)
+        formData.append(" phone",uservalue.phone)
+        formData.append(" city",uservalue.city)
+        formData.append(" area",uservalue.area)
+        formData.append(" pin",uservalue.pin)
+    axios.post(" http://agaram.academy/api/action.php?request=create_candidate",formData).then((data)=>{
+        console.log(data)
+    })
+    }
+ 
     return (
         <div class="signup-page sidebar-collapse">
 
@@ -32,85 +60,68 @@ export const User_Register = () => {
                                 <div className="card card-signup">
                                     <div className="card-body  cardsize" >
                                         <h4 className="card-title text-center">User Register</h4>
-                                        {/* <div className="social text-center">
-                                            <button className="btn btn-icon btn-round btn-twitter">
-                                                <i className="fab fa-twitter"></i>
-                                            </button>
-                                            <button className="btn btn-icon btn-round btn-dribbble">
-                                                <i className="fab fa-dribbble"></i>
-                                            </button>
-                                            <button className="btn btn-icon btn-round btn-facebook">
-                                                <i className="fab fa-facebook"> </i>
-                                            </button>
-                                            <h5 className="card-description">User Register </h5>
-                                        </div> */}
-                                        <form className="form" method="" action="">                     
+                                                       
                                             <div className="input-group">
                                                 <div className="input-group-prepend">
                                                     <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
                                                 </div>
-                                                <input type="text" className="form-control" placeholder="Name" autocomplete="fullname"/>
+                                                <input type="text" className="form-control" onKeyUp={(e)=>dispatch(details({...uservalue,name:e.target.value}))}  placeholder="Name" autocomplete="fullname"/>
                                             </div>
                                             <div className="input-group">
                                                 <div className="input-group-prepend">
                                                     <span className="input-group-text"><i className="now-ui-icons ui-1_email-85"></i></span>
                                                 </div>
-                                                <input type="text" className="form-control" placeholder="Email" autocomplete="email"/>
+                                                <input type="text" className="form-control" onKeyUp={(e)=>dispatch(details({...uservalue,email:e.target.value}))} placeholder="Email" autocomplete="email"/>
                                             </div>
                                            
                                             <div className="input-group">
                                                 <div className="input-group-prepend">
                                                     <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
                                                 </div>
-                                                <input type="password" className="form-control" placeholder="password" autocomplete="fullname"/>
+                                                <input type="password" className="form-control" onKeyUp={(e)=>dispatch(details({...uservalue,password:e.target.value}))} placeholder="password" autocomplete="fullname"/>
                                             </div>
                                             <div className="input-group">
                                                 <div className="input-group-prepend">
                                                     <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
                                                 </div>
-                                                <input type="number" className="form-control" placeholder="phonenumber" autocomplete="fullname"/>
+                                                <input type="number" className="form-control" onKeyUp={(e)=>dispatch(details({...uservalue,aadhar:e.target.value}))} placeholder="Aaadhar number" autocomplete="fullname"/>
                                             </div>
                                            
                                             <div className="input-group">
                                                 <div className="input-group-prepend">
                                                     <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
                                                 </div>
-                                                <input type="text" className="form-control" placeholder="Address" autocomplete="fullname"/>
+                                                <input type="text" className="form-control" onKeyUp={(e)=>dispatch(details({...uservalue,address:e.target.value}))} placeholder="Address" autocomplete="fullname"/>
                                             </div>
                                             <div className="input-group">
                                                 <div className="input-group-prepend">
                                                     <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
                                                 </div>
-                                                <input type="text" className="form-control" placeholder="Area" autocomplete="fullname"/>
+                                                <input type="number" className="form-control" onKeyUp={(e)=>dispatch(details({...uservalue,phone:e.target.value}))} placeholder="Phone Number" autocomplete="fullname"/>
                                             </div>
                                             <div className="input-group">
                                                 <div className="input-group-prepend">
                                                     <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
                                                 </div>
-                                                <input type="text" className="form-control" placeholder="city" autocomplete="fullname"/>
+                                                <input type="text" className="form-control" onKeyUp={(e)=>dispatch(details({...uservalue,city:e.target.value}))} placeholder="city" autocomplete="fullname"/>
                                             </div>
                                             <div className="input-group">
                                                 <div className="input-group-prepend">
                                                     <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
                                                 </div>
-                                                <input type="number" className="form-control" placeholder="Pincode" autocomplete="fullname"/>
+                                                <input type="text" className="form-control" onKeyUp={(e)=>dispatch(details({...uservalue,area:e.target.value}))} placeholder="Area" autocomplete="fullname"/>
                                             </div>
-
-                                           
-                                           
-                                            {/* <!-- If you want to add a checkbox to this form, uncomment this code --> */}
-                                            <div className="form-check">
-                                                <label className="form-check-label">
-                                                    <input className="form-check-input" type="checkbox"/>
-                                                        <span className="form-check-sign"></span>
-                                                        I agree to the terms and
-                                                        <a href="#something">conditions</a>.
-                                                </label>
+                                            <div className="input-group">
+                                                <div className="input-group-prepend">
+                                                    <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
+                                                </div>
+                                                <input type="number" className="form-control" onKeyUp={(e)=>dispatch(details({...uservalue,pin:e.target.value}))} placeholder="Pincode" autocomplete="fullname"/>
                                             </div>
-                                            <div className="card-footer text-center">
-                                                <a href="#pablo" className="btn btn-primary btn-round btn-lg">Register</a>
-                                            </div>
-                                        </form>
+                                            <div className="p-2">
+                                            <button  className="btn btn-danger" onClick={register}>Register</button><Link to="/user_login">Login</Link>
+                                            </div> 
+                                            <h6>{JSON.stringify(uservalue)}</h6>
+                                   
                                     </div>
                                 </div>
                             </div>
