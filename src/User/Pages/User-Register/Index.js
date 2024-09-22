@@ -12,7 +12,7 @@ export const User_Register = () => {
 
      const register=()=>{
         const formData=new FormData();
-        // formData.append(" request",redata.request)
+       
         formData.append(" name",uservalue.name)
         formData.append(" email",uservalue.email)
         formData.append(" password",uservalue.password)
@@ -24,6 +24,9 @@ export const User_Register = () => {
         formData.append(" pin",uservalue.pin)
     axios.post(" http://agaram.academy/api/action.php?request=create_candidate",formData).then((data)=>{
         console.log(data)
+        if(data.data.status){
+            alert("successfully registered")
+        }
     })
     }
  
@@ -132,10 +135,10 @@ export const User_Register = () => {
                     <div className=" container ">
                         
                         <div className="copyright" id="copyright">
-                            &copy;
+                            {/* &copy;
                             <script>
                                 document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-                            </script>, Designed by
+                            </script>, Designed by */}
                             <a href="Portfolio" target="_blank">Portfolio</a>. Coded by
                             <a href="Agaram softwares" target="_blank">Agaram softwares</a>.
                         </div>

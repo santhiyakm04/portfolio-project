@@ -7,6 +7,7 @@ import { User_Login } from './User/Pages/User-Login/Index';
 import { createBrowserRouter, RouterProvider}from "react-router-dom";
 import { User_Register } from './User/Pages/User-Register/Index';
 import { Studio_Register } from './Studio/Pages/Studio-Register/Index';
+import { Admin_Panel } from './Admin/Pages/Admin Panel';
 
 const router = createBrowserRouter([
   {
@@ -34,7 +35,10 @@ const router = createBrowserRouter([
     path:"/studio_register",
     element: <div><Studio_Register/></div>
   },
-
+  {
+    path:"/admin_panel",
+    element: <div><Admin_Panel/></div>
+  },
 
 ]);
 
