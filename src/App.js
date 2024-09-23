@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider}from "react-router-dom";
 import { User_Register } from './User/Pages/User-Register/Index';
 import { Studio_Register } from './Studio/Pages/Studio-Register/Index';
 
+
 const router = createBrowserRouter([
   {
     path:"/user_login",

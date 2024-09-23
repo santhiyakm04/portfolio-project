@@ -1,4 +1,36 @@
+// import { navigate, useNavigate } from 'react-router-dom';
+import axios from 'axios'
+import { useSelector, useDispatch } from 'react-redux'
+import { user } from '../../Slices/Registerslice';
+
+
+
+
 export const Studio_Register = () => {
+//  const navigate =  useNavigate();
+    const reg = useSelector((state) => state.regis).studioReg;
+    
+    const dispatch = useDispatch();
+    const regist = () => {
+        let formData = new FormData()
+
+        formData.append("name", reg.name)
+        formData.append("email", reg.email)
+        formData.append("password", reg.password) 
+        formData.append("aadhar", reg.adhaar)
+        formData.append("address", reg.address)
+        formData.append("phone", reg.phone)
+        formData.append("city", reg.city)
+        formData.append("area", reg.area)
+        formData.append("pin", reg.pin)
+
+        axios.post("http://agaram.academy/api/action.php?request=create_candidate", formData).then((e) => {
+              
+        })
+        // navigate("/login")
+    }
+    // onKeyUp={(e) => dispatch(user({ ...regist,  e.target.value }))}
+
     return (
         <div class="signup-page sidebar-collapse">
 
@@ -44,63 +76,64 @@ export const Studio_Register = () => {
                                             </button>
                                             <h5 className="card-description">Studio Register </h5>
                                         </div> */}
-                                        <form className="form" method="" action="">
+                                        <div className="form" method="" action="">
                                             <div className="input-group">
                                                 <div className="input-group-prepend">
                                                     <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
                                                 </div>
-                                                <input type="text" className="form-control" placeholder="Studio Name" autocomplete="fullname"/>
+                                                <input type="text" className="form-control" placeholder="Studio Name" onKeyUp={(e) => dispatch(user({ ...reg,name:e.target.value }))} autocomplete="fullname"/>
                                             </div>
                                            
-                                            <div className="input-group">
+                                        <div className="input-group">
                                                 <div className="input-group-prepend">
                                                     <span className="input-group-text"><i className="now-ui-icons ui-1_email-85"></i></span>
                                                 </div>
-                                                <input type="text" className="form-control" placeholder="Studio Email" autocomplete="email"/>
+                                                <input type="text" className="form-control" placeholder="Studio Email"onKeyUp={(e) => dispatch(user({ ...reg,email:e.target.value }))} autocomplete="email"/>
                                             </div>
                                             <div className="input-group">
                                                 <div className="input-group-prepend">
                                                     <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
                                                 </div>
-                                                <input type="password" className="form-control" placeholder="Password" autocomplete="fullname"/>
+                                                <input type="password" className="form-control" placeholder="Password" onKeyUp={(e) => dispatch(user({ ...reg,password:e.target.value }))} autocomplete="fullname"/>
                                             </div>
-                                            <div className="input-group">
-                                                <div className="input-group-prepend">
-                                                    <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
-                                                </div>
-                                                <input type="number" className="form-control" placeholder="Phone Number" autocomplete="fullname"/>
-                                            </div>
-                                            <div className="input-group">
-                                                <div className="input-group-prepend">
-                                                    <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
-                                                </div>
-                                                <input type="text" className="form-control" placeholder="Studio Address" autocomplete="fullname"/>
-                                            </div>
-                                            <div className="input-group">
-                                                <div className="input-group-prepend">
-                                                    <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
-                                                </div>
-                                                <input type="number" className="form-control" placeholder="Aadhaar No" autocomplete="fullname"/>
-                                            </div>
-
+                                            
                                            
                                             <div className="input-group">
                                                 <div className="input-group-prepend">
                                                     <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
                                                 </div>
-                                                <input type="text" className="form-control" placeholder="Area" autocomplete="fullname"/>
+                                                <input type="number" className="form-control" placeholder="Aadhaar No" onKeyUp={(e) => dispatch(user({ ...reg,aadhar:e.target.value }))} autocomplete="fullname"/>
                                             </div>
                                             <div className="input-group">
                                                 <div className="input-group-prepend">
                                                     <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
                                                 </div>
-                                                <input type="text" className="form-control" placeholder="city" autocomplete="fullname"/>
+                                                <input type="text" className="form-control" placeholder="Studio Address" onKeyUp={(e) => dispatch(user({ ...reg,address:e.target.value }))} autocomplete="fullname"/>
                                             </div>
                                             <div className="input-group">
                                                 <div className="input-group-prepend">
                                                     <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
                                                 </div>
-                                                <input type="number" className="form-control" placeholder="Pincode" autocomplete="fullname"/>
+                                                <input type="number" className="form-control" placeholder="Phone Number" onKeyUp={(e) => dispatch(user({ ...reg,phone:e.target.value }))} autocomplete="fullname"/>
+                                            </div>
+                                           
+                                            <div className="input-group">
+                                                <div className="input-group-prepend">
+                                                    <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
+                                                </div>
+                                                <input type="text" className="form-control" placeholder="Area" onKeyUp={(e) => dispatch(user({ ...reg,area:e.target.value }))} autocomplete="fullname"/>
+                                            </div>
+                                            <div className="input-group">
+                                                <div className="input-group-prepend">
+                                                    <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
+                                                </div>
+                                                <input type="text" className="form-control" placeholder="city" onKeyUp={(e) => dispatch(user({ ...reg,city:e.target.value }))} autocomplete="fullname"/>
+                                            </div>
+                                            <div className="input-group">
+                                                <div className="input-group-prepend">
+                                                    <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
+                                                </div>
+                                                <input type="number" className="form-control" placeholder="Pincode" onKeyUp={(e) => dispatch(user({ ...reg,pin:e.target.value }))}  autocomplete="fullname"/>
                                             </div>
                                            
                                             
@@ -108,9 +141,9 @@ export const Studio_Register = () => {
                                            
                                     
                                             <div className="card-footer text-center">
-                                                <a href="#pablo" className="btn btn-primary btn-round btn-lg">Register</a>
+                                                <button className="btn btn-primary btn-round btn-lg"  onClick={regist}>Register</button>
                                             </div>
-                                        </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
