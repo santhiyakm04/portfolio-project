@@ -29,6 +29,11 @@ export const Admin_Panel=()=>{
             Display()
         })
         }
+         
+        const Viewlist=(idvalue)=>{
+            navigate(`/view/${idvalue}`)
+            }
+
         useEffect(()=>{
             Display()
             // console.log("test")
@@ -77,7 +82,7 @@ export const Admin_Panel=()=>{
                 <td>{each.email}</td>
                 <td>{each.phone}</td>
                 <td><button onClick={()=>Deletelist(each.id)}>Delete</button></td>
-                <td><button>View</button></td>
+                <td><button onClick={()=>Viewlist(each.id)}>View</button></td>
             </tr>
         )}
         </tbody>
@@ -92,8 +97,8 @@ export const Admin_Panel=()=>{
             <tr>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Phoneno</th>
-                {/* <th>Delete</th> */}
+                <th>Place</th>
+                <th>Delete</th>
                 <th>View</th>
 
             </tr>
@@ -104,9 +109,10 @@ export const Admin_Panel=()=>{
             <tr className="table-light">
                 <td>{each.name}</td>
                 <td>{each.email}</td>
-                <td>{each.phone}</td>
-                {/* <td><button onClick={()=>Deletelist(each.id)}>Delete</button></td> */}
-                <td><button>View</button></td>
+                <td>{each.city}</td>
+                <td><button onClick={()=>Deletelist(each.id)}>Delete</button></td>
+                <td><button onClick={()=>Viewlist(each.id)}>View</button></td>
+
             </tr>
         )}
         </tbody>

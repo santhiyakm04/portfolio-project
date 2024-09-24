@@ -11,6 +11,7 @@ import { Admin_Panel } from './Admin/Pages/Admin Panel';
 import { Studio_Details } from './User/Pages/Studio-Details';
 import { Book_Details } from './User/Pages/Book_details';
 import { View_Details } from './User/Pages/View_details';
+import { Admin_View } from './Admin/Pages/Admin View';
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
   {
     path:"/view_details",
     element: <div><View_Details/></div>
+  },
+  {
+    path:"/view/:id",
+    element: <div><Admin_View/></div>
   },
 
 
