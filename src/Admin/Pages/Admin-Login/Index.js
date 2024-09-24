@@ -18,7 +18,7 @@ export const Admin_Login=()=>{
     axios.post("http://agaram.academy/api/action.php?request=candidate_login",loginformData).then((res)=>{
         if(res.data.status=="success"){
             alert("Login Successfully")
-            navigate("/studio_listing")
+            navigate("/admin/panel")
         }else{
             alert("Login Failed")
         }
@@ -85,11 +85,7 @@ export const Admin_Login=()=>{
                                     <div className="card-footer text-center">
                                         <Link to="" onClick={loginbtn} className="btn btn-primary btn-round btn-lg btn-block">Login</Link>
                                     </div>
-                                    <div className="pull-center mt-3">
-                                        <h6>
-                                            <p className="child">Don't have an account?</p><a href="#pablo" className="link footer-link">Register</a>
-                                        </h6>
-                                    </div>
+
                                    
                                 </form>
                             </div>
