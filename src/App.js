@@ -7,7 +7,8 @@ import { User_Login } from './User/Pages/User-Login/Index';
 import { createBrowserRouter, RouterProvider}from "react-router-dom";
 import { User_Register } from './User/Pages/User-Register/Index';
 import { Studio_Register } from './Studio/Pages/Studio-Register/Index';
-import { Studio_Listing } from './User/Pages/Studios-List';
+import { Studio_Listing } from './User/Pages/Studios-List/';
+import { Studio_Details } from './User/Pages/Studio-Details';
 
 const router = createBrowserRouter([
   {
@@ -38,8 +39,11 @@ const router = createBrowserRouter([
     path:"/studio/list",
     element: <div><Studio_Listing/></div>
     
+  },
+  {
+    path:"/studio/details/:id",
+    element: <div><Studio_Details/></div>
   }
-
 
 ]);
 

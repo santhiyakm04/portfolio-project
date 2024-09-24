@@ -6,8 +6,8 @@ import axios from 'axios'
 
 
 
-export const Studio_Listing = ()=>{
 
+export const Studio_Listing = ()=>{
   let navigate=useNavigate()
 
 const [studioData, setStudioData]=useState([])
@@ -156,7 +156,7 @@ const Filterbtn =(event)=>{
                         <a href="#pablo" className="btn btn-icon btn-neutral btn-facebook"><i className="fab fa-facebook-square"></i></a>
                         <a href="#pablo" className="btn btn-icon btn-neutral btn-google"><i className="fab fa-google"></i></a>
                       </div>
-                    <button class="btn btn-facebook" onClick={()=>navigate(`/studio_details/${each.id}`)}>view</button>
+                    <button class="btn btn-facebook" onClick={()=>navigate(`/studio/details/${each.id}`)}>view</button>
                     </div>
                   </div>
                 </div>
