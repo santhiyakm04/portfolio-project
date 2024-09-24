@@ -8,6 +8,9 @@ import { createBrowserRouter, RouterProvider}from "react-router-dom";
 import { User_Register } from './User/Pages/User-Register/Index';
 import { Studio_Register } from './Studio/Pages/Studio-Register/Index';
 import { Admin_Panel } from './Admin/Pages/Admin Panel';
+import { Studio_Details } from './User/Pages/Studio-Details';
+import { Book_Details } from './User/Pages/Book_details';
+import { View_Details } from './User/Pages/View_details';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +42,19 @@ const router = createBrowserRouter([
     path:"/admin_panel",
     element: <div><Admin_Panel/></div>
   },
+  {
+    path:"/studio_details",
+    element: <div><Studio_Details/></div>
+  },
+  {
+    path:"/book_details",
+    element: <div><Book_Details/></div>
+  },
+  {
+    path:"/view_details",
+    element: <div><View_Details/></div>
+  },
+
 
 ]);
 
