@@ -7,6 +7,9 @@ import { User_Login } from './User/Pages/User-Login/Index';
 import { createBrowserRouter, RouterProvider}from "react-router-dom";
 import { User_Register } from './User/Pages/User-Register/Index';
 import { Studio_Register } from './Studio/Pages/Studio-Register/Index';
+import { Studio_Order } from './Studio/Pages/studio_orders';
+
+
 
 
 const router = createBrowserRouter([
@@ -34,6 +37,11 @@ const router = createBrowserRouter([
     path:"/studio_register",
     element: <div><Studio_Register/></div>
   },
+  {
+    path:"/Studio_Orders",
+    element: <div><Studio_Order/></div>
+  },
+
 
 
 ]);
