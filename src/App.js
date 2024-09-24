@@ -7,7 +7,7 @@ import { User_Login } from './User/Pages/User-Login/Index';
 import { createBrowserRouter, RouterProvider}from "react-router-dom";
 import { User_Register } from './User/Pages/User-Register/Index';
 import { Studio_Register } from './Studio/Pages/Studio-Register/Index';
-import { Studio_Listing } from './User/Pages/Studios-List/List';
+import { Studio_Listing } from './User/Pages/Studios-List';
 
 const router = createBrowserRouter([
   {
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
     element: <div><Studio_Register/></div>
   },
   {
-    path:"/studio_listing",
+    path:"/studio/list",
     element: <div><Studio_Listing/></div>
     
   }
