@@ -1,9 +1,9 @@
 import axios from "axios"
 import { useDispatch, useSelector } from "react-redux";
 import { log } from "../../Slices/loginslice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 export const User_Login = () => {
-
+    const navigate=useNavigate()
    const details=useSelector((state)=>state.login)
    const logvalue=details.logData
    console.log(logvalue)
@@ -18,6 +18,7 @@ export const User_Login = () => {
           console.log(log)
           if(log.data.status=="success"){
             alert("success")
+            navigate("/studio/list")
           }
       })
   }

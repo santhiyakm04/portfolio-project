@@ -1,10 +1,11 @@
 import axios from "axios"
 import { details } from "../../Slices/registerslice"
 import { useSelector,useDispatch } from "react-redux"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 
 export const User_Register = () => {
+    const navigate=useNavigate()
      const registervalue=useSelector((state)=>state.register)
      const uservalue=registervalue.user_details
      console.log(registervalue)
@@ -27,6 +28,7 @@ export const User_Register = () => {
         if(data.data.status){
             alert("successfully registered")
         }
+        navigate("/user_login")
     })
     }
  
