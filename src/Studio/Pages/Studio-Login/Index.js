@@ -1,14 +1,15 @@
 // import { Login_Component } from "../../../Component/Login";
-
+import { navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import { useSelector, useDispatch } from 'react-redux'
 import { userlog } from '../../Slices/loginslice';
+import { Link } from 'react-router-dom';
 
 
 
 
 export const Studio_Login = () => {
-//  const navigate =  useNavigate();
+ const navigate =  useNavigate();
     const logup = useSelector((state) => state.logs).studiolog;
     
     const dispatch = useDispatch();
@@ -25,7 +26,7 @@ export const Studio_Login = () => {
                         
          if (s=="success"){
              alert("login sucessfully")
-             // navigate("/login")
+             navigate("/Studio_Orders")
          }else{
              alert("login failed")
          }
@@ -100,7 +101,7 @@ export const Studio_Login = () => {
                                          </div>
                                          <div className="pull-center mt-3">
                                              <h6>
-                                                 <p className="child">Don't have an account?</p><a href="#pablo" className="link footer-link">Register</a>
+                                                 <p className="child">Don't have an account?</p>< Link to={"/studio_register"} className="link footer-link">Register</Link>
                                              </h6>
                                          </div>
                                         

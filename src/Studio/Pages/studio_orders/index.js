@@ -1,10 +1,61 @@
 import './index.css'
+import axios from 'axios'
+import { useState,useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+
 export const Studio_Order = () => {
+
+                const navigate=useNavigate()
+
+                let [order,setorder]=useState([])
+
+  const Viewpage=(idvalue)=>{             
+             navigate(`/clientdetails/${idvalue}`)
+  }
+    const orderlist=()=>{
+        axios.get("http://agaram.academy/api/action.php?request=getAllMembers").then((e) => {
+                setorder (e.data.data)
+    })
+}
+
+            useEffect(()=>{
+                orderlist()
+            },[])
+
+
 
     return (
         <>
+         <nav className="navbar navbar-expand-lg navbar-transparent">
+              <div className="container card1">
+                <div className="navbar-translate">
+                  <a className="navbar-brand" href="#pablo">portfolio</a>
+                  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#example-navbar-transparent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-bar bar1"></span>
+                    <span className="navbar-toggler-bar bar2"></span>
+                    <span className="navbar-toggler-bar bar3"></span>
+                  </button>
+                </div>
+                <div className="collapse navbar-collapse" id="example-navbar-transparent">
+                  <ul className="navbar-nav ml-auto">
+                 
+                   
+                    <li className="nav-item">
+                      <a className="nav-link" href="#pablo">
+                        
+                        <Link to ={"/Studio_login"} className="back"><i> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 24 16">
+  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+</svg></i> Go back</Link>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+        {/* ------------ */}
             <div className="col-md-12">
-                <h4 className="title text-center head "> Portfolio</h4>
+                
                 <div className="nav-align-center">
                     <ul className="nav nav-pills nav-pills-primary " role="tablist">
                         <li className="nav-item">
@@ -66,60 +117,60 @@ export const Studio_Order = () => {
                                     </div>
                                 </div> */}
                             {/* </div> */}
-                            <form role="form" class="forms" id="contact-form" method="post">
+                            <form role="form" className="forms" id="contact-form" method="post">
                 <label>Phone no:</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="now-ui-icons tech_mobile"></i></span>
+                <div className="input-group">
+                  <div className="input-group-prepend">
+                    <span className="input-group-text"><i className="now-ui-icons tech_mobile"></i></span>
                   </div>
-                  <input type="number" class="form-control" placeholder="Enter ur number" aria-label="Your number" autocomplete="number"/>
+                  <input type="number" className="form-control" placeholder="Enter ur number" aria-label="Your number" autocomplete="number"/>
                 </div>
                 <label>Email address</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="now-ui-icons ui-1_email-85"></i></span>
+                <div className="input-group">
+                  <div className="input-group-prepend">
+                    <span className="input-group-text"><i className="now-ui-icons ui-1_email-85"></i></span>
                   </div>
-                  <input type="email" class="form-control" placeholder="Enter ur email " aria-label="email " autocomplete="email"/>
+                  <input type="email" className="form-control" placeholder="Enter ur email " aria-label="email " autocomplete="email"/>
                 </div>
 
                 <label>Name of founder:</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="now-ui-icons users_circle-08"></i></span>
+                <div className="input-group">
+                  <div className="input-group-prepend">
+                    <span className="input-group-text"><i class="now-ui-icons users_circle-08"></i></span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Enter ur name" autocomplete="name"/>
+                  <input type="text" className="form-control" placeholder="Enter ur name" autocomplete="name"/>
                 </div>
 
                 <label>No of branches:</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class=""></i></span>
+                <div className="input-group">
+                  <div className="input-group-prepend">
+                    <span className="input-group-text"><i className=""></i></span>
                   </div>
-                  <input type="number" class="form-control" placeholder="No of branches" aria-label="branches" autocomplete="branches"/>
+                  <input type="number" className="form-control" placeholder="No of branches" aria-label="branches" autocomplete="branches"/>
                 </div>
 
                 <label>No of achievements:</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class=""></i></span>
+                <div className="input-group">
+                  <div className="input-group-prepend">
+                    <span className="input-group-text"><i class=""></i></span>
                   </div>
-                  <input type="number" class="form-control" placeholder="No of achievements" aria-label="achievements" autocomplete="achievements"/>
+                  <input type="number" className="form-control" placeholder="No of achievements" aria-label="achievements" autocomplete="achievements"/>
                 </div>
 
                 <label>No of employees:</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class=""></i></span>
+                <div className="input-group">
+                  <div className="input-group-prepend">
+                    <span className="input-group-text"><i class=""></i></span>
                   </div>
-                  <input type="number" class="form-control" placeholder="No of employees" aria-label="employees" autocomplete="employees"/>
+                  <input type="number" className="form-control" placeholder="No of employees" aria-label="employees" autocomplete="employees"/>
                 </div>
 
-                <div class="form-group">
+                <div className="form-group">
                   <label>About us:</label>
-                  <textarea name="about us" class="form-control" id="message" rows="6"></textarea>
+                  <textarea name="about us" className="form-control" id="message" rows="6"></textarea>
                 </div>
-                <div class="submit text-center">
-                  <input type="submit" class="btn btn-primary btn-raised btn-round" value="upload" />
+                <div className="submit text-center">
+                  <input type="submit" className="btn btn-primary btn-raised btn-round" value="upload" />
                 </div>
               </form>
                         </div>
@@ -162,20 +213,28 @@ export const Studio_Order = () => {
                                 </div>
                             </div> */}
 
-                            <table className="clientlist" border='1px'>
-                                <thead>
+                            <table className="  table-light clientlist" border="1px">
+                                <thead  className="table table-dark">
                                     <tr>
                                         <th>Name</th>
-                                        <th>number</th>
+                                        <th>Number</th>
                                         <th>Date</th>
-                                        <th>place</th>  
+                                        <th>Place</th>  
                                         <th>Action</th>                                      
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <td id="tbody">
+                                <tbody  >
+                                    {order.map((each)=>
+                                    <tr className="table my-3">
+                                        <td>{each.name}</td>
+                                        <td>{each.phone}</td>
+                                        <td>{each.date}</td>
+                                        <td>{each.city}</td>
+                                        <td><button type='button' onClick={()=> Viewpage(each.id)}>view</button></td>
 
-                                    </td>
+                                          
+                                    </tr>
+                                    )}
                                 </tbody>
                             </table>
                               

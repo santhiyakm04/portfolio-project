@@ -1,4 +1,4 @@
-// import { navigate, useNavigate } from 'react-router-dom';
+import { navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import { useSelector, useDispatch } from 'react-redux'
 import { user } from '../../Slices/Registerslice';
@@ -7,7 +7,7 @@ import { user } from '../../Slices/Registerslice';
 
 
 export const Studio_Register = () => {
-//  const navigate =  useNavigate();
+ const navigate =  useNavigate();
     const reg = useSelector((state) => state.regis).studioReg;
     
     const dispatch = useDispatch();
@@ -27,7 +27,7 @@ export const Studio_Register = () => {
         axios.post("http://agaram.academy/api/action.php?request=create_candidate", formData).then((e) => {
               
         })
-        // navigate("/login")
+        navigate("/studio_login")
     }
     // onKeyUp={(e) => dispatch(user({ ...regist,  e.target.value }))}
 
