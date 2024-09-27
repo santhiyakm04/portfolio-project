@@ -165,7 +165,153 @@ export const Studio_Details=()=>{
              <div className='text-center'>
             <Link to="/book_details" className='btn btn-primary '>Book Now</Link>
             </div>
-            <div id="comments">
+            
+
+                <div class="row no-gutters justify-content-center">
+                        <div class="col-8">
+                        <h3 class="title text-center">Packages</h3>
+                            <div class="accordion" id="planscollapse">
+                             
+                                    <div class="card pricingcard">
+                                        <div class="card-header bg-white border-light p-2" id="plan1">
+                                            <h5 class="card-title mb-0">
+                                                <a class="btn-block text-left" role="button" data-toggle="collapse" data-target="#plandetail1" aria-expanded="true" aria-controls="plandetail1">
+                                                   Basic<span class="colored-red">.</span>
+                                                    <span class="pricepara float-right">
+                                                        <del class="money">125000</del>&nbsp;<span class="money">100000</span>
+                                                    </span>
+                                                </a>
+                                            </h5>
+                                        </div>
+                                        <div id="plandetail1" class="collapse show" aria-labelledby="plan1" data-parent="#planscollapse">
+                                            <div class="card-body">
+                                                <div  class="card-text"><p>Photography + Video + Drone</p>
+
+<ul>
+	<li>3 Functions - 4 Member Team</li>
+	<li>1 Traditional + 1 Candid Photographer, 1 Traditional + 1 Cinematic Videographer</li>
+	<li>1 Minute Teaser, 4 Min Trailer. 1 Full-Length&nbsp;Traditional Video, 1000 Images</li>
+</ul>
+
+<p>Full Frame Cameras, Prime and Wide Lenses, Gimbal, and Lights</p>
+</div>
+                                                <p class="fw600 colored-red mb-1">Offer Price:</p>
+                                                <p class="pricepara">
+                                                    <del class="money">125000</del>&nbsp;<span class="money">100000</span>
+                                                </p>
+                                                <a class="btn btn-primary planlnk" href="/wedding/book?plan=PLN-82c6f695-95ed-48a6-b6a7-399d9e60e0bc">Book Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card pricingcard">
+                                        <div class="card-header bg-white border-light p-3" id="plan2">
+                                            <h5 class="card-title mb-0">
+                                                <a class="btn-block text-left" role="button" data-toggle="collapse" data-target="#plandetail2" aria-expanded="true" aria-controls="plandetail2">
+                                                   Silver <span class="colored-red">.</span>
+                                                    <span class="pricepara float-right">
+                                                        <del class="money">150000</del>&nbsp;<span class="money">100000</span>
+                                                    </span>
+                                                </a>
+                                            </h5>
+                                        </div>
+                                        <div id="plandetail2" class="collapse " aria-labelledby="plan2" data-parent="#planscollapse">
+                                            <div class="card-body">
+                                                <div  class="card-text"><p>One Day Wedding - Morning Rituals + Wedding + Reception&nbsp; for Upto 500 Pax</p>
+
+<p>3 Phootographers + 3 Cinematographer&nbsp;</p>
+
+<ul>
+	<li>50 Retouched edited Pictures.</li>
+	<li>We will provide you with 1 Cinematic video (2-4 minutes) (all functions combined).</li>
+	<li>Upto 30 minutes Video of three&nbsp;Functions.&nbsp;</li>
+	<li>All the edited photos will be shared in 20 - 25 working days post the wedding.</li>
+	<li>All the videos will be delivered within 9 -10 weeks.</li>
+</ul>
+
+<p>Printed Album at Extra Charge starting at Rs 8000 for 30 pages.</p>
+</div>
+                                                <p class="fw600 colored-red mb-1">Offer Price:</p>
+                                                <p class="pricepara">
+                                                    <del class="money">150000</del>&nbsp;<span class="money">100000</span>
+                                                </p>
+                                                <a class="btn btn-primary planlnk" href="/wedding/book?plan=PLN-c82f6dec-80a8-4526-97c3-1855f03f0efd">Book Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card pricingcard">
+                                        <div class="card-header bg-white border-light p-3" id="plan3">
+                                            <h5 class="card-title mb-0">
+                                                <a class="btn-block text-left" role="button" data-toggle="collapse" data-target="#plandetail3" aria-expanded="true" aria-controls="plandetail3">
+                                                    Gold<span class="colored-red">.</span>
+                                                    <span class="pricepara float-right">
+                                                        <del class="money">250000</del>&nbsp;<span class="money">200000</span>
+                                                    </span>
+                                                </a>
+                                            </h5>
+                                        </div>
+                                        <div id="plandetail3" class="collapse " aria-labelledby="plan3" data-parent="#planscollapse">
+                                            <div class="card-body">
+                                                <div class="card-text"><p>Photography + Video + Drone</p>
+
+<ul>
+	<li>5 Functions - 5 Member team</li>
+	<li>1 Traditional + 2 Candid Photographer, 1 Traditional + 1 Cinematic Videographer</li>
+	<li>1 Minute Teaser, 4 Min Trailer. 1 Full-Length Traditional Video, 1000 Images</li>
+	<li>Senior Team</li>
+</ul>
+
+<p>Full Frame Cameras, Prime and Wide Lenses, Gimbal, and Lights</p>
+
+<p>&nbsp;</p>
+</div>
+                                                <p class="fw600 colored-red mb-1">Offer Price:</p>
+                                                <p class="pricepara">
+                                                    <del class="money">250000</del>&nbsp;<span class="money">200000</span>
+                                                </p>
+                                                <a class="btn btn-primary planlnk" href="/wedding/book?plan=PLN-c14906db-9260-4577-981a-ae5c91a55c15">Book Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card pricingcard">
+                                        <div class="card-header bg-white border-light p-3" id="plan4">
+                                            <h5 class="card-title mb-0">
+                                                <a class="btn-block text-left" role="button" data-toggle="collapse" data-target="#plandetail4" aria-expanded="true" aria-controls="plandetail4">
+                                                    Platinum<span class="colored-red">.</span>
+                                                    <span class="pricepara float-right">
+                                                        <del class="money">350000</del>&nbsp;<span class="money">300000</span>
+                                                    </span>
+                                                </a>
+                                            </h5>
+                                        </div>
+                                        <div id="plandetail4" class="collapse " aria-labelledby="plan4" data-parent="#planscollapse">
+                                            <div class="card-body">
+                                                <div class="card-text"><p>Photography + Video + Drone</p>
+
+<ul>
+	<li>7 Functions - 6 Member Team</li>
+	<li>1 Traditional + 2 Candid Photographer, 1 Traditional + 2 Cinematic Videographer</li>
+	<li>1 Minute Teaser, 4 Min Trailer. 1 Full-Length Traditional Video, 2000 Images</li>
+	<li>Boutique Wedding Team</li>
+	<li>Wedding Scripting and Mood Boarding</li>
+</ul>
+
+<p>Full Frame High-end Cameras, Prime and Wide Lenses, Gimbal and Lights</p>
+</div>
+                                                <p class="fw600 colored-red mb-1">Offer Price:</p>
+                                                <p class="pricepara">
+                                                    <del class="money">350000</del>&nbsp;<span class="money">300000</span>
+                                                </p>
+                                                <a class="btn btn-primary planlnk" href="/wedding/book?plan=PLN-7b3a30c4-baf7-453a-93b0-0a2b3da1d523">Book Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                              
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="comments">
               <div class="row">
                 <div class="col-md-8 ml-auto mr-auto">
                   <div class="media-area">
@@ -184,72 +330,6 @@ export const Studio_Details=()=>{
                         </h5>
                         <p>Chance too good. God level bars. I'm so proud of @LifeOfDesiigner #1 song in the country. Panda! Don't be scared of the truth because we need to restart the human foundation in truth I stand with the most humility. We are so blessed!</p>
                         <p>All praises and blessings to the families of people who never gave up on dreams. Don't forget, You're Awesome!</p>
-                        <div class="media-footer">
-                          <a href="#pablo" class="btn btn-primary btn-neutral pull-right" rel="tooltip" title="Reply to Comment">
-                            <i class="now-ui-icons ui-1_send"></i> Reply
-                          </a>
-                          <a href="#pablo" class="btn btn-danger btn-neutral pull-right">
-                            <i class="now-ui-icons ui-2_favourite-28"></i> 243
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="media">
-                      <a class="pull-left" href="#pablo">
-                        <div class="avatar">
-                          <img class="media-object img-raised" alt="Tim Picture" src="assets/img/olivia.jpg"/>
-                        </div>
-                      </a>
-                      <div class="media-body">
-                        <h5 class="media-heading">John Camber
-                          <small class="text-muted">&middot; Yesterday</small>
-                        </h5>
-                        <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
-                        <p> Don't forget, You're Awesome!</p>
-                        <div class="media-footer">
-                          <a href="#pablo" class="btn btn-primary btn-neutral pull-right" rel="tooltip" title="Reply to Comment">
-                            <i class="now-ui-icons ui-1_send"></i> Reply
-                          </a>
-                          <a href="#pablo" class="btn btn-default btn-neutral pull-right">
-                            <i class="now-ui-icons ui-2_favourite-28"></i> 25
-                          </a>
-                        </div>
-                        <div class="media">
-                          <a class="pull-left" href="#pablo">
-                            <div class="avatar">
-                              <img class="media-object img-raised" alt="64x64" src="assets/img/emily.jpg"/>
-                            </div>
-                          </a>
-                          <div class="media-body">
-                            <h5 class="media-heading">Tina Andrew
-                              <small class="text-muted">&middot; 2 Days Ago</small>
-                            </h5>
-                            <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
-                            <p> Don't forget, You're Awesome!</p>
-                            <div class="media-footer">
-                              <a href="#pablo" class="btn btn-primary btn-neutral pull-right" rel="tooltip" title="Reply to Comment">
-                                <i class="now-ui-icons ui-1_send"></i> Reply
-                              </a>
-                              <a href="#pablo" class="btn btn-danger btn-neutral pull-right">
-                                <i class="now-ui-icons ui-2_favourite-28"></i> 243
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="media">
-                      <a class="pull-left" href="#pablo">
-                        <div class="avatar">
-                          <img class="media-object img-raised" alt="64x64" src="assets/img/james.jpg"/>
-                        </div>
-                      </a>
-                      <div class="media-body">
-                        <h5 class="media-heading">Rosa Thompson
-                          <small class="text-muted">&middot; 2 Days Ago</small>
-                        </h5>
-                        <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
-                        <p> Don't forget, You're Awesome!</p>
                         <div class="media-footer">
                           <a href="#pablo" class="btn btn-primary btn-neutral pull-right" rel="tooltip" title="Reply to Comment">
                             <i class="now-ui-icons ui-1_send"></i> Reply
@@ -305,6 +385,152 @@ export const Studio_Details=()=>{
                     </div>
                 </div>
                 </div>
+
+
+
+                <div class="pricing-5 section-pricing-5 section-image" id="pricing-5" style={{backgroundImage: "url('assets/img/bg31.jpg')"}}>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <h2 class="title">Choose a plan for your next project</h2>
+              <ul class="nav nav-pills nav-pills-primary" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#basic" role="tablist">
+                   Basic
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#silver" role="tablist">
+                  silver
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#gold" role="tablist">
+                    Gold
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#platinum" role="tablist">
+                    Platinum
+                  </a>
+                </li></ul>
+              <p class="description">You have Free Unlimited Updates and Premium Support on each package. You also have 20 days to request a refund if you're not happy with your purchase.</p>
+            </div>
+            <div class="col-md-7 ml-auto mr-auto">
+              <div class="tab-content tab-space">
+                <div class="tab-pane active" id="basic">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="card card-pricing card-raised">
+                        <div class="card-body">
+                          <h5 class="category">Basic</h5>
+                          <h1 class="card-title">
+                            <small>$</small>100000</h1>
+                          <ul>
+                            <li>
+                              <b>15</b> 3 Functions - 4 Member Team</li>
+                            <li>
+                              <b>5GB</b> Storage</li>
+                            <li>
+                              <b>Unlimited</b> users</li>
+                            <li>
+                              <b>No time</b> tracking</li>
+                          </ul>
+                          <a href="#pablo" class="btn btn-primary btn-round">
+                            Buy Now!
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane" id="gold">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="card card-pricing card-raised">
+                        <div class="card-body">
+                          <h5 class="category">Gold</h5>
+                          <h1 class="card-title">
+                            <small>$</small>30000</h1>
+                          <ul>
+                            <li>
+                              <b>15</b> Projects</li>
+                            <li>
+                              <b>5GB</b> Storage</li>
+                            <li>
+                              <b>Unlimited</b> users</li>
+                            <li>
+                              <b>No time</b> tracking</li>
+                          </ul>
+                          <a href="#pablo" class="btn btn-primary btn-round">
+                            Buy Now!
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="tab-pane" id="platinum">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="card card-pricing card-raised">
+                        <div class="card-body">
+                          <h5 class="category">Platinum</h5>
+                          <h1 class="card-title">
+                            <small>$</small>50000</h1>
+                          <ul>
+                            <li>
+                              <b>15</b> Projects</li>
+                            <li>
+                              <b>5GB</b> Storage</li>
+                            <li>
+                              <b>Unlimited</b> users</li>
+                            <li>
+                              <b>No time</b> tracking</li>
+                          </ul>
+                          <a href="#pablo" class="btn btn-primary btn-round">
+                            Buy Now!
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="silver">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="card card-pricing card-raised">
+                        <div class="card-body">
+                          <h5 class="category">Silver</h5>
+                          <h1 class="card-title">
+                            <small>$</small>20000</h1>
+                          <ul>
+                            <li>
+                              <b>15</b> Projects</li>
+                            <li>
+                              <b>5GB</b> Storage</li>
+                            <li>
+                              <b>Unlimited</b> users</li>
+                            <li>
+                              <b>No time</b> tracking</li>
+                          </ul>
+                          <a href="#pablo" class="btn btn-primary btn-round">
+                            Buy Now!
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
                 <footer class="footer footer-big" data-background-color="black">
             <div class="container">
               <div class="content">

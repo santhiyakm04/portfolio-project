@@ -4,3 +4,6 @@
 .page-header {
     min-height: 65vh;
 }
+.nav-pills{
+    row-gap: 20px;
+}
