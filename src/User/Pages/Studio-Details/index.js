@@ -171,9 +171,150 @@ export const Studio_Details = () => {
 
       </div>
       <div className='text-center'>
-        <Link to="/book_details" className='btn btn-primary'>Book Now</Link>
+        <Link to="/book_details" className='btn btn-primary'>Book Now</Link></div><br/>
 
-      </div><br/>
+        <div class="row no-gutters justify-content-center">
+                        <div class="col-8">
+                        <h3 class="title text-center">Packages</h3>
+                            <div class="accordion" id="planscollapse">
+                             
+                                    <div class="card pricingcard">
+                                        <div class="card-header bg-white border-light p-2" id="plan1">
+                                            <h5 class="card-title mb-0">
+                                                <a class="btn-block text-left" role="button" data-toggle="collapse" data-target="#plandetail1" aria-expanded="true" aria-controls="plandetail1">
+                                                   Basic<span class="colored-red">.</span>
+                                                    <span class="pricepara float-right">
+                                                        <del class="money">125000</del>&nbsp;<span class="money">100000</span>
+                                                    </span>
+                                                </a>
+                                            </h5>
+                                        </div>
+                                        <div id="plandetail1" class="collapse show" aria-labelledby="plan1" data-parent="#planscollapse">
+                                            <div class="card-body">
+                                                <div  class="card-text"><p>Photography + Video + Drone</p>
+
+<ul>
+	<li>3 Functions - 4 Member Team</li>
+	<li>1 Traditional + 1 Candid Photographer, 1 Traditional + 1 Cinematic Videographer</li>
+	<li>1 Minute Teaser, 4 Min Trailer. 1 Full-Length&nbsp;Traditional Video, 1000 Images</li>
+</ul>
+
+<p>Full Frame Cameras, Prime and Wide Lenses, Gimbal, and Lights</p>
+</div>
+                                                <p class="fw600 colored-red mb-1">Offer Price:</p>
+                                                <p class="pricepara">
+                                                    <del class="money">125000</del>&nbsp;<span class="money">100000</span>
+                                                </p>
+                                                <a class="btn btn-primary planlnk" href="/wedding/book?plan=PLN-82c6f695-95ed-48a6-b6a7-399d9e60e0bc">Book Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card pricingcard">
+                                        <div class="card-header bg-white border-light p-3" id="plan2">
+                                            <h5 class="card-title mb-0">
+                                                <a class="btn-block text-left" role="button" data-toggle="collapse" data-target="#plandetail2" aria-expanded="true" aria-controls="plandetail2">
+                                                   Silver <span class="colored-red">.</span>
+                                                    <span class="pricepara float-right">
+                                                        <del class="money">150000</del>&nbsp;<span class="money">100000</span>
+                                                    </span>
+                                                </a>
+                                            </h5>
+                                        </div>
+                                        <div id="plandetail2" class="collapse " aria-labelledby="plan2" data-parent="#planscollapse">
+                                            <div class="card-body">
+                                                <div  class="card-text"><p>One Day Wedding - Morning Rituals + Wedding + Reception&nbsp; for Upto 500 Pax</p>
+
+<p>3 Phootographers + 3 Cinematographer&nbsp;</p>
+
+<ul>
+	<li>50 Retouched edited Pictures.</li>
+	<li>We will provide you with 1 Cinematic video (2-4 minutes) (all functions combined).</li>
+	<li>Upto 30 minutes Video of three&nbsp;Functions.&nbsp;</li>
+	<li>All the edited photos will be shared in 20 - 25 working days post the wedding.</li>
+	<li>All the videos will be delivered within 9 -10 weeks.</li>
+</ul>
+
+<p>Printed Album at Extra Charge starting at Rs 8000 for 30 pages.</p>
+</div>
+                                                <p class="fw600 colored-red mb-1">Offer Price:</p>
+                                                <p class="pricepara">
+                                                    <del class="money">150000</del>&nbsp;<span class="money">100000</span>
+                                                </p>
+                                                <a class="btn btn-primary planlnk" href="/wedding/book?plan=PLN-c82f6dec-80a8-4526-97c3-1855f03f0efd">Book Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card pricingcard">
+                                        <div class="card-header bg-white border-light p-3" id="plan3">
+                                            <h5 class="card-title mb-0">
+                                                <a class="btn-block text-left" role="button" data-toggle="collapse" data-target="#plandetail3" aria-expanded="true" aria-controls="plandetail3">
+                                                    Gold<span class="colored-red">.</span>
+                                                    <span class="pricepara float-right">
+                                                        <del class="money">250000</del>&nbsp;<span class="money">200000</span>
+                                                    </span>
+                                                </a>
+                                            </h5>
+                                        </div>
+                                        <div id="plandetail3" class="collapse " aria-labelledby="plan3" data-parent="#planscollapse">
+                                            <div class="card-body">
+                                                <div class="card-text"><p>Photography + Video + Drone</p>
+
+<ul>
+	<li>5 Functions - 5 Member team</li>
+	<li>1 Traditional + 2 Candid Photographer, 1 Traditional + 1 Cinematic Videographer</li>
+	<li>1 Minute Teaser, 4 Min Trailer. 1 Full-Length Traditional Video, 1000 Images</li>
+	<li>Senior Team</li>
+</ul>
+
+<p>Full Frame Cameras, Prime and Wide Lenses, Gimbal, and Lights</p>
+
+<p>&nbsp;</p>
+</div>
+                                                <p class="fw600 colored-red mb-1">Offer Price:</p>
+                                                <p class="pricepara">
+                                                    <del class="money">250000</del>&nbsp;<span class="money">200000</span>
+                                                </p>
+                                                <a class="btn btn-primary planlnk" href="/wedding/book?plan=PLN-c14906db-9260-4577-981a-ae5c91a55c15">Book Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card pricingcard">
+                                        <div class="card-header bg-white border-light p-3" id="plan4">
+                                            <h5 class="card-title mb-0">
+                                                <a class="btn-block text-left" role="button" data-toggle="collapse" data-target="#plandetail4" aria-expanded="true" aria-controls="plandetail4">
+                                                    Platinum<span class="colored-red">.</span>
+                                                    <span class="pricepara float-right">
+                                                        <del class="money">350000</del>&nbsp;<span class="money">300000</span>
+                                                    </span>
+                                                </a>
+                                            </h5>
+                                        </div>
+                                        <div id="plandetail4" class="collapse " aria-labelledby="plan4" data-parent="#planscollapse">
+                                            <div class="card-body">
+                                                <div class="card-text"><p>Photography + Video + Drone</p>
+
+<ul>
+	<li>7 Functions - 6 Member Team</li>
+	<li>1 Traditional + 2 Candid Photographer, 1 Traditional + 2 Cinematic Videographer</li>
+	<li>1 Minute Teaser, 4 Min Trailer. 1 Full-Length Traditional Video, 2000 Images</li>
+	<li>Boutique Wedding Team</li>
+	<li>Wedding Scripting and Mood Boarding</li>
+</ul>
+
+<p>Full Frame High-end Cameras, Prime and Wide Lenses, Gimbal and Lights</p>
+</div>
+                                                <p class="fw600 colored-red mb-1">Offer Price:</p>
+                                                <p class="pricepara">
+                                                    <del class="money">350000</del>&nbsp;<span class="money">300000</span>
+                                                </p>
+                                                <a class="btn btn-primary planlnk" href="/wedding/book?plan=PLN-7b3a30c4-baf7-453a-93b0-0a2b3da1d523">Book Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                              
+                            </div>
+                        </div>
+                    </div>
       <h2 className="text-center">Client Review</h2>
       {review.map((e) =>
         <div>
