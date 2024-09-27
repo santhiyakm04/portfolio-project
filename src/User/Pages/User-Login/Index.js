@@ -27,17 +27,8 @@ export const User_Login = () => {
        <div className="login-page sidebar-collapse">
            <nav className="navbar navbar-expand-lg bg-white fixed-top navbar-transparent" color-on-scroll="500">
                <div className="container">
-                   <div className="dropdown button-dropdown">
-                       <a href="#pablo" className="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown">
-                           <span className="button-bar"></span>
-                           <span className="button-bar"></span>
-                           <span className="button-bar"></span>
-                       </a>
-                   </div>
                    <div className="navbar-translate">
-                       <a className="navbar-brand" href="https://demos.creative-tim.com/now-ui-kit-pro/index.html" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
-                           PORTFOLIO
-                       </a>
+                   <h3> PORTFOLIO</h3>
                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                            <span className="navbar-toggler-bar top-bar"></span>
                            <span className="navbar-toggler-bar middle-bar"></span>
@@ -48,6 +39,17 @@ export const User_Login = () => {
                        <ul className="navbar-nav ml-auto">
                            <li className="nav-item dropdown">
                            </li>
+                           <li className="nav-item dropdown">
+                        <a className="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <b>
+                           Others
+                          </b>
+                        </a>
+                        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <Link to="/Studio_Login" className="text-dark m-5">Studio</Link><br/>
+                          <Link to="/admin_login" className="text-dark m-5">Admin</Link>
+                        </div>
+                      </li>
                        </ul>
                    </div>
                </div>
@@ -72,23 +74,18 @@ export const User_Login = () => {
                                            </div>
                                            <input type="text" className="form-control" onKeyUp={(e) => dispatch(log({ ...logvalue, email: e.target.value }))} placeholder="Email" />
                                        </div>
-                                       <div className="input-group no-border input-lg"> 
+                                       <div className="input-group no-border input-lg" style={{marginBottom:"0 !important"}}> 
                                            <div className="input-group-prepend">
                                                <span className="input-group-text"><i className="now-ui-icons text_caps-small"></i></span>
                                            </div>
                                            <input type="text" className="form-control" onKeyUp={(e) => dispatch(log({ ...logvalue, password: e.target.value }))} placeholder="Password" />
                                        </div> 
                                    </div>
-                                   {/* <div className="card-footer text-center">
-                                       <a href="#pablo" className="btn btn-primary btn-round btn-lg btn-block">Login</a>
-                                   </div> */}
-                                   <div className="pull-center mt-3">
-                                   <div className="p-2">
-                                 <button className="btn btn-success" onClick={login}>Login</button>
-                                 </div>
-                                 {/* <h6>{JSON.stringify(logvalue)}</h6> */}
+                                   <div className="pull-center mt-1">
+                                   <button className="btn btn-success mt-3" onClick={login}>Login</button>
+                               
                                        <h6>
-                                           <p className="child">Don't have an account?</p><Link to="/user_register">Register</Link>
+                                        <i className="child">Don't have an account?</i>   <Link to="/user_register" className="text-success">Register</Link>
                                        </h6>
                                    </div>
                                   

@@ -4,7 +4,7 @@ const initialState={
     user_details:{
         request:"create_candidate",
         name:"",
-        email:"",
+        email:null,
         password:"",
         aadhar:"",
         address:"",

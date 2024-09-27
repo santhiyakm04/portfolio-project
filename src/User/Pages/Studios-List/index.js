@@ -49,8 +49,19 @@ const Filterbtn =(event)=>{
                     Home
                   </a>
                 </li>
+                <li class="nav-item dropdown">
+                        <a href="#" className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown">
+                          <i className="now-ui-icons ui-1_settings-gear-63" aria-hidden="true"></i>
+                        </a>
+                        <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        
+                   <Link to="/user_login"><span className="glyphicon glyphicon-log-out btn btn-primary">Log out</span> 
+                        </Link>
+                        </div>
+                      </li>
               </ul>
             </div>
+           
           </div>
         </nav>
         <div>
@@ -140,7 +151,7 @@ const Filterbtn =(event)=>{
                   <div className="col-md-5">
                     <div className="card-image">
                       <a href="#pablo">
-                        <img className="img img-raised rounded" src="../assets/img/stud-logo.jpg" />
+                        <img className="img img-raised rounded" src="../assets/img/avatar.jpg" />
                       </a>
                     </div>
                   </div>

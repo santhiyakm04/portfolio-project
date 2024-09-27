@@ -39,7 +39,7 @@ export const User_Register = () => {
                 <div className="container">
                     <div className="navbar-translate">
                         <a className="navbar-brand" href="https://demos.creative-tim.com/now-ui-kit-pro/index.html" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
-                            Portfolio
+                            <h3>PORTFOLIO</h3>
                         </a>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-bar top-bar"></span>
@@ -57,12 +57,12 @@ export const User_Register = () => {
             
             <div className="page-header header-filter" filter-color="black">
                 <div className="page-header-image"  style={{backgroundImage:"url(../assets/img/bg18.jpg)"}}></div>
-                <div className="content">
+                <div className="content w-70">
                     <div className="container">
-                        <div className="row">
+                        <div className="row ">
                         
                             <div className="col-md-4 mx-auto">
-                                <div className="card card-signup">
+                                <div className="card card-signup ">
                                     <div className="card-body  cardsize" >
                                         <h4 className="card-title text-center">User Register</h4>
                                                        
@@ -74,10 +74,12 @@ export const User_Register = () => {
                                             </div>
                                             <div className="input-group">
                                                 <div className="input-group-prepend">
-                                                    <span className="input-group-text"><i className="now-ui-icons ui-1_email-85"></i></span>
+                                                    <span className="input-group-text"><i className="now-ui-icons "></i></span>
                                                 </div>
-                                                <input type="text" className="form-control" onKeyUp={(e)=>dispatch(details({...uservalue,email:e.target.value}))} placeholder="Email" autocomplete="email"/>
-                                            </div>
+                                                {/* <input type="email" className="form-control" onKeyUp={(e)=>dispatch(details({...uservalue,email:e.target.value}))} placeholder="Email" /> */}
+                                                <input type="email" className="form-control" onKeyUp={(e)=>dispatch(details({...uservalue,email:e.target.value}))} placeholder="email" autocomplete="fullname"/>
+
+                                            </div>-
                                            
                                             <div className="input-group">
                                                 <div className="input-group-prepend">
@@ -123,7 +125,8 @@ export const User_Register = () => {
                                                 <input type="number" className="form-control" onKeyUp={(e)=>dispatch(details({...uservalue,pin:e.target.value}))} placeholder="Pincode" autocomplete="fullname"/>
                                             </div>
                                             <div className="p-2">
-                                            <button  className="btn btn-danger" onClick={register}>Register</button><Link to="/user_login">Login</Link>
+                                            <button  className="btn btn-success" onClick={register}>Register</button>
+                                            {/* <Link to="/user_login">Login</Link> */}
                                             </div> 
                                             <h6>{JSON.stringify(uservalue)}</h6>
                                    

@@ -2,6 +2,7 @@
 import { booking } from "../../Slices/new"
 import { useSelector, useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 
 
@@ -22,39 +23,38 @@ export const Book_Details = () => {
 
     return (
         <div>
-
-            <div class="signup-page sidebar-collapse">
-
-                <nav className="navbar navbar-expand-lg bg-white navbar-absolute navbar-transparent">
-                    <div className="container">
-                        <div className="navbar-translate">
-                            <a className="navbar-brand" href="https://demos.creative-tim.com/now-ui-kit-pro/index.html" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
-                                Portfolio
-                            </a>
-                            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-                                <span className="navbar-toggler-bar top-bar"></span>
-                                <span className="navbar-toggler-bar middle-bar"></span>
-                                <span className="navbar-toggler-bar bottom-bar"></span>
-                            </button>
-                        </div>
-                        <div className="collapse navbar-collapse" data-nav-image="../assets/img//blurred-image-1.jpg" data-color="orange">
-
-                        </div>
-                    </div>
-                </nav>
-
-                {/* <!-- End Navbar --> */}
-
-                <div className="page-header header-filter" filter-color="black">
+                    <div className="page-header header-filter" filter-color="black">
                     <div className="page-header-image" style={{ backgroundImage: "url(../assets/img/bg18.jpg)" }}></div>
-                    <div className="content">
-                        <div className="container">
+                    <div class="signup-page sidebar-collapse">
+            <nav class="navbar navbar-expand-lg bg-primary p-0">
+                <div class="container">
+                  <h4 className="text-light">PORTFOLIO</h4>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#example-navbar-icons" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar bar1"></span>
+                    <span class="navbar-toggler-bar bar2"></span>
+                    <span class="navbar-toggler-bar bar3"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="example-navbar-icons">
+                    <ul class="navbar-nav ml-auto">
+                      <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown">
+                          <i class="now-ui-icons ui-1_settings-gear-63" aria-hidden="true"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <Link to="/user_login" className='text-dark m-5'>Logout</Link>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+                     <div className="content">
+                    <div className="container">
+                    <h3 className="text-light">Booking Details</h3>
                             <div className="row">
-
                                 <div className="col-md-4 mx-auto">
                                     <div className="card card-signup">
                                         <div className="card-body  cardsize" >
-                                            <h3 className="text-dark">Booking Details</h3>
                                             <div className="input-group ">
                                                 <div className="input-group-prepend">
                                                     <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
@@ -73,18 +73,18 @@ export const Book_Details = () => {
                                                 </div>
                                                 <input type="number" className="form-control" onKeyUp={(e) => dispatch(booking({ ...bookvalue, phone: e.target.value }))} placeholder="Phone Number" />
                                             </div>
+                                            <div className="input-group">
+                                                <div className="input-group-prepend">
+                                                    <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
+                                                </div>
+                                                <input type="text" className="form-control" onKeyUp={(e) => dispatch(booking({ ...bookvalue, address: e.target.value }))} placeholder="Address" />
+                                            </div>
                                             <h3 className="text-dark">Event Details</h3>
                                             <div className="input-group">
                                                 <div className="input-group-prepend">
                                                     <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
                                                 </div>
-                                                <input type="text" className="form-control" onKeyUp={(e) => dispatch(booking({ ...bookvalue, bridename: e.target.value }))} placeholder="Bride Name" />
-                                            </div>
-                                            <div className="input-group">
-                                                <div className="input-group-prepend">
-                                                    <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
-                                                </div>
-                                                <input type="text" className="form-control" onKeyUp={(e) => dispatch(booking({ ...bookvalue, groomname: e.target.value }))} placeholder="Groom Name" />
+                                                <input type="text" className="form-control" onKeyUp={(e) => dispatch(booking({ ...bookvalue, bridenamegroomname: e.target.value }))} placeholder="Bride/Groom Name" />
                                             </div>
                                             <div className="input-group">
                                                 <div className="input-group-prepend">
@@ -130,10 +130,10 @@ export const Book_Details = () => {
                                                     <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
                                                 </div><select class="form-select form-select-sm form-control" aria-label="Small select example"  onClick={(e) => dispatch(booking({ ...bookvalue, packages: e.target.value }))}>
                                                     <option selected>Packages</option>
-                                                    <option value="Wedding">Basic</option>
-                                                    <option value="Birthday">Silver</option>
-                                                    <option value="Babyshoot">Gold</option>
-                                                    <option value="Puberty">Platinum</option>
+                                                    <option value="Basic">Basic</option>
+                                                    <option value="Silver">Silver</option>
+                                                    <option value="Gold">Gold</option>
+                                                    <option value="Platinum">Platinum</option>
                                                 </select>
 
                                             </div>
