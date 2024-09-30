@@ -3,6 +3,7 @@ import { booking } from "../../Slices/new"
 import { useSelector, useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
+import axios from "axios"
 
 
 
@@ -16,10 +17,25 @@ export const Book_Details = () => {
 
 
     const submit = () => {
-        alert("Booked successfully")
-        navigate("/view_details")
-    }
 
+        const formData=new FormData();
+       
+        formData.append("event_date",bookvalue.event_date)
+        formData.append("event_time",bookvalue.event_time)
+        formData.append("location",bookvalue.location)
+        formData.append("venue",bookvalue.venue)
+        formData.append("event_type",bookvalue.event_type)
+        formData.append("package",bookvalue.package)
+        formData.append("user_id",bookvalue.user_id)
+        formData.append("studio_id",bookvalue.studio_id)
+
+        axios.post("https://agaram.academy/api/action.php?request=studio_create_booking",formData).then((res)=>{
+            console.log(res.data.data)
+        })
+        // alert("Booked successfully")
+        // navigate("/view_details")
+    }
+   
 
     return (
         <div>
@@ -55,48 +71,17 @@ export const Book_Details = () => {
                                 <div className="col-md-4 mx-auto">
                                     <div className="card card-signup">
                                         <div className="card-body  cardsize" >
-                                            <div className="input-group ">
+                                            <div className="input-group">
                                                 <div className="input-group-prepend">
                                                     <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
                                                 </div>
-                                                <input type="text" className="form-control" onKeyUp={(e) => dispatch(booking({ ...bookvalue, name: e.target.value }))} placeholder="Name" />
-                                            </div>
-                                            <div className="input-group ">
-                                                <div className="input-group-prepend">
-                                                    <span className="input-group-text"><i className="now-ui-icons ui-1_email-85"></i></span>
-                                                </div>
-                                                <input type="text" className="form-control" onKeyUp={(e) => dispatch(booking({ ...bookvalue, email: e.target.value }))} placeholder="Email" />
+                                                <input type="date" className="form-control" onKeyUp={(e) => dispatch(booking({ ...bookvalue,event_date: e.target.value }))} placeholder="Data" />
                                             </div>
                                             <div className="input-group">
                                                 <div className="input-group-prepend">
                                                     <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
                                                 </div>
-                                                <input type="number" className="form-control" onKeyUp={(e) => dispatch(booking({ ...bookvalue, phone: e.target.value }))} placeholder="Phone Number" />
-                                            </div>
-                                            <div className="input-group">
-                                                <div className="input-group-prepend">
-                                                    <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
-                                                </div>
-                                                <input type="text" className="form-control" onKeyUp={(e) => dispatch(booking({ ...bookvalue, address: e.target.value }))} placeholder="Address" />
-                                            </div>
-                                            <h3 className="text-dark">Event Details</h3>
-                                            <div className="input-group">
-                                                <div className="input-group-prepend">
-                                                    <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
-                                                </div>
-                                                <input type="text" className="form-control" onKeyUp={(e) => dispatch(booking({ ...bookvalue, bridenamegroomname: e.target.value }))} placeholder="Bride/Groom Name" />
-                                            </div>
-                                            <div className="input-group">
-                                                <div className="input-group-prepend">
-                                                    <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
-                                                </div>
-                                                <input type="date" className="form-control" onKeyUp={(e) => dispatch(booking({ ...bookvalue, date: e.target.value }))} placeholder="Data" />
-                                            </div>
-                                            <div className="input-group">
-                                                <div className="input-group-prepend">
-                                                    <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
-                                                </div>
-                                                <input type="time" className="form-control" onKeyUp={(e) => dispatch(booking({ ...bookvalue, time: e.target.value }))} placeholder="Time" />
+                                                <input type="time" className="form-control" onKeyUp={(e) => dispatch(booking({ ...bookvalue, event_time: e.target.value }))} placeholder="Time" />
                                             </div>
                                             <div className="input-group">
                                                 <div className="input-group-prepend">
@@ -110,10 +95,11 @@ export const Book_Details = () => {
                                                 </div>
                                                 <input type="text" className="form-control" onKeyUp={(e) => dispatch(booking({ ...bookvalue, venue: e.target.value }))} placeholder="Venue" />
                                             </div>
+                                        
                                             <div className="input-group">
                                                 <div className="input-group-prepend">
                                                     <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
-                                                </div><select class="form-select form-select-sm form-control" aria-label="Small select example"  onClick={(e) => dispatch(booking({ ...bookvalue, eventtype: e.target.value }))}>
+                                                </div><select class="form-select form-select-sm form-control" aria-label="Small select example"  onClick={(e) => dispatch(booking({ ...bookvalue, event_type: e.target.value }))}>
                                                     <option selected>Event Type</option>
                                                     <option value="Wedding">Wedding</option>
                                                     <option value="Birthday">Birthday</option>
@@ -128,7 +114,7 @@ export const Book_Details = () => {
                                             <div className="input-group">
                                                 <div className="input-group-prepend">
                                                     <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
-                                                </div><select class="form-select form-select-sm form-control" aria-label="Small select example"  onClick={(e) => dispatch(booking({ ...bookvalue, packages: e.target.value }))}>
+                                                </div><select class="form-select form-select-sm form-control" aria-label="Small select example"  onClick={(e) => dispatch(booking({ ...bookvalue, package: e.target.value }))}>
                                                     <option selected>Packages</option>
                                                     <option value="Basic">Basic</option>
                                                     <option value="Silver">Silver</option>

@@ -14,7 +14,7 @@ export const User_Login = () => {
       formData.append("request",logvalue.request) 
       formData.append("email",logvalue.email)
       formData.append("password",logvalue.password)
-      axios.post("http://agaram.academy/api/action.php?request=candidate_login",formData).then((log)=>{
+      axios.post("https://agaram.academy/api/action.php?request=studio_user_login",formData).then((log)=>{
           console.log(log)
           if(log.data.status=="success"){
             alert("success")
@@ -24,7 +24,7 @@ export const User_Login = () => {
   }
 
    return (
-       <div className="login-page sidebar-collapse">
+       <div className="login-page sidebar-collapse box">
            <nav className="navbar navbar-expand-lg bg-white fixed-top navbar-transparent" color-on-scroll="500">
                <div className="container">
                    <div className="navbar-translate">

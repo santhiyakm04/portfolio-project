@@ -4,18 +4,15 @@ export const bookslice = createSlice({
   name:'book',
   initialState:{
 
-    book_details:{
-    name:"",
-    email:"",
-    phone:"",
-    address:"",
-    bridenamegroomname:"",
-    date:"",
-    time:"",
+  book_details:{
+    event_date:"",
+    event_time:"",
     location:"",
     venue:"",
-    eventtype:"",
-    packages:""
+    event_type:"",
+    package:"",
+    user_id:"22",
+    studio_id:"22"
 },
    
 },

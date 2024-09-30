@@ -2,9 +2,9 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState={
     user_details:{
-        request:"create_candidate",
+        request:"studio_create_user",
         name:"",
-        email:null,
+        email:"",
         password:"",
         aadhar:"",
         address:"",

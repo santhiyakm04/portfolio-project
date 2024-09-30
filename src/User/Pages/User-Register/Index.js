@@ -23,12 +23,12 @@ export const User_Register = () => {
         formData.append(" city",uservalue.city)
         formData.append(" area",uservalue.area)
         formData.append(" pin",uservalue.pin)
-    axios.post(" http://agaram.academy/api/action.php?request=create_candidate",formData).then((data)=>{
+    axios.post(" https://agaram.academy/api/action.php?request=studio_create_user",formData).then((data)=>{
         console.log(data)
-        if(data.data.status){
-            alert("successfully registered")
-        }
-        navigate("/user_login")
+        // if(data.data.status){
+        //     alert("successfully registered")
+        // }
+        // navigate("/user_login")
     })
     }
  

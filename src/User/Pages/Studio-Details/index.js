@@ -6,7 +6,7 @@ import axios from "axios";
 
 
 export const Studio_Details = () => {
-  let { id } = useParams();
+  let {id} = useParams();
   const [viewdata, setviewdata] = useState({})
   const [review, setreview] = useState([])
   const [comment, setcomment] = useState({
@@ -18,7 +18,7 @@ export const Studio_Details = () => {
     setreview([...review, comment])
   }
   useEffect(() => {
-    axios.get(`http://agaram.academy/api/action.php?request=getMemberDetail&id=${id}`).then((res) => {
+    axios.get(`https://agaram.academy/api/action.php?request=studio_getViewDetail&id=${id}`).then((res) => {
       setviewdata(res.data.data)
       console.log(res.data.data)
     })
@@ -170,8 +170,8 @@ export const Studio_Details = () => {
         </div>
 
       </div>
-      <div className='text-center'>
-        <Link to="/book_details" className='btn btn-primary'>Book Now</Link></div><br/>
+      {/* <div className='text-center'> */}
+        {/* <Link to="/book_details" className='btn btn-primary'>Book Now</Link></div><br/> */}
 
         <div class="row no-gutters justify-content-center">
                         <div class="col-8">
@@ -205,7 +205,7 @@ export const Studio_Details = () => {
                                                 <p class="pricepara">
                                                     <del class="money">125000</del>&nbsp;<span class="money">100000</span>
                                                 </p>
-                                                <a class="btn btn-primary planlnk" href="/wedding/book?plan=PLN-82c6f695-95ed-48a6-b6a7-399d9e60e0bc">Book Now</a>
+                                                <Link to="/book_details" className='btn btn-primary'>Book Now</Link>
                                             </div>
                                         </div>
                                     </div>
@@ -240,7 +240,7 @@ export const Studio_Details = () => {
                                                 <p class="pricepara">
                                                     <del class="money">150000</del>&nbsp;<span class="money">100000</span>
                                                 </p>
-                                                <a class="btn btn-primary planlnk" href="/wedding/book?plan=PLN-c82f6dec-80a8-4526-97c3-1855f03f0efd">Book Now</a>
+                                                <Link to="/book_details" className='btn btn-primary'>Book Now</Link>
                                             </div>
                                         </div>
                                     </div>
@@ -274,7 +274,7 @@ export const Studio_Details = () => {
                                                 <p class="pricepara">
                                                     <del class="money">250000</del>&nbsp;<span class="money">200000</span>
                                                 </p>
-                                                <a class="btn btn-primary planlnk" href="/wedding/book?plan=PLN-c14906db-9260-4577-981a-ae5c91a55c15">Book Now</a>
+                                                <Link to="/book_details" className='btn btn-primary'>Book Now</Link>
                                             </div>
                                         </div>
                                     </div>
@@ -307,7 +307,7 @@ export const Studio_Details = () => {
                                                 <p class="pricepara">
                                                     <del class="money">350000</del>&nbsp;<span class="money">300000</span>
                                                 </p>
-                                                <a class="btn btn-primary planlnk" href="/wedding/book?plan=PLN-7b3a30c4-baf7-453a-93b0-0a2b3da1d523">Book Now</a>
+                                                <Link to="/book_details" className='btn btn-primary'>Book Now</Link>
                                             </div>
                                         </div>
                                     </div>

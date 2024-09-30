@@ -4,9 +4,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 
-
-
-
 export const Studio_Listing = ()=>{
   let navigate=useNavigate()
 
@@ -14,7 +11,7 @@ const [studioData, setStudioData]=useState([])
 const [searchFilterData,setSearchData]=useState(studioData)
 
 useEffect(()=>{
-  axios.get("http://agaram.academy/api/action.php?request=getAllMembers").then((res)=>{
+  axios.get("http://agaram.academy/api/action.php?request=studio_getAllStudio").then((res)=>{
     setStudioData(res.data.data)
     setSearchData(res.data.data)
 })
@@ -27,10 +24,7 @@ const Filterbtn =(event)=>{
  
 
     return(
-
-
-      
-        <>
+      <>
          <div className="header-3">
         <nav className="navbar navbar-expand-lg bg-primary lsting-navbar">
           <div className="container">
@@ -44,11 +38,16 @@ const Filterbtn =(event)=>{
             </div>
             <div className="collapse navbar-collapse show" data-nav-image="./assets/img//blurred-image-1.jpg">
               <ul className="navbar-nav ml-auto">
-                <li className="nav-item active">
+                <li className="nav-item">
                   <a className="nav-link" href="#pablo">
                     Home
                   </a>
                 </li>
+                <li className="nav-item">
+                <a className="nav-link" href="#pablo">
+                    Message
+                  </a>
+                    </li>
                 <li class="nav-item dropdown">
                         <a href="#" className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown">
                           <i className="now-ui-icons ui-1_settings-gear-63" aria-hidden="true"></i>
