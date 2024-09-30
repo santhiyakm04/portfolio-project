@@ -9,7 +9,7 @@ export const Viewdetails=()=>{
     const[details,setdetails]=useState({})
     const{id}=useParams()
     useEffect(()=>{
-        axios.get(`http://agaram.academy/api/action.php?request=getMemberDetail&id=${id}`).then((e) => {
+        axios.get(`http://agaram.academy/api/action.php?request=studio_getBookingDetails&id=${22}`).then((e) => {
                 setdetails (e.data.data)
         })},
          [] )
@@ -61,20 +61,33 @@ return(
                 <li><i className=""></i><b>Name: {details.name}</b></li>
                 <li><i className=""></i><b>Email:{details.email}</b> </li>
                 <li><i className=""></i><b>phone:{details.phone}</b></li>
-                <li><i className=""></i><b>City:{details.city}</b></li>
-                <li><i className=""></i><b>Area:{details.area}</b></li>
-                {/* <li><i className="now-ui-icons ui-1_simple-remove text-danger"></i> 5 Databases</li>
-                <li><i className="now-ui-icons ui-1_simple-remove text-danger"></i> No Support</li>
-                <li><i className="now-ui-icons ui-1_simple-remove text-danger"></i> 3 email</li>
-                <li><i className="now-ui-icons ui-1_simple-remove text-danger"></i> 5 Databases</li>
-                <li><i className="now-ui-icons ui-1_simple-remove text-danger"></i> No Support</li>
-                <li><i className="now-ui-icons ui-1_simple-remove text-danger"></i> 3 email</li>
-                <li><i className="now-ui-icons ui-1_simple-remove text-danger"></i> 5 Databases</li>
-                <li><i className="now-ui-icons ui-1_simple-remove text-danger"></i> No Support</li> */}
-              </ul>
-              <a href="#pablo" className="btn btn-primary btn-round">
+                <li><i className=""></i><b>address:{details.address}</b></li>
+                <li><i className=""></i><b>bride/groom name:{details.bridenamegroomname}</b></li>
+                <li><i className=""></i><b>date:{details.date}</b></li>
+                <li><i className=""></i><b>time:{details.time}</b></li>
+                <li><i className=""></i><b>location:{details.location}</b></li>
+                <li><i className=""></i><b>venue:{details.venue}</b></li>
+                <li><i className=""></i><b>event type:{details.eventtype}</b></li>
+                <li><i className=""></i><b>packages:{details.packages}</b></li>
+                <li>
+                <div class="col-md-8 mt-3 mx-auto pl-2">
+                  <label><b>Status:</b></label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class=""></i></span>
+                    </div>
+                    <input type="text" className="form-control" placeholder="Status Here..."/>
+                  </div>
+                </div>
+                </li>
+                </ul>
+                
+
+              
+
+              <button href="#pablo" className="btn btn-primary btn-round">
                 update status
-              </a>
+              </button>
             </div>
           </div>
         </div>

@@ -3,25 +3,58 @@ import axios from 'axios'
 import { useState,useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { studio } from '../../Slices/profileslice'
+
 
 export const Studio_Order = () => {
 
                 const navigate=useNavigate()
 
-                let [order,setorder]=useState([])
+                const [order,setorder]=useState([])
+// ----------------------------------------------------------------------------
+
+                const det = useSelector((state) => state.details).studioProfile;
+    
+                const dispatch = useDispatch();
+
+//  ----------------------------------------------------------------------------------               
 
   const Viewpage=(idvalue)=>{             
              navigate(`/clientdetails/${idvalue}`)
   }
     const orderlist=()=>{
-        axios.get("http://agaram.academy/api/action.php?request=getAllMembers").then((e) => {
+        axios.get("http://agaram.academy/api/action.php?request=studio_getBookingDetails").then((e) => {
                 setorder (e.data.data)
     })
 }
 
+// ------------------------------------------------------------------------------
+const userdetail=()=>{
+    let formData = new FormData()
+    formData.append("name_of_founder", det.name_of_founder)
+        formData.append("no_of_branches", det.no_of_branches)
+        formData.append("no_of_achievements", det.no_of_achievements) 
+        formData.append("about_us", det.about_us)
+        formData.append("amount_for_basic_packages", det.amount_for_basic_packages)
+        formData.append("amount_for_silver_packages", det.amount_for_silver_packages)
+        formData.append("amount_for_gold_packages", det.amount_for_gold_packages)
+        formData.append("amount_for_platinum_packages", det.amount_for_platinum_packages)
+
+    axios.post("https://agaram.academy/api/action.php?request=studio_create_profile", formData).then((e) => {
+        console.log(e)
+        alert("upload profile sucessfully")
+    })
+}
+
+// ---------------------------------------------------------------------------
+
             useEffect(()=>{
                 orderlist()
             },[])
+
+
+
 
 
 
@@ -40,7 +73,13 @@ export const Studio_Order = () => {
                 <div className="collapse navbar-collapse" id="example-navbar-transparent">
                   <ul className="navbar-nav ml-auto">
                  
-                   
+                  <li className="nav-item">
+                      <a className="nav-link" href="#pablo">
+                        
+                        <Link to ={"/Studio_login"} className="back"><i> </i> logout</Link>
+                      </a>
+                    </li>
+                
                     <li className="nav-item">
                       <a className="nav-link" href="#pablo">
                         
@@ -61,7 +100,7 @@ export const Studio_Order = () => {
                         <li className="nav-item">
                             <a className="nav-link active" data-toggle="tab" href="#profile" role="tablist">
                                 {/* <i className="now-ui-icons design_image"></i> */}
-                                <b>user upload</b>
+                                <b>update profile</b>
                             </a>
                         </li>
                         <li className="nav-item">
@@ -123,14 +162,14 @@ export const Studio_Order = () => {
                   <div className="input-group-prepend">
                     <span className="input-group-text"><i className="now-ui-icons tech_mobile"></i></span>
                   </div>
-                  <input type="number" className="form-control" placeholder="Enter ur number" aria-label="Your number" autocomplete="number"/>
+                  <input type="number" className="form-control" placeholder="Enter ur number" onKeyUp={(e) => dispatch(studio({ ...det,studio_name:e.target.value }))} aria-label="Your number" autocomplete="number"/>
                 </div>
                 <label>Email address</label>
                 <div className="input-group">
                   <div className="input-group-prepend">
                     <span className="input-group-text"><i className="now-ui-icons ui-1_email-85"></i></span>
                   </div>
-                  <input type="email" className="form-control" placeholder="Enter ur email " aria-label="email " autocomplete="email"/>
+                  <input type="email" className="form-control" placeholder="Enter ur email " onKeyUp={(e) => dispatch(studio({ ...det,studio_name:e.target.value }))} aria-label="email " autocomplete="email"/>
                 </div>
 
                 <label>Name of founder:</label>
@@ -138,7 +177,7 @@ export const Studio_Order = () => {
                   <div className="input-group-prepend">
                     <span className="input-group-text"><i class="now-ui-icons users_circle-08"></i></span>
                   </div>
-                  <input type="text" className="form-control" placeholder="Enter ur name" autocomplete="name"/>
+                  <input type="text" className="form-control" placeholder="Enter ur name" onKeyUp={(e) => dispatch(studio({ ...det,studio_name:e.target.value }))} autocomplete="name"/>
                 </div>
 
                 <label>No of branches:</label>
@@ -146,7 +185,7 @@ export const Studio_Order = () => {
                   <div className="input-group-prepend">
                     <span className="input-group-text"><i className=""></i></span>
                   </div>
-                  <input type="number" className="form-control" placeholder="No of branches" aria-label="branches" autocomplete="branches"/>
+                  <input type="number" className="form-control" placeholder="No of branches" onKeyUp={(e) => dispatch(studio({ ...det,studio_name:e.target.value }))} aria-label="branches" autocomplete="branches"/>
                 </div>
 
                 <label>No of achievements:</label>
@@ -154,7 +193,7 @@ export const Studio_Order = () => {
                   <div className="input-group-prepend">
                     <span className="input-group-text"><i class=""></i></span>
                   </div>
-                  <input type="number" className="form-control" placeholder="No of achievements" aria-label="achievements" autocomplete="achievements"/>
+                  <input type="number" className="form-control" placeholder="No of achievements" onKeyUp={(e) => dispatch(studio({ ...det,studio_name:e.target.value }))} aria-label="achievements" autocomplete="achievements"/>
                 </div>
 
                 <label>No of employees:</label>
@@ -162,15 +201,53 @@ export const Studio_Order = () => {
                   <div className="input-group-prepend">
                     <span className="input-group-text"><i class=""></i></span>
                   </div>
-                  <input type="number" className="form-control" placeholder="No of employees" aria-label="employees" autocomplete="employees"/>
+                  <input type="number" className="form-control" placeholder="No of employees" onKeyUp={(e) => dispatch(studio({ ...det,studio_name:e.target.value }))} aria-label="employees" autocomplete="employees"/>
                 </div>
+
+                <label>Amount for basic  package:</label>
+                <div className="input-group">
+                  <div className="input-group-prepend">
+                    <span className="input-group-text"><i class=""></i></span>
+                  </div>
+                  <input type="number" className="form-control" placeholder="enter ur package amount" onKeyUp={(e) => dispatch(studio({ ...det,studio_name:e.target.value }))} aria-label="amount" autocomplete="amount"/>
+                </div>
+
+                <label>Amount for silver  package:</label>
+                <div className="input-group">
+                  <div className="input-group-prepend">
+                    <span className="input-group-text"><i class=""></i></span>
+                  </div>
+                  <input type="number" className="form-control" placeholder="enter ur package amount" onKeyUp={(e) => dispatch(studio({ ...det,studio_name:e.target.value }))} aria-label="amount" autocomplete="amount"/>
+                </div>
+
+                <label>Amount for gold package:</label>
+                <div className="input-group">
+                  <div className="input-group-prepend">
+                    <span className="input-group-text"><i class=""></i></span>
+                  </div>
+                  <input type="number" className="form-control" placeholder="enter ur package amount" onKeyUp={(e) => dispatch(studio({ ...det,studio_name:e.target.value }))} aria-label="amount" autocomplete="amount"/>
+                </div>
+
+                <label>Amount for platinum package:</label>
+                <div className="input-group">
+                  <div className="input-group-prepend">
+                    <span className="input-group-text"><i class=""></i></span>
+                  </div>
+                  <input type="number" className="form-control" placeholder="enter ur package amount" onKeyUp={(e) => dispatch(studio({ ...det,studio_name:e.target.value }))} aria-label="amount" autocomplete="amount"/>
+                </div>
+                
+                
+              
 
                 <div className="form-group">
                   <label>About us:</label>
                   <textarea name="about us" className="form-control" id="message" rows="6"></textarea>
                 </div>
+
+               
+
                 <div className="submit text-center">
-                  <input type="submit" className="btn btn-primary btn-raised btn-round" value="upload" />
+                <button className="btn btn-primary btn-round btn-lg"  onClick={userdetail}>upload</button>
                 </div>
               </form>
                         </div>

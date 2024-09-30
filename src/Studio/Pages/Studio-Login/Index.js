@@ -1,5 +1,5 @@
 // import { Login_Component } from "../../../Component/Login";
-import { navigate, useNavigate } from 'react-router-dom';
+// import { navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import { useSelector, useDispatch } from 'react-redux'
 import { userlog } from '../../Slices/loginslice';
@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 
 export const Studio_Login = () => {
- const navigate =  useNavigate();
+//  const navigate =  useNavigate();
     const logup = useSelector((state) => state.logs).studiolog;
     
     const dispatch = useDispatch();
@@ -17,16 +17,16 @@ export const Studio_Login = () => {
         let formData = new FormData()
 
        
-        formData.append("email", logup.email)
+        formData.append("email", logup.studio_email)
         formData.append("password", logup.password) 
         
 
-        axios.post("http://agaram.academy/api/action.php?request=candidate_login", formData).then((n) => {
+        axios.post("https://agaram.academy/api/action.php?request=studio_studio_login", formData).then((n) => {
          let s = n.data.status
                         
          if (s=="success"){
              alert("login sucessfully")
-             navigate("/Studio_Orders")
+            //  navigate("/Studio_Orders")
          }else{
              alert("login failed")
          }
