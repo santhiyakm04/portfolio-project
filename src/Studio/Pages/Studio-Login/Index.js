@@ -17,11 +17,11 @@ export const Studio_Login = () => {
         let formData = new FormData()
 
        
-        formData.append("email", logup.email)
+        formData.append("email", logup.studio_email)
         formData.append("password", logup.password) 
         
 
-        axios.post("http://agaram.academy/api/action.php?request=candidate_login", formData).then((n) => {
+        axios.post("https://agaram.academy/api/action.php?request=studio_studio_login", formData).then((n) => {
          let s = n.data.status
                         
          if (s=="success"){

@@ -3,12 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialstate={
     studioReg:{
        
-        name :"",
-        email :"" ,
+       studio_name :"",
+       studio_email :"" ,
         password :"" ,
-        aadhar : "",
-        address :"" ,
-        phone:"",
+        studio_address :"" ,
+        studio_number:"",
         city:"",
         area:"",
         pin:"",
