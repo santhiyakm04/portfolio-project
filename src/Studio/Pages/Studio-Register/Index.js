@@ -1,4 +1,4 @@
-import { navigate, useNavigate } from 'react-router-dom';
+// import { navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import { useSelector, useDispatch } from 'react-redux'
 import { user } from '../../Slices/Registerslice';
@@ -7,7 +7,7 @@ import { user } from '../../Slices/Registerslice';
 
 
 export const Studio_Register = () => {
- const navigate =  useNavigate();
+//  const navigate =  useNavigate();
     const reg = useSelector((state) => state.regis).studioReg;
     
     const dispatch = useDispatch();
@@ -17,17 +17,16 @@ export const Studio_Register = () => {
         formData.append("name", reg.name)
         formData.append("email", reg.email)
         formData.append("password", reg.password) 
-        formData.append("aadhar", reg.adhaar)
         formData.append("address", reg.address)
         formData.append("phone", reg.phone)
         formData.append("city", reg.city)
         formData.append("area", reg.area)
         formData.append("pin", reg.pin)
 
-        axios.post("http://agaram.academy/api/action.php?request=create_candidate", formData).then((e) => {
+        axios.post("http://agaram.academy/api/action.php?request=studio_create_studio", formData).then((e) => {
               
         })
-        navigate("/studio_login")
+        // navigate("/studio_login")
     }
     // onKeyUp={(e) => dispatch(user({ ...regist,  e.target.value }))}
 
@@ -98,12 +97,12 @@ export const Studio_Register = () => {
                                             </div>
                                             
                                            
-                                            <div className="input-group">
+                                            {/* <div className="input-group">
                                                 <div className="input-group-prepend">
                                                     <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
                                                 </div>
                                                 <input type="number" className="form-control" placeholder="Aadhaar No" onKeyUp={(e) => dispatch(user({ ...reg,aadhar:e.target.value }))} autocomplete="fullname"/>
-                                            </div>
+                                            </div> */}
                                             <div className="input-group">
                                                 <div className="input-group-prepend">
                                                     <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
