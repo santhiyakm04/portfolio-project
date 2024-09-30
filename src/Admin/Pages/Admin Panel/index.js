@@ -9,9 +9,11 @@ export const Admin_Panel=()=>{
 
     const[userList,setUserList]=useState([])
     const[record,setrecord]=useState(userList)
+    const[studio,setstudio]=useState(userList)
+    
         const navigate=useNavigate();
         const Display=()=>{
-            axios.post(" http://agaram.academy/api/action.php?request=getAllMembers").then((datavalue)=>{
+            axios.post(" https://agaram.academy/api/action.php?request=studio_getAllUser").then((datavalue)=>{
                 setUserList(datavalue.data.data)
                 setrecord(datavalue.data.data)
                 // console.log(datavalue)
@@ -24,7 +26,7 @@ export const Admin_Panel=()=>{
           }
         
     const Deletelist=(idvalue)=>{
-        axios.get(` http://agaram.academy/api/action.php?request=removeMember&id=${idvalue}`).then((value)=>{
+        axios.get(` https://agaram.academy/api/action.php?request=removeMember&id=${idvalue}`).then((value)=>{
             // console.log(value)
             Display()
         })
@@ -36,6 +38,36 @@ export const Admin_Panel=()=>{
 
         useEffect(()=>{
             Display()
+            // console.log("test")
+        },[])
+
+
+        const Studio=()=>{
+            axios.post(" https://agaram.academy/api/action.php?request=studio_getAllStudio").then((datavalue)=>{
+                // setUserList(datavalue.data.data)
+                setstudio(datavalue.data.data)
+                // console.log(datavalue)
+    
+            })
+    
+        }
+        const Search=(event)=>{
+            setstudio(userList.filter(e=>e.name.toLowerCase().includes(event.target.value)))
+          }
+        
+    const Delete=(idvalue)=>{
+        axios.get(` https://agaram.academy/api/action.php?request=removeMember&id=${idvalue}`).then((value)=>{
+            // console.log(value)
+            Studio()
+        })
+        }
+         
+        const View=(idvalue)=>{
+            navigate(`/admin/view/${idvalue}`)
+            }
+
+        useEffect(()=>{
+            Studio()
             // console.log("test")
         },[])
 
@@ -92,7 +124,7 @@ export const Admin_Panel=()=>{
                     <table className="table mt-5 w-75 mx-auto">
     <thead className=" table-dark ">
         <tr>
-        <th colSpan={5} className="text-end"><input type="text" onChange={Filter}  placeholder="Search Here"/></th>
+        <th colSpan={5} className="text-end"><input type="text" onChange={Search}  placeholder="Search Here"/></th>
         </tr>
             <tr>
                 <th>Name</th>
@@ -104,14 +136,14 @@ export const Admin_Panel=()=>{
             </tr>
         </thead>
         <tbody>
-        {record.map((each)=>
+        {studio.map((each)=>
                
             <tr className="table-light">
                 <td>{each.name}</td>
                 <td>{each.email}</td>
                 <td>{each.city}</td>
-                <td><button onClick={()=>Deletelist(each.id)}>Delete</button></td>
-                <td><button onClick={()=>Viewlist(each.id)}>View</button></td>
+                <td><button onClick={()=>Delete(each.id)}>Delete</button></td>
+                <td><button onClick={()=>View(each.id)}>View</button></td>
 
             </tr>
         )}
