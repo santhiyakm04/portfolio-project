@@ -15,7 +15,7 @@ export const Admin_Login=()=>{
    loginformData.append("password",statevalue.password)
 
   let loginbtn=()=>{
-    axios.post("http://agaram.academy/api/action.php?request=candidate_login",loginformData).then((res)=>{
+    axios.post("https://agaram.academy/api/action.php?request=studio_admin_login",loginformData).then((res)=>{
         if(res.data.status=="success"){
             alert("Login Successfully")
             navigate("/admin/panel")

@@ -26,7 +26,7 @@ export const Admin_Panel=()=>{
           }
         
     const Deletelist=(idvalue)=>{
-        axios.get(` https://agaram.academy/api/action.php?request=removeMember&id=${idvalue}`).then((value)=>{
+        axios.get(` https://agaram.academy/api/action.php?request=studio_removeDetails&id=${idvalue}`).then((value)=>{
             // console.log(value)
             Display()
         })
@@ -56,7 +56,7 @@ export const Admin_Panel=()=>{
           }
         
     const Delete=(idvalue)=>{
-        axios.get(` https://agaram.academy/api/action.php?request=removeMember&id=${idvalue}`).then((value)=>{
+        axios.get(` https://agaram.academy/api/action.php?request=studio_removeDetails&id=${idvalue}`).then((value)=>{
             // console.log(value)
             Studio()
         })
