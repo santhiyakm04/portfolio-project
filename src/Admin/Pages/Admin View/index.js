@@ -30,10 +30,10 @@ export const Admin_View=()=>{
             <h4 className="col-5 text-end">Password:</h4>
             <h4 className="col-6">{view.password}</h4>
         </div>
-        <div className="row w-50 mx-auto">
+        {/* <div className="row w-50 mx-auto">
             <h4 className="col-5 text-end">Aadhar:</h4>
             <h4 className="col-6">{view.aadhar}</h4>
-        </div>
+        </div> */}
         <div className="row w-50 mx-auto">
             <h4 className="col-5 text-end">Address:</h4>
             <h4 className="col-6">{view.address}</h4>
