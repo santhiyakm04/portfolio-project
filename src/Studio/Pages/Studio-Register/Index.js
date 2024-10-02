@@ -1,4 +1,4 @@
-// import { navigate, useNavigate } from 'react-router-dom';
+import { navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import { useSelector, useDispatch } from 'react-redux'
 import { user } from '../../Slices/Registerslice';
@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 
 export const Studio_Register = () => {
-//  const navigate =  useNavigate();
+ const navigate =  useNavigate();
     const reg = useSelector((state) => state.regis).studioReg;
     
     const dispatch = useDispatch();
@@ -29,8 +29,8 @@ export const Studio_Register = () => {
         axios.post("https://agaram.academy/api/action.php?request=studio_create_studio", formData).then((e) => {
               console.log(e)
               
-            //   alert("Register sucessfully")
-            //   navigate("/studio_login")
+              alert("Register sucessfully")
+              navigate("/studio_login")
 
         })
        

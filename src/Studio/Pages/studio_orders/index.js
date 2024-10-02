@@ -1,7 +1,7 @@
 import './index.css'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import { json, useNavigate } from 'react-router-dom'
+import {useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { studio } from '../../Slices/profileslice'
@@ -11,14 +11,14 @@ export const Studio_Order = () => {
 
 
     const det = useSelector((state) => state.details).studioProfile;
-      console.log(det)
+    //   console.log(det)
     const dispatch = useDispatch();
     const [packages, setPackages] = useState([{
         name:"",
         amount:""
     }
         ])
-    console.log(packages)
+    // console.log(packages)
     // --------------------------------------------------------------------------
 
     const navigate = useNavigate()
@@ -42,7 +42,7 @@ export const Studio_Order = () => {
         formData.append("studio_id", logup.data.id)
 
         axios.post("https://agaram.academy/api/action.php?request=studio_update_profile", formData).then((e) => {
-            console.log(e)
+            // console.log(e)
             // alert("upload profile sucessfully")
         })
     }
@@ -68,14 +68,15 @@ export const Studio_Order = () => {
     // ------------------------------------------------------------------------------
 
 
-    const order_name = () => {
-        axios.get("https://agaram.academy/api/action.php?request=studio_getAllUser").then((e) => {
-            setordername(e.data.data)
-        })
-    }
-    useEffect(() => {
-        order_name()
-    }, [])
+    // const order_name = () => {
+    //     axios.get("https://agaram.academy/api/action.php?request=studio_getAllUser").then((e) => {
+    //         setordername(e.data.data)
+    //         console.log(e)
+    //     })
+    // }
+    // useEffect(() => {
+    //     order_name()
+    // }, [])
 
     // ---------------------------------------------------------------------------
 
@@ -144,43 +145,7 @@ export const Studio_Order = () => {
                 <div className="tab-content gallery">
                     <div className="tab-pane active" id="profile" role="tabpanel">
                         <div className="row">
-                            {/* <div className="col-md-5 ml-auto mr-auto">
-                                <div className="card card-background card-background-product card-raised" style={{ backgroundImage: "url('../assets/img/bg23.jpg')" }}>
-                                    <div className="card-body">
-                                        <h2 className="card-title">Chair remake.</h2>
-                                        <p className="card-description text-white">
-                                            Trello’s boards, lists, and cards enable you to organize and prioritize your projects in a fun, flexible and rewarding way. It was a great project and I would be more than happy to do it again.
-                                        </p>
-                                        <label className="badge badge-neutral">Trello</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-md-5">
-                                <div className="info info-horizontal">
-                                    <div className="icon icon-warning">
-                                        <i className="now-ui-icons users_single-02"></i>
-                                    </div>
-                                    <div className="description">
-                                        <h5 className="info-title">Work With Any Team</h5>
-                                        <p className="description">
-                                            Whether it’s for work or even the next family vacation, Trello helps your team.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="info info-horizontal">
-                                    <div className="icon icon-warning">
-                                        <i className="now-ui-icons business_chart-bar-32"></i>
-                                    </div>
-                                    <div className="description">
-                                        <h5 className="info-title">A Productivity Platform</h5>
-                                        <p className="description">
-                                            Integrate the apps your team already uses directly into your workflow.
-                                        </p>
-                                    </div>
-                                </div> */}
-                            {/* </div> */}
-
-                            {/* <div> */}
+                            
                             <form role="form" className="forms" id="contact-form" method="post">
                                 {/* <small>
                                     {JSON.stringify(det)}
@@ -239,7 +204,7 @@ export const Studio_Order = () => {
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><i class=""></i></span>
                                     </div>
-                                    {/* <input type="number" className="form-control" placeholder="enter ur package amount"onChange={(e) => setPackages([...packages,{name:"gold",amount:e.target.value}])} aria-label="amount" autocomplete="amount" /> */}
+                                    <input type="number" className="form-control" placeholder="enter ur package amount"onChange={(e) => setPackages([...packages,{name:"gold",amount:e.target.value}])} aria-label="amount" autocomplete="amount" />
                                 </div>
 
                                 <label>Amount for platinum package:</label>
@@ -247,7 +212,7 @@ export const Studio_Order = () => {
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><i class=""></i></span>
                                     </div>
-                                    {/* <input type="number" className="form-control" placeholder="enter ur package amount" onChange={(e) =>setPackages([...packages,{name:"platinum",amount:e.target.value}])}aria-label="amount" autocomplete="amount" /> */}
+                                    <input type="number" className="form-control" placeholder="enter ur package amount" onChange={(e) =>setPackages([...packages,{name:"platinum",amount:e.target.value}])}aria-label="amount" autocomplete="amount" />
                                 </div>
 
                                 <label>About us:</label>
@@ -258,63 +223,24 @@ export const Studio_Order = () => {
                                     <input type="text" className="form-control" placeholder="about us" onKeyUp={(e) => dispatch(studio({ ...det, about_us: e.target.value }))} aria-label="amount" autocomplete="amount" />
                                 </div>
 
-
-                                {/* <div className="form-group">
-                  <label>About us:</label>
-                  <textarea name="about us" className="form-control" id="message" rows="6"></textarea>
-                </div> */}
-
-
-
                                 <div className="submit text-center">
                                     <button type='button' className="btn btn-primary btn-round btn-lg" onClick={userdetail}>upload</button>
                                 </div>
                             </form>
-                            {/* </div> */}
+                            
                         </div>
                     </div>
+
+{/* ------------------------------------------------------------- */}
+
                     <div className="tab-pane" id="home" role="tabpanel">
                         <div className="row">
-                            {/* <div className="col-md-5 ml-auto mr-auto">
-                                <div className="card card-background card-background-product card-raised" style={{ backgroundImage: "url('../assets/img/project8.jpg')" }}>
-                                    <div className="card-body">
-                                        <h2 className="card-title">Social Analytics</h2>
-                                        <p className="card-description">
-                                            Insight to help you create, connect, and convert. Understand Your Audience's Interests, Influence, Interactions, and Intent. Discover emerging topics and influencers to reach new audiences.
-                                        </p>
-                                        <label className="badge badge-neutral">Analytics</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-md-5">
-                                <div className="info info-horizontal">
-                                    <div className="icon icon-danger">
-                                        <i className="now-ui-icons ui-2_chat-round"></i>
-                                    </div>
-                                    <div className="description">
-                                        <h5 className="info-title">Listen to Social Conversations</h5>
-                                        <p className="description">
-                                            Gain access to the demographics, psychographics, and location of unique people who talk about your brand.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="info info-horizontal">
-                                    <div className="icon icon-danger">
-                                        <i className="now-ui-icons design-2_ruler-pencil"></i>
-                                    </div>
-                                    <div className="description">
-                                        <h5 className="info-title">Social Conversions</h5>
-                                        <p className="description">
-                                            Track actions taken on your website that originated from social, and understand the impact on your bottom line.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div> */}
+                            
 
                             <table className="  table-light clientlist" >
                                 <thead className="table table-dark">
                                     <tr>
-                                        <th>Name</th>
+                                        {/* <th>Name</th> */}
                                         <th>Events</th>
                                         <th>Date</th>
                                         <th>Place</th>
@@ -325,12 +251,12 @@ export const Studio_Order = () => {
                                     {order.map((each) =>
 
                                         <tr className="table my-3">
-                                            {ordername.map((n) =>
+                                            {/* {ordername.map((n) =>
                                                 <tr>
                                                     <td>{n.name}</td>
 
                                                 </tr>
-                                            )}
+                                            )} */}
                                             <td>{each.event_type}</td>
                                             <td>{each.date}</td>
                                             <td>{each.location}</td>
@@ -345,42 +271,7 @@ export const Studio_Order = () => {
                         </div>
                     </div>
                     <div className="tab-pane" id="messages" role="tabpanel">
-                        <div className="row">
-                            {/* <div className="col-md-5 ml-auto mr-auto">
-                                <div className="card card-background card-background-product card-raised" style={{ backgroundImage: "url('../assets/img/bg25.jpg')" }}>
-                                    <div className="card-body">
-                                        <h2 className="card-title">Interior Redesign</h2>
-                                        <p className="card-description">
-                                            Insight to help you create, connect, and convert. Understand Your Audience's Interests, Influence, Interactions, and Intent. Discover emerging topics and influencers to reach new audiences.
-                                        </p>
-                                        <label className="badge badge-neutral">Interior</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-md-5">
-                                <div className="info info-horizontal">
-                                    <div className="icon icon-info">
-                                        <i className="now-ui-icons design_palette"></i>
-                                    </div>
-                                    <div className="description">
-                                        <h5 className="info-title">Colors adjustments</h5>
-                                        <p className="description">
-                                            Gain access to the demographics, psychographics, and location of unique people who talk about your brand.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="info info-horizontal">
-                                    <div className="icon icon-info">
-                                        <i className="now-ui-icons design_scissors"></i>
-                                    </div>
-                                    <div className="description">
-                                        <h5 className="info-title">Performance Clothing</h5>
-                                        <p className="description">
-                                            Unify data from Facebook, Instagram, Twitter, LinkedIn, and Youtube to gain rich insights from easy-to-use reports.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div> */}
+                        <div className="row">                          
                         </div>
                     </div>
                 </div>
