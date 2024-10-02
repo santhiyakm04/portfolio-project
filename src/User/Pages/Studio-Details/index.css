@@ -1,0 +1,9 @@
+.lsting-navbar{
+    margin-bottom: 0px;
+}
+.page-header {
+    min-height: 65vh;
+}
+.nav-pills{
+    row-gap: 20px;
+}

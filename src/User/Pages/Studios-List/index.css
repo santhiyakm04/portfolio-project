@@ -1,0 +1,15 @@
+.lsting-navbar{
+    margin-bottom: 0px;
+}
+.page-header {
+    min-height: 65vh;
+}
+.input-group-text{
+    background: #999;
+}
+.searchbtn{
+    background: #999;
+}
+.searchbtn::placeholder{
+color: white;
+}
