@@ -9,10 +9,10 @@ import { Studio_Listing } from './User/Pages/Studios-List/';
 import { Studio_Details } from './User/Pages/Studio-Details';
 import { Admin_Panel } from './Admin/Pages/Admin Panel';
 import { Admin_View } from './Admin/Pages/Admin View';
-
 import { Book_Details } from './User/Pages/Book_details';
 import { View_Details } from './User/Pages/View_details';
-import { Studio_Details } from './User/Pages/Studio-Details';
+import { Studio_Login } from './Studio/Pages/Studio-Login/Index';
+
 const router = createBrowserRouter([
   {
     path:"/user_login",
