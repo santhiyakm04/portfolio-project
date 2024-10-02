@@ -15,6 +15,7 @@ import { Book_Details } from './User/Pages/Book_details';
 import { View_Details } from './User/Pages/View_details';
 import { Studio_Login } from './Studio/Pages/Studio-Login/Index';
 
+
 const router = createBrowserRouter([
   {
     path:"/user_login",
@@ -23,6 +24,15 @@ const router = createBrowserRouter([
   {
     path:"/studio_login",
     element: <div><Studio_Login/></div>
+  },
+  {
+    path:"/studio_register",
+    element: <div><Studio_Register/></div>
+  },
+  
+  {
+    path:"/user_register",
+    element: <div><User_Register/></div>
   },
   {
     path:"/admin/login",
