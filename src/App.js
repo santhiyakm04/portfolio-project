@@ -5,6 +5,8 @@ import { User_Login } from './User/Pages/User-Login/Index';
 import { createBrowserRouter, RouterProvider}from "react-router-dom";
 import { User_Register } from './User/Pages/User-Register/Index';
 import { Studio_Register } from './Studio/Pages/Studio-Register/Index';
+import { Studio_Order } from './Studio/Pages/studio_orders';
+import { Viewdetails } from './Studio/Pages/client_details';
 import { Studio_Listing } from './User/Pages/Studios-List/';
 import { Studio_Details } from './User/Pages/Studio-Details';
 import { Admin_Panel } from './Admin/Pages/Admin Panel';
@@ -49,6 +51,14 @@ const router = createBrowserRouter([
   {
     path:"/book_details",
     element: <div><Book_Details/></div>
+  },
+  {
+    path:"/Studio_Orders",
+    element: <div><Studio_Order/></div>
+  },
+  {
+    path:"/clientdetails/:id",
+    element: <div><Viewdetails/></div>
   },
   {
     path:"/view_details",

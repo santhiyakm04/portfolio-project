@@ -47,7 +47,7 @@ export const User_Login = () => {
                         </a>
                         <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                           <Link to="/Studio_Login" className="text-dark m-5">Studio</Link><br/>
-                          <Link to="/admin_login" className="text-dark m-5">Admin</Link>
+                          <Link to="/admin/login" className="text-dark m-5">Admin</Link>
                         </div>
                       </li>
                        </ul>
