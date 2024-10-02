@@ -26,10 +26,6 @@ const router = createBrowserRouter([
     path:"/admin/login",
     element: <div><Admin_Login/></div>
   },
-  {
-    path:"/studio_register",
-    element: <div><Studio_Register/></div>
-  },
 
   {
     path:"/admin/panel",
