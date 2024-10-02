@@ -1,0 +1,23 @@
+
+
+.head{
+    margin-bottom: 60px;
+    margin-top: 20px;
+}
+.forms{
+    margin-left: 43.5%;
+    margin-top: 40px;
+}
+.clientlist{
+    margin-top: 40px;
+    margin-left: 5%;
+    width: 90%;
+    text-align: center;
+}
+.tablelist{
+    margin-top:30px;
+}
+.navbar-expand-lg{
+    width: 100%;
+    padding: 20px;
+}

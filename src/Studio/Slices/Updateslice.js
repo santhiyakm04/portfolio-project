@@ -1,27 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialstate={
-    studiolog:{
+    studioupdates:{
        
-     
-        email :"" ,
-        password :"" ,
+        update_status :"",
        
 }
 }
-      export const Loginslice = createSlice({
-                                            name:'logs',
+      export const Updateslice = createSlice({
+                                            name:'updates',
                                            
                                             initialState :initialstate,
                                             reducers:{
                                                
-                                                userlog:(state,action)=>{
-                                                    state.studiolog=action.payload
+                                                studio_update:(state,action)=>{
+                                                    state.studioReg=action.payload
                                                 }
                                             }
                                             })
-                                            export const {userlog} = Loginslice.actions
+                                            export const {studio_update} = Updateslice.actions
                                             
-                                            export default Loginslice.reducer
+                                            export default Updateslice.reducer
 
       
