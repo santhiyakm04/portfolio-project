@@ -28,7 +28,7 @@ export const Book_Details = () => {
         formData.append("package",bookvalue.package)
         formData.append("user_id",bookvalue.user_id)
         formData.append("studio_id",bookvalue.studio_id)
-
+        
         axios.post("https://agaram.academy/api/action.php?request=studio_create_booking",formData).then((res)=>{
             console.log(res.data.data)
         })

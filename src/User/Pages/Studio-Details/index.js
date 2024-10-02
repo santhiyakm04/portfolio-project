@@ -6,8 +6,10 @@ import axios from "axios";
 
 
 export const Studio_Details = () => {
-  let {id} = useParams();
+  let {id} = useParams()
+  // console.log(id)
   const [viewdata, setviewdata] = useState({})
+  // console.log(viewdata.name)
   const [review, setreview] = useState([])
   const [comment, setcomment] = useState({
     name: "",
@@ -18,7 +20,7 @@ export const Studio_Details = () => {
     setreview([...review, comment])
   }
   useEffect(() => {
-    axios.get(`https://agaram.academy/api/action.php?request=studio_getViewDetail&id=${id}`).then((res) => {
+    axios.get(`https://agaram.academy/api/action.php?request=studio_getViewDetails&id=${id}`).then((res) => {
       setviewdata(res.data.data)
       console.log(res.data.data)
     })
@@ -34,7 +36,7 @@ export const Studio_Details = () => {
                 <span className="navbar-toggler-bar bar2"></span>
                 <span className="navbar-toggler-bar bar3"></span>
               </button>
-              <a className="navbar-brand" href="#pablo">{viewdata.name}</a>
+              <a className="navbar-brand">{viewdata.name}</a>
             </div>
             <div className="collapse navbar-collapse show" data-nav-image="./assets/img//blurred-image-1.jpg">
               <ul className="navbar-nav ml-auto">
