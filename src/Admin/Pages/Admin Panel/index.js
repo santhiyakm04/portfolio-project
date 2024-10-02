@@ -9,7 +9,10 @@ export const Admin_Panel=()=>{
 
     const[userList,setUserList]=useState([])
     const[record,setrecord]=useState(userList)
-    const[studio,setstudio]=useState(userList)
+
+    const[studio,setstudio]=useState([])
+    
+    const[filterStudio,setFilterStudio]=useState(studio)
     
         const navigate=useNavigate();
         const Display=()=>{
@@ -46,13 +49,14 @@ export const Admin_Panel=()=>{
             axios.post(" https://agaram.academy/api/action.php?request=studio_getAllStudio").then((datavalue)=>{
                 // setUserList(datavalue.data.data)
                 setstudio(datavalue.data.data)
+                setFilterStudio(datavalue.data.data)
                 // console.log(datavalue)
     
             })
     
         }
         const Search=(event)=>{
-            setstudio(userList.filter(e=>e.name.toLowerCase().includes(event.target.value)))
+            setFilterStudio(studio.filter(e=>e.name.toLowerCase().includes(event.target.value)))
           }
         
     const Delete=(idvalue)=>{
@@ -136,7 +140,7 @@ export const Admin_Panel=()=>{
             </tr>
         </thead>
         <tbody>
-        {studio.map((each)=>
+        {filterStudio.map((each)=>
                
             <tr className="table-light">
                 <td>{each.name}</td>
