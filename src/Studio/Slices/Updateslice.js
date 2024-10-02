@@ -1,32 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialstate={
-    studioReg:{
+    studioupdates:{
        
-       name :"",
-       email :"" ,
-        password :"" ,
-        address :"" ,
-        phone:"",
-        city:"",
-        area:"",
-        pin:"",
-        status:""
+        update_status :"",
+       
 }
 }
-      export const Registerslice = createSlice({
-                                            name:'regis',
+      export const Updateslice = createSlice({
+                                            name:'updates',
                                            
                                             initialState :initialstate,
                                             reducers:{
                                                
-                                                user:(state,action)=>{
+                                                studio_update:(state,action)=>{
                                                     state.studioReg=action.payload
                                                 }
                                             }
                                             })
-                                            export const {user} = Registerslice.actions
+                                            export const {studio_update} = Updateslice.actions
                                             
-                                            export default Registerslice.reducer
+                                            export default Updateslice.reducer
 
       

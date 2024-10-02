@@ -16,6 +16,7 @@ export const Studio_Register = () => {
         let formData = new FormData()
 
         formData.append("name", reg.name)
+        formData.append("status", reg.status)
     formData.append("email", reg.email)
     formData.append("password", reg.password) 
     formData.append("address", reg.address)
@@ -27,11 +28,12 @@ export const Studio_Register = () => {
 
         axios.post("https://agaram.academy/api/action.php?request=studio_create_studio", formData).then((e) => {
               console.log(e)
-              alert("Register sucessfully")
-             // navigate("/studio_login")
+              
+            //   alert("Register sucessfully")
+            //   navigate("/studio_login")
 
         })
-        
+       
     }
     
 
