@@ -18,7 +18,7 @@ useEffect(()=>{
 },[])
 
 const Viewlist=(idvalue)=>{
-  navigate(`/studio/details/${idvalue}`)
+  navigate(`/user/studiodetails/${idvalue}`)
 }
 
 const Filterbtn =(event)=>{
@@ -58,8 +58,7 @@ const Filterbtn =(event)=>{
                         </a>
                         <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                         
-                   <Link to="/user_login"><span className="glyphicon glyphicon-log-out btn btn-primary">Log out</span> 
-                        </Link>
+                   <Link to="/">Log out</Link>
                         </div>
                       </li>
               </ul>
@@ -82,40 +81,16 @@ const Filterbtn =(event)=>{
         <div className="carousel-item active">
           <div className="page-header header-filter">
             <div className="page-header-image" style={{backgroundImage: "url('../assets/img/bg30.jpg')"}}></div>
-            <div className="content-center text-center">
-              <div className="row">
-                <div className="col-md-8 ml-auto mr-auto">
-                  <h1 className="title">Finding the Perfect.</h1>
-                  <h4 className="description text-white">The haute couture crowds make stylish statements between shows during couture season in Paris...</h4>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
         <div className="carousel-item">
           <div className="page-header header-filter">
             <div className="page-header-image" style={{backgroundImage: "url('../assets/img/bg29.jpg')"}}></div>
-            <div className="content-center">
-              <div className="row">
-                <div className="col-md-8 ml-auto mr-auto text-center">
-                  <h1 className="title">Street Style: Couture.</h1>
-                  <h4 className="description text-white">See what Karlie Kloss, Tracee Ellis Ross and others wore between the shows...</h4>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
         <div className="carousel-item">
           <div className="page-header header-filter">
             <div className="page-header-image" style={{backgroundImage: "url('../assets/img/bg28.jpg')"}}></div>
-            <div className="content-center text-center">
-              <div className="row">
-                <div className="col-md-8 ml-auto mr-auto">
-                  <h1 className="title">For Men With Style.</h1>
-                  <h4 className="description text-white">Shirts that actually fit? Check. Linen shorts? Yup. Those wider pants suddenly in style? Got them, too....</h4>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -131,7 +106,7 @@ const Filterbtn =(event)=>{
           <div className="row">
             <div className="col-md-8 ml-auto mr-auto text-center">
               <h2 className="title">All The Studios</h2>
-              <h4 className="description">This is the paragraph where you can write more details about your team. Keep you user engaged by providing meaningful information.</h4>
+              <h4 className="description text-dark">This is the paragraph where you can write more details about your team. Keep you user engaged by providing meaningful information.</h4>
             </div>
           </div>
           <div className='row justify-content-end'>
@@ -160,11 +135,9 @@ const Filterbtn =(event)=>{
                   </div>
                   <div className="col-md-7">
                     <div className="card-body">
-                      <h4 className="card-title">{each.name}</h4>
-                      <h6 className="category">{each.city}</h6>
-                      <p className="card-description">
-                        {each.address}
-                      </p>
+                      <h3 className="card-title">{each.name}</h3>
+                      <h5 className="card-title">{each.city}</h5>
+                      <h5 className="card-title">{each.address}</h5>
                       <div className="card-footer">
                         <a href="#pablo" className="btn btn-icon btn-neutral btn-twitter"><i className="fab fa-twitter"></i></a>
                         <a href="#pablo" className="btn btn-icon btn-neutral btn-facebook"><i className="fab fa-facebook-square"></i></a>
@@ -177,7 +150,7 @@ const Filterbtn =(event)=>{
               </div>
             </div>
             )
-
+                
           })}
             
           </div>

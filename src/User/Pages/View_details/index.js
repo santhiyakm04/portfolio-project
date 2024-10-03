@@ -36,8 +36,8 @@ export const View_Details=()=>{
                 <div className="card card-pricing card-background">
                   <div className="card-body">
                       <ul>
-                      <li><h5>{bookvalue.date}</h5></li>
-                      <li><h5>{bookvalue.time}</h5></li>
+                      <li><h5>{bookvalue.event_date}</h5></li>
+                      <li><h5>{bookvalue.event_time}</h5></li>
                       <li><h5>{bookvalue.location}</h5></li>
                       <li><h5>{bookvalue.venue}</h5></li>
                       <li><h5>{bookvalue.event_type}</h5></li>

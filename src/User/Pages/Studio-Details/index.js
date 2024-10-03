@@ -44,9 +44,7 @@ export const Studio_Details = () => {
                   <Link className="nav-link" to="/studio/list">All Studios</Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link">
-                    {viewdata.city}
-                  </a>
+                  <Link className="nav-link" to="/user/viewdetails">My Orders</Link>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link">
@@ -63,7 +61,7 @@ export const Studio_Details = () => {
                     <i className="now-ui-icons ui-1_settings-gear-63" aria-hidden="true"></i>
                   </a>
                   <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                    <Link to="/user_login" className='text-dark m-5'>Logout</Link>
+                    <Link to="/" className='text-dark m-5'>Logout</Link>
                   </div>
                 </li>
               </ul>
@@ -207,7 +205,7 @@ export const Studio_Details = () => {
                                                 <p class="pricepara">
                                                     <del class="money">125000</del>&nbsp;<span class="money">100000</span>
                                                 </p>
-                                                <Link to="/book_details" className='btn btn-primary'>Book Now</Link>
+                                                <Link to="/user/bookdetails" className='btn btn-primary'>Book Now</Link>
                                             </div>
                                         </div>
                                     </div>
@@ -242,7 +240,7 @@ export const Studio_Details = () => {
                                                 <p class="pricepara">
                                                     <del class="money">150000</del>&nbsp;<span class="money">100000</span>
                                                 </p>
-                                                <Link to="/book_details" className='btn btn-primary'>Book Now</Link>
+                                                <Link to="/user/bookdetails" className='btn btn-primary'>Book Now</Link>
                                             </div>
                                         </div>
                                     </div>
@@ -276,7 +274,7 @@ export const Studio_Details = () => {
                                                 <p class="pricepara">
                                                     <del class="money">250000</del>&nbsp;<span class="money">200000</span>
                                                 </p>
-                                                <Link to="/book_details" className='btn btn-primary'>Book Now</Link>
+                                                <Link to="/user/bookdetails" className='btn btn-primary'>Book Now</Link>
                                             </div>
                                         </div>
                                     </div>
@@ -309,7 +307,7 @@ export const Studio_Details = () => {
                                                 <p class="pricepara">
                                                     <del class="money">350000</del>&nbsp;<span class="money">300000</span>
                                                 </p>
-                                                <Link to="/book_details" className='btn btn-primary'>Book Now</Link>
+                                                <Link to="/user/bookdetails" className='btn btn-primary'>Book Now</Link>
                                             </div>
                                         </div>
                                     </div>

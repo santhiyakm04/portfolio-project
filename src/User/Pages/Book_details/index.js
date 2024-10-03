@@ -31,7 +31,7 @@ export const Book_Details = () => {
             console.log(res.data.data)
         })
         alert("Booked successfully")
-        navigate("/view_details")
+        
     }
    
 

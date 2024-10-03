@@ -18,7 +18,7 @@ export const User_Login = () => {
           console.log(log)
           if(log.data.status=="success"){
             alert("login successfull")
-            navigate("/studio/list")
+            navigate("/user/studiolist")
           }
           else{
             alert("login failed")
@@ -75,20 +75,20 @@ export const User_Login = () => {
                                            <div className="input-group-prepend">
                                                <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
                                            </div>
-                                           <input type="text" className="form-control" onKeyUp={(e) => dispatch(log({ ...logvalue, email: e.target.value }))} placeholder="Email" />
+                                           <input type="email" className="form-control" onKeyUp={(e) => dispatch(log({ ...logvalue, email: e.target.value }))} placeholder="Email" />
                                        </div>
                                        <div className="input-group no-border input-lg" style={{marginBottom:"0 !important"}}> 
                                            <div className="input-group-prepend">
                                                <span className="input-group-text"><i className="now-ui-icons text_caps-small"></i></span>
                                            </div>
-                                           <input type="text" className="form-control" onKeyUp={(e) => dispatch(log({ ...logvalue, password: e.target.value }))} placeholder="Password" />
+                                           <input type="password" className="form-control" onKeyUp={(e) => dispatch(log({ ...logvalue, password: e.target.value }))} placeholder="Password" />
                                        </div> 
                                    </div>
                                    <div className="pull-center mt-1">
                                    <button className="btn btn-success mt-3" onClick={login}>Login</button>
                                
                                        <h6>
-                                        <i className="child">Don't have an account?</i>   <Link to="/user_register" className="text-success">Register</Link>
+                                        <i className="child">Don't have an account?</i>   <Link to="/user/register" className="text-success">Register</Link>
                                        </h6>
                                    </div>
                                   
