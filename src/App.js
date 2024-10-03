@@ -9,11 +9,12 @@ import { Studio_Order } from './Studio/Pages/studio_orders';
 import { Viewdetails } from './Studio/Pages/client_details';
 import { Studio_Listing } from './User/Pages/Studios-List/';
 import { Studio_Details } from './User/Pages/Studio-Details';
-import { Admin_Panel } from './Admin/Pages/Admin Panel';
-import { Admin_View } from './Admin/Pages/Admin View';
+import { Admin_Panel } from './Admin/Pages/Admin_Panel';
+import { Admin_View } from './Admin/Pages/studio_view';
 import { Book_Details } from './User/Pages/Book_details';
 import { View_Details } from './User/Pages/View_details';
 import { Studio_Login } from './Studio/Pages/Studio-Login/Index';
+import { User_View } from './Admin/Pages/user_view';
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
     element: <div><Studio_Login/></div>
   },
   {
-    path:"/admin/login",
+    path:"/",
     element: <div><Admin_Login/></div>
   },
 
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
   {
     path:"/admin/view/:id",
     element: <div><Admin_View/></div>
+  },
+  {
+    path:"/admin/user_view/:user_id",
+    element: <div><User_View/></div>
   },
 
   {

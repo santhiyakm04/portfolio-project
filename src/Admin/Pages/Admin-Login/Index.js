@@ -73,13 +73,13 @@ export const Admin_Login=()=>{
                                             <div className="input-group-prepend">
                                                 <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
                                             </div>
-                                            <input type="text" className="form-control " onKeyUp={(e)=>dispatch(updatingDetails({...statevalue, email:e.target.value}))} placeholder="Email" />
+                                            <input type="email" className="form-control " onKeyUp={(e)=>dispatch(updatingDetails({...statevalue, email:e.target.value}))} placeholder="Email" />
                                         </div>
                                         <div className="input-group no-border input-lg"> 
                                             <div className="input-group-prepend">
                                                 <span className="input-group-text"><i className="now-ui-icons text_caps-small"></i></span>
                                             </div>
-                                            <input type="text" className="form-control" onKeyUp={(e)=>dispatch(updatingDetails({...statevalue, password:e.target.value}))} placeholder="Password" />
+                                            <input type="password" className="form-control" onKeyUp={(e)=>dispatch(updatingDetails({...statevalue, password:e.target.value}))} placeholder="Password" />
                                         </div> 
                                     </div>
                                     <div className="card-footer text-center">

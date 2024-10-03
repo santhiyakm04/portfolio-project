@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
 
 export const Admin_View=()=>{
@@ -8,15 +9,29 @@ export const Admin_View=()=>{
     const [view, setview] = useState({})
     const { id } = useParams()
 
-
     useEffect(() => {
         axios.get(`http://agaram.academy/api/action.php?request=studio_getViewDetails&id=${id}`).then((viewlist) => {
             setview(viewlist.data.data)
         })
     },[])
-
     return(
         <div>
+            <nav class="navbar navbar-expand-lg bg-primary">
+              <div class="container">
+                <div class="collapse navbar-collapse" id="example-navbar-primary">
+                  <ul class="navbar-nav ml-auto">
+                  <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown">
+                          <i class="now-ui-icons ui-1_settings-gear-63" aria-hidden="true"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <Link to="/user_login" className='text-dark m-5'>Logout</Link>
+                        </div>
+                      </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
             <div className="container-fluid  text-dark">
         <div className="row w-50 mx-auto">
             <h4 className="col-5 text-end">Name:</h4>

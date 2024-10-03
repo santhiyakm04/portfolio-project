@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect, useState} from "react"
 import {  useNavigate } from "react-router-dom"
-
+import { Link } from "react-router-dom"
 
 
 export const Admin_Panel=()=>{
@@ -29,14 +29,14 @@ export const Admin_Panel=()=>{
           }
         
     const Deletelist=(idvalue)=>{
-        axios.get(` https://agaram.academy/api/action.php?request=studio_removeDetails&id=${idvalue}`).then((value)=>{
+        axios.get(` https://agaram.academy/api/action.php?request=studio_removeUser&user_id=${idvalue}`).then((value)=>{
             // console.log(value)
             Display()
         })
         }
          
         const Viewlist=(idvalue)=>{
-            navigate(`/admin/view/${idvalue}`)
+            navigate(`/admin/user_view/${idvalue}`)
             }
 
         useEffect(()=>{
@@ -79,6 +79,23 @@ export const Admin_Panel=()=>{
 
 
     return(
+        <div>
+     <nav class="navbar navbar-expand-lg bg-primary">
+              <div class="container">
+                <div class="collapse navbar-collapse" id="example-navbar-primary">
+                  <ul class="navbar-nav ml-auto">
+                  <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown">
+                          <i class="now-ui-icons ui-1_settings-gear-63" aria-hidden="true"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <Link to="/user_login" className='text-dark m-5'>Logout</Link>
+                        </div>
+                      </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
         <div className="index-page sidebar-collapse">
              <div className="col-md-10 ml-auto col-xl-6 mr-auto m-5">
               <div className="card">
@@ -160,7 +177,7 @@ export const Admin_Panel=()=>{
                 </div>
               </div>
             </div>
-      
+            </div>
     )
 
 }
