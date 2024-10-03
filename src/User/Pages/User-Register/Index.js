@@ -25,10 +25,10 @@ export const User_Register = () => {
         formData.append(" pin",uservalue.pin)
     axios.post(" https://agaram.academy/api/action.php?request=studio_create_user",formData).then((data)=>{
         console.log(data)
-        // if(data.data.status){
-        //     alert("successfully registered")
-        // }
-        // navigate("/user_login")
+        if(data.data.status){
+            alert("successfully registered")
+        }
+        navigate("/user_login")
     })
     }
  

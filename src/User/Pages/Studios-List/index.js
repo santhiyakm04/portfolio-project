@@ -22,7 +22,7 @@ const Viewlist=(idvalue)=>{
 }
 
 const Filterbtn =(event)=>{
-  setSearchData(studioData.filter(e=>e.name.toLowerCase().includes(event.target.value)))
+  setSearchData(studioData.filter(e=>e.name.toLowerCase().includes(event.target.value.toLowerCase())))
 }
 
  

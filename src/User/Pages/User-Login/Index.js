@@ -17,8 +17,11 @@ export const User_Login = () => {
       axios.post("https://agaram.academy/api/action.php?request=studio_user_login",formData).then((log)=>{
           console.log(log)
           if(log.data.status=="success"){
-            alert("success")
+            alert("login successfull")
             navigate("/studio/list")
+          }
+          else{
+            alert("login failed")
           }
       })
   }

@@ -35,21 +35,13 @@ export const View_Details=()=>{
        <div className="col-md-6 col-lg-5 mx-auto m-5">
                 <div className="card card-pricing card-background">
                   <div className="card-body">
-                  <ul>
-                      <li><b>{bookvalue.name}</b></li>
-                      <li><h5>{bookvalue.email}</h5></li>
-                      <li><h5>{bookvalue.phone}</h5></li>
-                      <li><h5>{bookvalue.address}</h5></li>
-                      </ul>
                       <ul>
-                      <h3 className="text-light">Event Details:</h3>
-                      <li><h5>{bookvalue.bridenamegroomname}</h5></li>
                       <li><h5>{bookvalue.date}</h5></li>
                       <li><h5>{bookvalue.time}</h5></li>
                       <li><h5>{bookvalue.location}</h5></li>
                       <li><h5>{bookvalue.venue}</h5></li>
-                      <li><h5>{bookvalue.eventtype}</h5></li>
-                      <li><h5>{bookvalue.packages}</h5></li>
+                      <li><h5>{bookvalue.event_type}</h5></li>
+                      <li><h5>{bookvalue.package}</h5></li>
                     </ul>
                   </div>
                 </div>

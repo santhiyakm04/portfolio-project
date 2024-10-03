@@ -17,7 +17,7 @@ import { Studio_Login } from './Studio/Pages/Studio-Login/Index';
 
 const router = createBrowserRouter([
   {
-    path:"/user_login",
+    path:"/",
     element: <div><User_Login/></div>
   },
   {
