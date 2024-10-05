@@ -1,11 +1,11 @@
 import './index.css'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import {useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { studio } from '../../Slices/profileslice'
-
+import { pack } from '../../Slices/profileslice'
 
 export const Studio_Order = () => {
 
@@ -13,57 +13,60 @@ export const Studio_Order = () => {
     const det = useSelector((state) => state.details).studioProfile;
     //   console.log(det)
     const dispatch = useDispatch();
-    const [packages, setPackages] = useState([{
-        name:"",
-        amount:""
-    }
-        ])
-    // console.log(packages)
+    const [packages, setPackages] = useState({ name: "", amount: "" })
+
+    // console.log(det)
     // --------------------------------------------------------------------------
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     const [order, setorder] = useState([])
 
-    const [ordername, setordername] = useState([])
+    // const [ordername, setordername] = useState([])
     // ----------------------------------------------------------------------------
     const logup = useSelector((state) => state.logs).studiolog;
 
+    const addlist = () => {
+        dispatch(pack([...det.packages, packages]))
 
+    }
 
     const userdetail = () => {
-        dispatch(studio({...det,packages:[{...packages,}]}))
+        // dispatch(pack([...det.packages, packages]))
+
         let formData = new FormData()
         formData.append("name_of_founder", det.name_of_founder)
         formData.append("no_of_branches", det.no_of_branches)
         formData.append("no_of_achievements", det.no_of_achievements)
         formData.append("about_us", det.about_us)
-        formData.append("packages",JSON.stringify( det.packages))
+        formData.append("packages", JSON.stringify(det.packages))
         formData.append("studio_id", logup.data.id)
 
         axios.post("https://agaram.academy/api/action.php?request=studio_update_profile", formData).then((e) => {
             // console.log(e)
-            // alert("upload profile sucessfully")
+            alert("upload profile sucessfully")
         })
     }
+
     // -----------------------------------------------------------------------
 
 
     // ----------------------------------------------------------------------------
 
 
-    const Viewpage = (idvalue) => {
-        navigate(`/clientdetails/${idvalue}`)
-    }
+    // const Viewpage = (idvalue) => {
+    //     navigate(`/clientdetails/${idvalue}`)
+    // }
 
     const orderlist = () => {
-        axios.get("https://agaram.academy/api/action.php?request=studio_getBookingDetails").then((e) => {
-            setorder(e.data.data)
+        axios.get(`https://agaram.academy/api/action.php?request=studio_getBookingDetails&studio_id=${logup.data.id}`).then((n) => {
+            setorder(n.data.data)
+            
         })
     }
     useEffect(() => {
         orderlist()
-    }, [])
+    },[])
 
     // ------------------------------------------------------------------------------
 
@@ -145,7 +148,7 @@ export const Studio_Order = () => {
                 <div className="tab-content gallery">
                     <div className="tab-pane active" id="profile" role="tabpanel">
                         <div className="row">
-                            
+
                             <form role="form" className="forms" id="contact-form" method="post">
                                 {/* <small>
                                     {JSON.stringify(det)}
@@ -156,7 +159,7 @@ export const Studio_Order = () => {
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><i class="now-ui-icons users_circle-08"></i></span>
                                     </div>
-                                    <input type="text" className="form-control" placeholder="Enter ur name" onKeyUp={(e) => dispatch(studio({ ...det, name_of_founder: e.target.value }))} autocomplete="name" />
+                                    <input type="text" className="form-control" placeholder="Enter ur name"     onKeyUp={(e) => dispatch(studio({ ...det, name_of_founder: e.target.value }))} autocomplete="name" />
                                 </div>
 
                                 <label>No of branches:</label>
@@ -184,37 +187,56 @@ export const Studio_Order = () => {
                                 </div>
 
                                 <label>Amount for basic  package:</label>
+                               
                                 <div className="input-group">
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><i class=""></i></span>
                                     </div>
-                                    <input type="number" className="form-control" placeholder="enter ur package amount" onChange={(e) => setPackages([...packages,{name:"basic",amount:e.target.value}])} aria-label="amount" autocomplete="amount" />
+                                    <input type="number" className="form-control" placeholder="enter ur package amount"  onChange={(e) => setPackages({ name: "basic", amount: e.target.value })} aria-label="amount" autocomplete="amount" />
                                 </div>
+                                <button  className="btn btn-primary btn-round btn-sm addbtn" type="button" onClick={() => addlist()}>confirm amount</button>
+                                <br>
+                                </br>
+                                <br>
+                                </br>
 
                                 <label>Amount for silver  package:</label>
                                 <div className="input-group">
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><i class=""></i></span>
                                     </div>
-                                    <input type="number" className="form-control" placeholder="enter ur package amount" onChange={(e) => setPackages([...packages,{name:"silver",amount:e.target.value}])} aria-label="amount" autocomplete="amount" />
+                                    <input type="number" className="form-control" placeholder="enter ur package amount" onChange={(e) => setPackages({ name: "silver", amount: e.target.value })} aria-label="amount" autocomplete="amount" />
                                 </div>
+                                <button  className="btn btn-primary btn-round btn-sm addbtn" type="button" onClick={() => addlist()}>confirm amount</button>
+                                <br>
+                                </br>
+                                <br>
+                                </br>
 
                                 <label>Amount for gold package:</label>
                                 <div className="input-group">
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><i class=""></i></span>
                                     </div>
-                                    <input type="number" className="form-control" placeholder="enter ur package amount"onChange={(e) => setPackages([...packages,{name:"gold",amount:e.target.value}])} aria-label="amount" autocomplete="amount" />
+                                    <input type="number" className="form-control" placeholder="enter ur package amount" onChange={(e) => setPackages({ name: "gold", amount: e.target.value })} aria-label="amount" autocomplete="amount" />
                                 </div>
+                                <button  className="btn btn-primary btn-round btn-sm addbtn" type="button" onClick={() => addlist()}>confirm amount</button>
+                                <br>
+                                </br>
+                                <br>
+                                </br>
 
                                 <label>Amount for platinum package:</label>
                                 <div className="input-group">
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><i class=""></i></span>
                                     </div>
-                                    <input type="number" className="form-control" placeholder="enter ur package amount" onChange={(e) =>setPackages([...packages,{name:"platinum",amount:e.target.value}])}aria-label="amount" autocomplete="amount" />
-                                </div>
+                                    <input type="number" className="form-control" placeholder="enter ur package amount" onChange={(e) => setPackages({ name: "platinum", amount: e.target.value })} aria-label="amount" autocomplete="amount" />
 
+                                </div>
+                                <button  className="btn btn-primary btn-round btn-sm addbtn" type="button" onClick={() => addlist()}>confirm amount</button>
+                                <br>
+                                </br>
                                 <label>About us:</label>
                                 <div className="input-group">
                                     <div className="input-group-prepend">
@@ -224,27 +246,31 @@ export const Studio_Order = () => {
                                 </div>
 
                                 <div className="submit text-center">
-                                    <button type='button' className="btn btn-primary btn-round btn-lg" onClick={userdetail}>upload</button>
+                                    <button type='button' className="btn btn-primary btn-round btn-lg" onClick={() => userdetail()}>upload</button>
                                 </div>
                             </form>
-                            
+
                         </div>
                     </div>
 
-{/* ------------------------------------------------------------- */}
+                    {/* ------------------------------------------------------------- */}
 
                     <div className="tab-pane" id="home" role="tabpanel">
                         <div className="row">
-                            
+
 
                             <table className="  table-light clientlist" >
                                 <thead className="table table-dark">
                                     <tr>
                                         {/* <th>Name</th> */}
-                                        <th>Events</th>
+                                        
                                         <th>Date</th>
+                                        <th>package</th>
+                                        <th>Event</th>
+                                        <th>time</th>
                                         <th>Place</th>
-                                        <th>Action</th>
+                                        <th>location</th>
+                                        {/* <th>Action</th> */}
                                     </tr>
                                 </thead>
                                 <tbody  >
@@ -257,10 +283,16 @@ export const Studio_Order = () => {
 
                                                 </tr>
                                             )} */}
+                                            <td>{each.event_date}</td>
+                                            <td>{each.package}</td>
                                             <td>{each.event_type}</td>
-                                            <td>{each.date}</td>
+                                            <td>{each.event_time}</td>
+                                            <td>{each.venue}</td>
                                             <td>{each.location}</td>
-                                            <td><button type='button' onClick={() => Viewpage(each.id)}>view</button></td>
+
+                                            
+                                            
+                                            {/* <td><button type='button' onClick={() => Viewpage(each.id)}>view</button></td> */}
 
 
                                         </tr>
@@ -271,7 +303,8 @@ export const Studio_Order = () => {
                         </div>
                     </div>
                     <div className="tab-pane" id="messages" role="tabpanel">
-                        <div className="row">                          
+                        <div className="row">
+
                         </div>
                     </div>
                 </div>
