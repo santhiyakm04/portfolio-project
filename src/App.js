@@ -76,7 +76,7 @@ const router = createBrowserRouter([
     
   },
   {
-    path:"/user/studiodetails/:id",
+    path:"/user/studiodetails/:id/",
     element: <div><Studio_Details/></div>
   }
 

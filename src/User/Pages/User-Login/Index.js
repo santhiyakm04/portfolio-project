@@ -14,10 +14,11 @@ export const User_Login = () => {
       formData.append("request",logvalue.request) 
       formData.append("email",logvalue.email)
       formData.append("password",logvalue.password)
-      axios.post("https://agaram.academy/api/action.php?request=studio_user_login",formData).then((log)=>{
-          console.log(log)
-          if(log.data.status=="success"){
-            alert("login successfull")
+      axios.post("https://agaram.academy/api/action.php?request=studio_user_login",formData).then((res)=>{
+        //   console.log(log)
+          if(res.data.status=="success"){
+            // alert("login successfull")
+            dispatch(log(res.data.data))
             navigate("/user/studiolist")
           }
           else{

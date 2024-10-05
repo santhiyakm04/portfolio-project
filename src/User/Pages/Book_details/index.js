@@ -7,14 +7,19 @@ import axios from "axios"
 
 
 
-
 export const Book_Details = () => {
     const navigate = useNavigate()
     const bookdetail = useSelector((state) => state.book)
     const bookvalue = bookdetail.book_details
     // console.log()
     const dispatch = useDispatch()
+ 
+      const searchparam=new URLSearchParams(window.location.search)
+      const param1=searchparam.get('user_id')
+      const param2=searchparam.get('studio_id')
+      const param3=searchparam.get('status')
 
+    
 
     const submit = () => {
 
@@ -26,6 +31,9 @@ export const Book_Details = () => {
         formData.append("venue",bookvalue.venue)
         formData.append("event_type",bookvalue.event_type)
         formData.append("package",bookvalue.package)
+        formData.append("user_id",param1)
+        formData.append("studio_id",param2)
+        formData.append("status",param3)
         
         axios.post("https://agaram.academy/api/action.php?request=studio_create_booking",formData).then((res)=>{
             console.log(res.data.data)

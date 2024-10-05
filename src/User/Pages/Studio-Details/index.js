@@ -1,30 +1,52 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './index.css'
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useSelector } from 'react-redux';
 
 
 export const Studio_Details = () => {
   let {id} = useParams()
   // console.log(id)
+  const navigate=useNavigate()
   const [viewdata, setviewdata] = useState({})
-  // console.log(viewdata.name)
+  console.log(viewdata.name_of_founder)
   const [review, setreview] = useState([])
   const [comment, setcomment] = useState({
     name: "",
     email: "",
     comment: ""
   })
+  const details=useSelector((state)=>state.login)
+  const logvalue=details.logData
+  console.log(logvalue)
+  // const registervalue = useSelector((state) => state.register)
+  // const uservalue = registervalue.user_details
+  // console.log(uservalue)
+
+
+  const [update, setupdate] = useState([])
+  console.log(update)
+
   const postcomment = () => {
     setreview([...review, comment])
   }
   useEffect(() => {
     axios.get(`https://agaram.academy/api/action.php?request=studio_getViewDetails&id=${id}`).then((res) => {
       setviewdata(res.data.data)
+      setupdate(JSON.parse(res.data.data.packages))
+     
       console.log(res.data.data)
     })
   }, [id])
+
+  // useEffect(() => {
+  //   axios.get(`https://agaram.academy/api/action.php?request=studio_getStudioProfile&studio_id=${id}`).then((value) => {
+  //     setupdate(JSON.parse(value.data.data.packages))
+  //     console.log(value.data.data)
+  //   })
+  // }, [])
   return (
     <div>
       <div className="header-3">
@@ -85,9 +107,8 @@ export const Studio_Details = () => {
               <div className="page-header-image" style={{ backgroundImage: "url('/assets/img/bg30.jpg')" }}></div>
               <div className="content-center text-center">
                 <div className="row">
-                  <div className="col-md-8 ml-auto mr-auto">
+                  <div className="col-md-8 ">
                     <h1 className="title">{viewdata.name}</h1>
-                    <h4 className="description text-white">{viewdata.address}</h4>
                   </div>
                 </div>
               </div>
@@ -98,6 +119,7 @@ export const Studio_Details = () => {
               <div className="page-header-image" style={{ backgroundImage: "url('/assets/img/bg29.jpg')" }}></div>
               <div className="content-center">
                 <div className="row">
+                  
                 </div>
               </div>
             </div>
@@ -160,7 +182,7 @@ export const Studio_Details = () => {
                 <h3>Baby Shower Pictures</h3>
               </div>
               <div className="tab-pane" id="baby">
-                <h3>aby Pictures</h3>
+                <h3>Baby Pictures</h3>
               </div>
               <div className="tab-pane" id="couple">
                 <h3>Couple Pictures</h3>
@@ -172,7 +194,9 @@ export const Studio_Details = () => {
       </div>
       {/* <div className='text-center'> */}
         {/* <Link to="/book_details" className='btn btn-primary'>Book Now</Link></div><br/> */}
-
+       
+        {update.map((each)=>
+        <div>
         <div class="row no-gutters justify-content-center">
                         <div class="col-8">
                         <h3 class="title text-center">Packages</h3>
@@ -182,10 +206,10 @@ export const Studio_Details = () => {
                                         <div class="card-header bg-white border-light p-2" id="plan1">
                                             <h5 class="card-title mb-0">
                                                 <a class="btn-block text-left" role="button" data-toggle="collapse" data-target="#plandetail1" aria-expanded="true" aria-controls="plandetail1">
-                                                   Basic<span class="colored-red">.</span>
-                                                    <span class="pricepara float-right">
+                                                   Basic<span class="colored-red"></span>
+                                                    {/* <span class="pricepara float-right">
                                                         <del class="money">125000</del>&nbsp;<span class="money">100000</span>
-                                                    </span>
+                                                    </span> */}
                                                 </a>
                                             </h5>
                                         </div>
@@ -201,21 +225,19 @@ export const Studio_Details = () => {
 
 <p>Full Frame Cameras, Prime and Wide Lenses, Gimbal, and Lights</p>
 </div>
-                                                <p class="fw600 colored-red mb-1">Offer Price:</p>
-                                                <p class="pricepara">
-                                                    <del class="money">125000</del>&nbsp;<span class="money">100000</span>
+                                                <h4 className="fw600 colored-red mb-1">Amount:</h4>
+                                                <p className="pricepara">
+                                                  <b className="money">{each.name=="basic"?each.amount:""}</b>
                                                 </p>
-                                                <Link to="/user/bookdetails" className='btn btn-primary'>Book Now</Link>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card pricingcard">
-                                        <div class="card-header bg-white border-light p-3" id="plan2">
-                                            <h5 class="card-title mb-0">
-                                                <a class="btn-block text-left" role="button" data-toggle="collapse" data-target="#plandetail2" aria-expanded="true" aria-controls="plandetail2">
-                                                   Silver <span class="colored-red">.</span>
-                                                    <span class="pricepara float-right">
-                                                        <del class="money">150000</del>&nbsp;<span class="money">100000</span>
+                                    <div className="card pricingcard">
+                                        <div className="card-header bg-white border-light p-3" id="plan2">
+                                            <h5 className="card-title mb-0">
+                                                <a className="btn-block text-left" role="button" data-toggle="collapse" data-target="#plandetail2" aria-expanded="true" aria-controls="plandetail2">
+                                                   Silver <span className="colored-red"></span>
+                                                    <span className="pricepara float-right">
                                                     </span>
                                                 </a>
                                             </h5>
@@ -236,11 +258,10 @@ export const Studio_Details = () => {
 
 <p>Printed Album at Extra Charge starting at Rs 8000 for 30 pages.</p>
 </div>
-                                                <p class="fw600 colored-red mb-1">Offer Price:</p>
-                                                <p class="pricepara">
-                                                    <del class="money">150000</del>&nbsp;<span class="money">100000</span>
+                                                <h4 className="fw600 colored-red mb-1">Amount</h4>
+                                                <p className="pricepara">
+                                                <b className="money">{each.name=="silver"?each.amount:""}</b>
                                                 </p>
-                                                <Link to="/user/bookdetails" className='btn btn-primary'>Book Now</Link>
                                             </div>
                                         </div>
                                     </div>
@@ -248,9 +269,9 @@ export const Studio_Details = () => {
                                         <div class="card-header bg-white border-light p-3" id="plan3">
                                             <h5 class="card-title mb-0">
                                                 <a class="btn-block text-left" role="button" data-toggle="collapse" data-target="#plandetail3" aria-expanded="true" aria-controls="plandetail3">
-                                                    Gold<span class="colored-red">.</span>
+                                                    Gold<span class="colored-red"></span>
                                                     <span class="pricepara float-right">
-                                                        <del class="money">250000</del>&nbsp;<span class="money">200000</span>
+                                      
                                                     </span>
                                                 </a>
                                             </h5>
@@ -270,11 +291,10 @@ export const Studio_Details = () => {
 
 <p>&nbsp;</p>
 </div>
-                                                <p class="fw600 colored-red mb-1">Offer Price:</p>
+                                                <h4 class="fw600 colored-red mb-1">Amount</h4>
                                                 <p class="pricepara">
-                                                    <del class="money">250000</del>&nbsp;<span class="money">200000</span>
+                                                   <b class="money">{each.name=="gold"?each.amount:""}</b>
                                                 </p>
-                                                <Link to="/user/bookdetails" className='btn btn-primary'>Book Now</Link>
                                             </div>
                                         </div>
                                     </div>
@@ -282,9 +302,9 @@ export const Studio_Details = () => {
                                         <div class="card-header bg-white border-light p-3" id="plan4">
                                             <h5 class="card-title mb-0">
                                                 <a class="btn-block text-left" role="button" data-toggle="collapse" data-target="#plandetail4" aria-expanded="true" aria-controls="plandetail4">
-                                                    Platinum<span class="colored-red">.</span>
+                                                    Platinum<span class="colored-red"></span>
                                                     <span class="pricepara float-right">
-                                                        <del class="money">350000</del>&nbsp;<span class="money">300000</span>
+                                          
                                                     </span>
                                                 </a>
                                             </h5>
@@ -303,11 +323,10 @@ export const Studio_Details = () => {
 
 <p>Full Frame High-end Cameras, Prime and Wide Lenses, Gimbal and Lights</p>
 </div>
-                                                <p class="fw600 colored-red mb-1">Offer Price:</p>
+                                                <h4 class="fw600 colored-red mb-1">Amount</h4>
                                                 <p class="pricepara">
-                                                    <del class="money">350000</del>&nbsp;<span class="money">300000</span>
+                                                   <b class="money">{each.name=="platinum"?each.amount:""}</b>
                                                 </p>
-                                                <Link to="/user/bookdetails" className='btn btn-primary'>Book Now</Link>
                                             </div>
                                         </div>
                                     </div>
@@ -315,6 +334,13 @@ export const Studio_Details = () => {
                             </div>
                         </div>
                     </div>
+        
+                    <div className='text-center'>
+                     <button className="btn btn-primary" onClick={()=>{navigate(`/user/bookdetails?user_id=${logvalue.id}&studio_id=${id}`)}}>Book Now</button>
+                     </div>
+                    </div>
+                  )}
+    
       <h2 className="text-center">Client Review</h2>
       {review.map((e) =>
         <div>
@@ -384,128 +410,39 @@ export const Studio_Details = () => {
       <footer className="footer footer-big" data-background-color="black">
         <div className="container">
           <div className="content">
-            <div className="row">
-              <div className="col-md-2">
-                <h5>About Us</h5>
-                <ul className="links-vertical">
-                  <li>
-                    <a href="#pablo" className="text-muted">
-                      Blog
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#pablo" className="text-muted">
-                      About Us
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#pablo" className="text-muted">
-                      Presentation
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#pablo" className="text-muted">
-                      Contact Us
-                    </a>
-                  </li>
-                </ul>
+              <div>
+                <h5 className='text-center'>About Us</h5>
               </div>
-              <div className="col-md-2">
-                <h5>Market</h5>
-                <ul className="links-vertical">
-                  <li>
-                    <a href="#pablo" className="text-muted">
-                      Sales FAQ
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#pablo" className="text-muted">
-                      How to Register
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#pablo" className="text-muted">
-                      Sell Goods
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#pablo" className="text-muted">
-                      Receive Payment
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#pablo" className="text-muted">
-                      Transactions Issues
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#pablo" className="text-muted">
-                      Affiliates Program
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="col-md-4">
-                <h5>Social Feed</h5>
-                <div className="social-feed">
-                  <div className="feed-line">
-                    <i className="fab fa-twitter"></i>
-                    <p>How to handle ethical disagreements with your clients.</p>
-                  </div>
-                  <div className="feed-line">
-                    <i className="fab fa-twitter"></i>
-                    <p>The tangible benefits of designing at 1x pixel density.</p>
-                  </div>
-                  <div className="feed-line">
-                    <i className="fab fa-facebook-square"></i>
-                    <p>A collection of 25 stunning sites that you can use for inspiration.</p>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-4">
-                <h5>Follow Us</h5>
-                <ul className="social-buttons">
-                  <li>
-                    <a href="#pablo" className="btn btn-icon btn-neutral btn-twitter btn-round">
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#pablo" className="btn btn-icon btn-neutral btn-facebook btn-round">
-                      <i className="fab fa-facebook-square"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#pablo" className="btn btn-icon btn-neutral btn-dribbble btn-round">
-                      <i className="fab fa-dribbble"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#pablo" className="btn btn-icon btn-neutral btn-google btn-round">
-                      <i className="fab fa-google-plus"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#pablo" className="btn btn-icon btn-neutral btn-instagram btn-round">
-                      <i className="fab fa-instagram"></i>
-                    </a>
-                  </li>
-                </ul>
-                <h5>
-                  <small>Numbers Don't Lie</small>
-                </h5>
-                <h5>14.521
-                  <small className="text-muted">Freelancers</small>
-                </h5>
-                <h5>1.423.183
-                  <small className="text-muted">Transactions</small>
-                </h5>
-              </div>
-            </div>
-          </div>
-          <hr />
+              <div className="container">
+        <div className="photo-container">
+          <img src="../assets/img/ryan.jpg" alt=""/>
         </div>
+        <div className="text-center">
+        <h3 className="title">{viewdata.name_of_founder}</h3>
+        <p className="category">Photographer</p>
+        </div>
+        <div className="content">
+             
+          <div className="social-description">
+            <h2 className="text-light">{viewdata.no_of_achievements}</h2>
+            <p>Achivements</p>
+          </div>
+          <div>
+            <h2 className="text-light">{viewdata.no_of_branches}</h2>
+            <p>Branches</p>
+          </div>
+          <div className="social-description">
+            <h2 className="text-light">{viewdata.no_of_employees}</h2>
+            <p>Employees</p>
+          </div>
+        </div>
+      </div>
+              </div>
+              </div>
+              
       </footer>
     </div >
+    // )}
+    // </div>
   )
 }

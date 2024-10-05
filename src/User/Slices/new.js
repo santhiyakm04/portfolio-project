@@ -12,7 +12,8 @@ export const bookslice = createSlice({
     event_type:"",
     package:"",
     user_id:"",
-    studio_id:""
+    studio_id:"",
+    status: ""
 },
    
 },
