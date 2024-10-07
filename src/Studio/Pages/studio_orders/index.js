@@ -21,6 +21,9 @@ export const Studio_Order = () => {
     // const navigate = useNavigate()
 
     const [order, setorder] = useState([])
+    const[search,setsearch]=useState([order])
+    const[searchbar,setsearchbar]=useState({date:""})
+
 
     // const [ordername, setordername] = useState([])
     // ----------------------------------------------------------------------------
@@ -68,6 +71,15 @@ export const Studio_Order = () => {
         orderlist()
     },[])
 
+
+    const searchs =()=>{
+        let bar = order.filter((v)=>{                     
+             return  v.event_date==searchbar.event_date
+        }
+    )
+        setsearch(bar)
+    }
+
     // ------------------------------------------------------------------------------
 
 
@@ -103,14 +115,14 @@ export const Studio_Order = () => {
                             <li className="nav-item">
                                 <a className="nav-link" href="#pablo">
 
-                                    <Link to={"/Studio_login"} className="back"><i> </i> logout</Link>
+                                    <Link to={"/Studio/login"} className="back"><i> </i> logout</Link>
                                 </a>
                             </li>
 
                             <li className="nav-item">
                                 <a className="nav-link" href="#pablo">
 
-                                    <Link to={"/Studio_login"} className="back"><i> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 24 16">
+                                    <Link to={"/Studio/login"} className="back"><i> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 24 16">
                                         <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
                                     </svg></i> Go back</Link>
                                 </a>
@@ -144,6 +156,10 @@ export const Studio_Order = () => {
                         </li>
                     </ul>
                 </div>
+                {/* -------------------------------------- */}
+
+                
+
                 {/* <!-- Tab panes --> */}
                 <div className="tab-content gallery">
                     <div className="tab-pane active" id="profile" role="tabpanel">
@@ -259,6 +275,27 @@ export const Studio_Order = () => {
                         <div className="row">
 
 
+                        <div class="card  card-form-horizontal cardb">
+                    <div class="card-body">
+                      <form method="" action="">
+                        <div class="row">
+                          <div class="col-sm-4 searchbar">
+                            <div class="   input-group ">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="now-ui-icons ui-1_zoom-bold"></i></span>
+                              </div>
+                              <input type="text" class="form-control "  onKeyUp={(s)=>setsearchbar({...searchbar,date:s.target.value})} placeholder="search here..."/>
+                            </div>
+                          </div>
+                          <div class="col-sm-2 ">
+                            <button type="button" class="btn btn-primary btn-round btn-block bts"  onClick={()=>searchs(searchbar)}>search</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+
+
                             <table className="  table-light clientlist" >
                                 <thead className="table table-dark">
                                     <tr>
@@ -274,7 +311,7 @@ export const Studio_Order = () => {
                                     </tr>
                                 </thead>
                                 <tbody  >
-                                    {order.map((each) =>
+                                    {search.map((each) =>
 
                                         <tr className="table my-3">
                                             {/* {ordername.map((n) =>
@@ -299,11 +336,6 @@ export const Studio_Order = () => {
                                     )}
                                 </tbody>
                             </table>
-
-                        </div>
-                    </div>
-                    <div className="tab-pane" id="messages" role="tabpanel">
-                        <div className="row">
 
                         </div>
                     </div>
