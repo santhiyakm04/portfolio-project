@@ -195,7 +195,7 @@ export const Studio_Details = () => {
       {/* <div className='text-center'> */}
         {/* <Link to="/book_details" className='btn btn-primary'>Book Now</Link></div><br/> */}
        
-        {update.map((each)=>
+        {/* {update.map((each)=> */}
         <div>
         <div class="row no-gutters justify-content-center">
                         <div class="col-8">
@@ -227,7 +227,8 @@ export const Studio_Details = () => {
 </div>
                                                 <h4 className="fw600 colored-red mb-1">Amount:</h4>
                                                 <p className="pricepara">
-                                                  <b className="money">{each.name=="basic"?each.amount:""}</b>
+                                                  <b className='text-dark'>10000</b>
+                                                  {/* <b className="money">{each.name=="basic"?each.amount:""}</b> */}
                                                 </p>
                                             </div>
                                         </div>
@@ -260,7 +261,8 @@ export const Studio_Details = () => {
 </div>
                                                 <h4 className="fw600 colored-red mb-1">Amount</h4>
                                                 <p className="pricepara">
-                                                <b className="money">{each.name=="silver"?each.amount:""}</b>
+                                                  <b className='text-dark'>25000</b>
+                                                {/* <b className="money">{each.name=="silver"?each.amount:""}</b> */}
                                                 </p>
                                             </div>
                                         </div>
@@ -293,7 +295,8 @@ export const Studio_Details = () => {
 </div>
                                                 <h4 class="fw600 colored-red mb-1">Amount</h4>
                                                 <p class="pricepara">
-                                                   <b class="money">{each.name=="gold"?each.amount:""}</b>
+                                                  <b className='text-dark'>75000</b>
+                                                   {/* <b class="money">{each.name=="gold"?each.amount:""}</b> */}
                                                 </p>
                                             </div>
                                         </div>
@@ -325,7 +328,8 @@ export const Studio_Details = () => {
 </div>
                                                 <h4 class="fw600 colored-red mb-1">Amount</h4>
                                                 <p class="pricepara">
-                                                   <b class="money">{each.name=="platinum"?each.amount:""}</b>
+                                                  <b className='text-dark'>100000</b>
+                                                   {/* <b class="money">{each.name=="platinum"?each.amount:""}</b> */}
                                                 </p>
                                             </div>
                                         </div>
@@ -339,7 +343,7 @@ export const Studio_Details = () => {
                      <button className="btn btn-primary" onClick={()=>{navigate(`/user/bookdetails?user_id=${logvalue.id}&studio_id=${id}`)}}>Book Now</button>
                      </div>
                     </div>
-                  )}
+                  {/* )} */}
     
       <h2 className="text-center">Client Review</h2>
       {review.map((e) =>
