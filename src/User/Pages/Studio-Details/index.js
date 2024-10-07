@@ -415,7 +415,9 @@ export const Studio_Details = () => {
         <div className="container">
           <div className="content">
               <div>
-                <h5 className='text-center'>About Us</h5>
+                <h2 className='text-center'>About Us</h2>
+                <h3 className="title text-center">{viewdata.about_us}</h3>
+
               </div>
               <div className="container">
         <div className="photo-container">
