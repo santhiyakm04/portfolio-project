@@ -175,25 +175,25 @@ export const Studio_Details = () => {
       {/* <div className='text-center'> */}
         {/* <Link to="/book_details" className='btn btn-primary'>Book Now</Link></div><br/> */}
 
-        <div class="row no-gutters justify-content-center">
-                        <div class="col-8">
-                        <h3 class="title text-center">Packages</h3>
-                            <div class="accordion" id="planscollapse">
+        <div className="row no-gutters justify-content-center">
+                        <div className="col-8">
+                        <h3 className="title text-center">Packages</h3>
+                            <div className="accordion" id="planscollapse">
                              
-                                    <div class="card pricingcard">
-                                        <div class="card-header bg-white border-light p-2" id="plan1">
-                                            <h5 class="card-title mb-0">
-                                                <a class="btn-block text-left" role="button" data-toggle="collapse" data-target="#plandetail1" aria-expanded="true" aria-controls="plandetail1">
-                                                   Basic<span class="colored-red">.</span>
-                                                    <span class="pricepara float-right">
-                                                        <del class="money">125000</del>&nbsp;<span class="money">100000</span>
+                                    <div className="card pricingcard">
+                                        <div className="card-header bg-white border-light p-2" id="plan1">
+                                            <h5 className="card-title mb-0">
+                                                <a className="btn-block text-left" role="button" data-toggle="collapse" data-target="#plandetail1" aria-expanded="true" aria-controls="plandetail1">
+                                                   Basic<span className="colored-red">.</span>
+                                                    <span className="pricepara float-right">
+                                                        <del className="money">125000</del>&nbsp;<span className="money">100000</span>
                                                     </span>
                                                 </a>
                                             </h5>
                                         </div>
-                                        <div id="plandetail1" class="collapse show" aria-labelledby="plan1" data-parent="#planscollapse">
-                                            <div class="card-body">
-                                                <div  class="card-text"><p>Photography + Video + Drone</p>
+                                        <div id="plandetail1" className="collapse show" aria-labelledby="plan1" data-parent="#planscollapse">
+                                            <div className="card-body">
+                                                <div  className="card-text"><p>Photography + Video + Drone</p>
 
 <ul>
 	<li>3 Functions - 4 Member Team</li>
@@ -203,28 +203,28 @@ export const Studio_Details = () => {
 
 <p>Full Frame Cameras, Prime and Wide Lenses, Gimbal, and Lights</p>
 </div>
-                                                <p class="fw600 colored-red mb-1">Offer Price:</p>
-                                                <p class="pricepara">
-                                                    <del class="money">125000</del>&nbsp;<span class="money">100000</span>
+                                                <p className="fw600 colored-red mb-1">Offer Price:</p>
+                                                <p className="pricepara">
+                                                    <del className="money">125000</del>&nbsp;<span className="money">100000</span>
                                                 </p>
                                                 <Link to="/book_details" className='btn btn-primary'>Book Now</Link>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card pricingcard">
-                                        <div class="card-header bg-white border-light p-3" id="plan2">
-                                            <h5 class="card-title mb-0">
-                                                <a class="btn-block text-left" role="button" data-toggle="collapse" data-target="#plandetail2" aria-expanded="true" aria-controls="plandetail2">
-                                                   Silver <span class="colored-red">.</span>
-                                                    <span class="pricepara float-right">
-                                                        <del class="money">150000</del>&nbsp;<span class="money">100000</span>
+                                    <div className="card pricingcard">
+                                        <div className="card-header bg-white border-light p-3" id="plan2">
+                                            <h5 className="card-title mb-0">
+                                                <a className="btn-block text-left" role="button" data-toggle="collapse" data-target="#plandetail2" aria-expanded="true" aria-controls="plandetail2">
+                                                   Silver <span className="colored-red">.</span>
+                                                    <span className="pricepara float-right">
+                                                        <del className="money">150000</del>&nbsp;<span className="money">100000</span>
                                                     </span>
                                                 </a>
                                             </h5>
                                         </div>
-                                        <div id="plandetail2" class="collapse " aria-labelledby="plan2" data-parent="#planscollapse">
-                                            <div class="card-body">
-                                                <div  class="card-text"><p>One Day Wedding - Morning Rituals + Wedding + Reception&nbsp; for Upto 500 Pax</p>
+                                        <div id="plandetail2" className="collapse " aria-labelledby="plan2" data-parent="#planscollapse">
+                                            <div className="card-body">
+                                                <div  className="card-text"><p>One Day Wedding - Morning Rituals + Wedding + Reception&nbsp; for Upto 500 Pax</p>
 
 <p>3 Phootographers + 3 Cinematographer&nbsp;</p>
 
@@ -238,28 +238,28 @@ export const Studio_Details = () => {
 
 <p>Printed Album at Extra Charge starting at Rs 8000 for 30 pages.</p>
 </div>
-                                                <p class="fw600 colored-red mb-1">Offer Price:</p>
-                                                <p class="pricepara">
-                                                    <del class="money">150000</del>&nbsp;<span class="money">100000</span>
+                                                <p className="fw600 colored-red mb-1">Offer Price:</p>
+                                                <p className="pricepara">
+                                                    <del className="money">150000</del>&nbsp;<span className="money">100000</span>
                                                 </p>
                                                 <Link to="/book_details" className='btn btn-primary'>Book Now</Link>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card pricingcard">
-                                        <div class="card-header bg-white border-light p-3" id="plan3">
-                                            <h5 class="card-title mb-0">
-                                                <a class="btn-block text-left" role="button" data-toggle="collapse" data-target="#plandetail3" aria-expanded="true" aria-controls="plandetail3">
-                                                    Gold<span class="colored-red">.</span>
-                                                    <span class="pricepara float-right">
-                                                        <del class="money">250000</del>&nbsp;<span class="money">200000</span>
+                                    <div className="card pricingcard">
+                                        <div className="card-header bg-white border-light p-3" id="plan3">
+                                            <h5 className="card-title mb-0">
+                                                <a className="btn-block text-left" role="button" data-toggle="collapse" data-target="#plandetail3" aria-expanded="true" aria-controls="plandetail3">
+                                                    Gold<span className="colored-red">.</span>
+                                                    <span className="pricepara float-right">
+                                                        <del className="money">250000</del>&nbsp;<span className="money">200000</span>
                                                     </span>
                                                 </a>
                                             </h5>
                                         </div>
-                                        <div id="plandetail3" class="collapse " aria-labelledby="plan3" data-parent="#planscollapse">
-                                            <div class="card-body">
-                                                <div class="card-text"><p>Photography + Video + Drone</p>
+                                        <div id="plandetail3" className="collapse " aria-labelledby="plan3" data-parent="#planscollapse">
+                                            <div className="card-body">
+                                                <div className="card-text"><p>Photography + Video + Drone</p>
 
 <ul>
 	<li>5 Functions - 5 Member team</li>
@@ -272,28 +272,28 @@ export const Studio_Details = () => {
 
 <p>&nbsp;</p>
 </div>
-                                                <p class="fw600 colored-red mb-1">Offer Price:</p>
-                                                <p class="pricepara">
-                                                    <del class="money">250000</del>&nbsp;<span class="money">200000</span>
+                                                <p className="fw600 colored-red mb-1">Offer Price:</p>
+                                                <p className="pricepara">
+                                                    <del className="money">250000</del>&nbsp;<span className="money">200000</span>
                                                 </p>
                                                 <Link to="/book_details" className='btn btn-primary'>Book Now</Link>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card pricingcard">
-                                        <div class="card-header bg-white border-light p-3" id="plan4">
-                                            <h5 class="card-title mb-0">
-                                                <a class="btn-block text-left" role="button" data-toggle="collapse" data-target="#plandetail4" aria-expanded="true" aria-controls="plandetail4">
-                                                    Platinum<span class="colored-red">.</span>
-                                                    <span class="pricepara float-right">
-                                                        <del class="money">350000</del>&nbsp;<span class="money">300000</span>
+                                    <div className="card pricingcard">
+                                        <div className="card-header bg-white border-light p-3" id="plan4">
+                                            <h5 className="card-title mb-0">
+                                                <a className="btn-block text-left" role="button" data-toggle="collapse" data-target="#plandetail4" aria-expanded="true" aria-controls="plandetail4">
+                                                    Platinum<span className="colored-red">.</span>
+                                                    <span className="pricepara float-right">
+                                                        <del className="money">350000</del>&nbsp;<span className="money">300000</span>
                                                     </span>
                                                 </a>
                                             </h5>
                                         </div>
-                                        <div id="plandetail4" class="collapse " aria-labelledby="plan4" data-parent="#planscollapse">
-                                            <div class="card-body">
-                                                <div class="card-text"><p>Photography + Video + Drone</p>
+                                        <div id="plandetail4" className="collapse " aria-labelledby="plan4" data-parent="#planscollapse">
+                                            <div className="card-body">
+                                                <div className="card-text"><p>Photography + Video + Drone</p>
 
 <ul>
 	<li>7 Functions - 6 Member Team</li>
@@ -305,9 +305,9 @@ export const Studio_Details = () => {
 
 <p>Full Frame High-end Cameras, Prime and Wide Lenses, Gimbal and Lights</p>
 </div>
-                                                <p class="fw600 colored-red mb-1">Offer Price:</p>
-                                                <p class="pricepara">
-                                                    <del class="money">350000</del>&nbsp;<span class="money">300000</span>
+                                                <p className="fw600 colored-red mb-1">Offer Price:</p>
+                                                <p className="pricepara">
+                                                    <del className="money">350000</del>&nbsp;<span className="money">300000</span>
                                                 </p>
                                                 <Link to="/book_details" className='btn btn-primary'>Book Now</Link>
                                             </div>
@@ -508,6 +508,56 @@ export const Studio_Details = () => {
           <hr />
         </div>
       </footer>
+      {/* <!-- Stats Section --> */}
+    <section id="stats" className="stats section dark-background">
+
+      <img src="../../../assets/img/stats-bg.jpg" alt="" data-aos="fade-in" />
+
+      <div className="container position-relative" data-aos="fade-up" data-aos-delay="100">
+        <div  className='row about-section-detail gy-4 justify-content-center'>
+            <h2>About Us</h2>
+            <p>Founder Name</p>
+            <p>Photographer</p>
+        </div>
+
+        <div className="row gy-4">
+
+          <div className="col-lg-3 col-md-6">
+            <div className="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" className="purecounter">45</span>
+              <p>Clients</p>
+            </div>
+          </div>
+          
+
+          <div className="col-lg-3 col-md-6">
+            <div className="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" className="purecounter">45</span>
+              <p>Projects</p>
+            </div>
+          </div>
+
+          <div className="col-lg-3 col-md-6">
+            <div className="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" className="purecounter">11</span>
+              <p>Hours Of Support</p>
+            </div>
+          </div>
+
+          <div className="col-lg-3 col-md-6">
+            <div className="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" className="purecounter">24</span>
+              <p>Workers</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
     </div >
   )
 }
