@@ -28,12 +28,12 @@ export const User_Login = () => {
   }
 
    return (
-       <div className="login-page sidebar-collapse box">
-           <nav className="navbar navbar-expand-lg bg-white fixed-top navbar-transparent" color-on-scroll="500">
+       <div className="login-page sidebar-collapse">
+           {/* <nav className="navbar navbar-expand-lg bg-white fixed-top navbar-transparent" color-on-scroll="500">
                <div className="container">
-                   <div className="navbar-translate">
-                   <h3> PORTFOLIO</h3>
-                       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                   <div className="navbar-translate"> */}
+                   {/* <h3> PORTFOLIO</h3> */}
+                       {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                            <span className="navbar-toggler-bar top-bar"></span>
                            <span className="navbar-toggler-bar middle-bar"></span>
                            <span className="navbar-toggler-bar bottom-bar"></span>
@@ -57,10 +57,68 @@ export const User_Login = () => {
                        </ul>
                    </div>
                </div>
-           </nav>
+           </nav> */}
            {/* // <!-- End Navbar --> */}
-           <div className="page-header header-filter" filter-color="orange">
-               <div className="page-header-image" style={{backgroundImage:"url(../assets/img/login.jpg)"}}></div>
+           {/* <nav class="navbar navbar-expand-lg navbar-transparent">
+              <div class="container">
+                <div class="navbar-translate">
+                  <a class="navbar-brand" href="#pablo">Lights On Focus</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#example-navbar-transparent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar bar1"></span>
+                    <span class="navbar-toggler-bar bar2"></span>
+                    <span class="navbar-toggler-bar bar3"></span>
+                  </button>
+                </div>
+                <div class="collapse navbar-collapse" id="example-navbar-transparent">
+                  <ul class="navbar-nav ml-auto">
+                  <li className="nav-item dropdown">
+                           </li>
+                           <li className="nav-item dropdown">
+                        <a className="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <b>
+                           Others
+                          </b>
+                        </a>
+                        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <Link to="/Studio_Login" className="text-dark m-5">Studio</Link><br/>
+                          <Link to="/admin/login" className="text-dark m-5">Admin</Link>
+                        </div>
+                      </li>
+                  </ul>
+                </div>
+              </div>
+            </nav> */}
+           <div className="page-header header-filter" >
+               <div className="page-header-image" style={{backgroundImage:"url(../assets/img/pexels-bertellifotografia-2376991.jpg)"}}></div>
+               <nav class="navbar navbar-expand-lg navbar-transparent">
+              <div class="container">
+                <div class="navbar-translate">
+                  <a class="navbar-brand" href="#pablo">Lights On Focus</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#example-navbar-transparent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar bar1"></span>
+                    <span class="navbar-toggler-bar bar2"></span>
+                    <span class="navbar-toggler-bar bar3"></span>
+                  </button>
+                </div>
+                <div class="collapse navbar-collapse" id="example-navbar-transparent">
+                  <ul class="navbar-nav ml-auto">
+                  <li className="nav-item dropdown">
+                           </li>
+                           <li className="nav-item dropdown">
+                        <a className="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <b>
+                           Others
+                          </b>
+                        </a>
+                        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <Link to="/Studio_Login" className="text-dark m-5">Studio</Link><br/>
+                          <Link to="/admin/login" className="text-dark m-5">Admin</Link>
+                        </div>
+                      </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
                <div className="content">
                    <div className="container">
                        <div className="col-md-5 ml-auto mr-auto">

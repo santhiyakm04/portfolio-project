@@ -1,3 +1,4 @@
+import "./index.css"
 import axios from "axios"
 import { details } from "../../Slices/registerslice"
 import { useSelector, useDispatch } from "react-redux"
@@ -39,7 +40,7 @@ export const User_Register = () => {
                 <div className="container">
                     <div className="navbar-translate">
                         <a className="navbar-brand" href="https://demos.creative-tim.com/now-ui-kit-pro/index.html" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
-                            <h3>PORTFOLIO</h3>
+                            {/* <h3>PORTFOLIO</h3> */}
                         </a>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-bar top-bar"></span>
@@ -56,82 +57,82 @@ export const User_Register = () => {
             {/* <!-- End Navbar --> */}
 
             <div className="page-header header-filter" filter-color="black">
-                <div className="page-header-image" style={{ backgroundImage: "url(../assets/img/bg18.jpg)" }}></div>
-                <div className="content w-70">
-                    <div className="container">
-                        <div className="row ">
+                <div className="page-header-image" style={{ backgroundImage: "url(../assets/img/pexels-thuan-28748668.jpg)"}}></div>
+                <div className="content w-800 text-light">
+                    <div className="container text-light">
+                        <div className="row">
 
-                            <div className="col-md-4 mx-auto">
-                                <div className="card card-signup ">
-                                    <div className="card-body  cardsize" >
-                                        <h4 className="card-title text-center">User Register</h4>
+                            <div className="col-md-4 m-auto p-3  ">
+                                {/* <div className="card card-signup "> */}
+                                    {/* <div className="card-body  cardsize" > */}
+                                        {/* <h4 className="card-title text-center">User Register</h4> */}
 
-                                        <div className="input-group">
-                                            <div className="input-group-prepend">
-                                                <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
-                                            </div>
-                                            <input type="text" className="form-control" onKeyUp={(e) => dispatch(details({ ...uservalue, name: e.target.value }))} placeholder="Name" autocomplete="fullname" />
+                                        <div className="input-group no-border input-lg ">
+                                            {/* <div className="input-group-prepend">
+                                                <span className="input-group-text"></span>
+                                            </div> */}
+                                            <input type="text" className="form-control text-light " onKeyUp={(e) => dispatch(details({ ...uservalue, name: e.target.value }))} placeholder="Name" />
                                         </div>
-                                        <div className="input-group">
-                                            <div className="input-group-prepend">
-                                                <span className="input-group-text"><i className="now-ui-icons "></i></span>
-                                            </div>
+                                        <div className="input-group no-border input-lg">
+                                            {/* <div className="input-group-prepend">
+                                                <span className="input-group-text border border-dark"></span>
+                                            </div> */}
                                             {/* <input type="email" className="form-control" onKeyUp={(e)=>dispatch(details({...uservalue,email:e.target.value}))} placeholder="Email" /> */}
-                                            <input type="email" className="form-control" onKeyUp={(e) => dispatch(details({ ...uservalue, email: e.target.value }))} placeholder="email" autocomplete="fullname" />
+                                            <input type="email" className="form-control text-light " onKeyUp={(e) => dispatch(details({ ...uservalue, email: e.target.value }))} placeholder="email" autocomplete="fullname" />
 
-                                        </div>-
-
-                                        <div className="input-group">
-                                            <div className="input-group-prepend">
-                                                <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
-                                            </div>
-                                            <input type="password" className="form-control" onKeyUp={(e) => dispatch(details({ ...uservalue, password: e.target.value }))} placeholder="password" autocomplete="fullname" />
-                                        </div>
-                                        <div className="input-group">
-                                            <div className="input-group-prepend">
-                                                <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
-                                            </div>
-                                            <input type="number" className="form-control" onKeyUp={(e) => dispatch(details({ ...uservalue, aadhar: e.target.value }))} placeholder="Aaadhar number" autocomplete="fullname" />
                                         </div>
 
-                                        <div className="input-group">
-                                            <div className="input-group-prepend">
-                                                <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
-                                            </div>
-                                            <input type="text" className="form-control" onKeyUp={(e) => dispatch(details({ ...uservalue, address: e.target.value }))} placeholder="Address" autocomplete="fullname" />
+                                        <div className="input-group no-border input-lg">
+                                            {/* <div className="input-group-prepend">
+                                                <span className="input-group-text"></span>
+                                            </div> */}
+                                            <input type="password" className="form-control  text-light" onKeyUp={(e) => dispatch(details({ ...uservalue, password: e.target.value }))} placeholder="password" autocomplete="fullname" />
                                         </div>
-                                        <div className="input-group">
-                                            <div className="input-group-prepend">
-                                                <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
-                                            </div>
-                                            <input type="number" className="form-control" onKeyUp={(e) => dispatch(details({ ...uservalue, phone: e.target.value }))} placeholder="Phone Number" autocomplete="fullname" />
+                                        <div className="input-group no-border input-lg">
+                                            {/* <div className="input-group-prepend">
+                                                <span className="input-group-text"></span>
+                                            </div> */}
+                                            <input type="number" className="form-control text-light " onKeyUp={(e) => dispatch(details({ ...uservalue, aadhar: e.target.value }))} placeholder="Aaadhar number" autocomplete="fullname" />
                                         </div>
-                                        <div className="input-group">
-                                                <div className="input-group-prepend">
-                                                    <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
-                                                </div>
-                                                <input type="text" className="form-control" onKeyUp={(e)=>dispatch(details({...uservalue,city:e.target.value}))} placeholder="city" autocomplete="fullname"/>
-                                            </div>
-                                        <div className="input-group">
-                                            <div className="input-group-prepend">
-                                                <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
-                                            </div>
-                                            <input type="text" className="form-control" onKeyUp={(e) => dispatch(details({ ...uservalue, area: e.target.value }))} placeholder="Area" autocomplete="fullname" />
+
+                                        <div className="input-group no-border input-lg">
+                                            {/* <div className="input-group-prepend">
+                                                <span className="input-group-text"></span>
+                                            </div> */}
+                                            <input type="text" className="form-control text-light " onKeyUp={(e) => dispatch(details({ ...uservalue, address: e.target.value }))} placeholder="Address" autocomplete="fullname" />
                                         </div>
-                                        <div className="input-group">
-                                            <div className="input-group-prepend">
-                                                <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
+                                        <div className="input-group no-border input-lg">
+                                            {/* <div className="input-group-prepend">
+                                                <span className="input-group-text"></span>
+                                            </div> */}
+                                            <input type="number" className="form-control text-light " onKeyUp={(e) => dispatch(details({ ...uservalue, phone: e.target.value }))} placeholder="Phone Number" autocomplete="fullname" />
+                                        </div>
+                                        <div className="input-group no-border input-lg">
+                                                {/* <div className="input-group-prepend">
+                                                    <span className="input-group-text"></span>
+                                                </div> */}
+                                                <input type="text" className="form-control text-light " onKeyUp={(e)=>dispatch(details({...uservalue,city:e.target.value}))} placeholder="city" autocomplete="fullname"/>
                                             </div>
-                                            <input type="number" className="form-control" onKeyUp={(e) => dispatch(details({ ...uservalue, pin: e.target.value }))} placeholder="Pincode" autocomplete="fullname" />
+                                        <div className="input-group no-border input-lg">
+                                            {/* <div className="input-group-prepend">
+                                                <span className="input-group-text"></span>
+                                            </div> */}
+                                            <input type="text" className="form-control text-light " onKeyUp={(e) => dispatch(details({ ...uservalue, area: e.target.value }))} placeholder="Area" autocomplete="fullname" />
+                                        </div>
+                                        <div className="input-group no-border input-lg">
+                                            {/* <div className="input-group-prepend">
+                                                <span className="input-group-text"></span>
+                                            </div> */}
+                                            <input type="number" className="form-control text-light" onKeyUp={(e) => dispatch(details({ ...uservalue, pin: e.target.value }))} placeholder="Pincode" autocomplete="fullname" />
                                         </div>
                                         <div className="p-2">
                                             <button className="btn btn-success" onClick={register}>Register</button>
                                             {/* <Link to="/user_login">Login</Link> */}
                                         </div>
-                                        <h6>{JSON.stringify(uservalue)}</h6>
+                                        {/* <h6>{JSON.stringify(uservalue)}</h6> */}
 
-                                    </div>
-                                </div>
+                                    {/* </div> */}
+                                {/* </div> */}
                             </div>
                         </div>
                     </div>
@@ -139,14 +140,14 @@ export const User_Register = () => {
                 <footer className="footer">
                     <div className=" container ">
 
-                        <div className="copyright" id="copyright">
+                        {/* <div className="copyright" id="copyright"> */}
                             {/* &copy;
                             <script>
                                 document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
                             </script>, Designed by */}
-                            <a href="Portfolio" target="_blank">Portfolio</a>. Coded by
+                            {/* <a href="Portfolio" target="_blank">Portfolio</a>. Coded by
                             <a href="Agaram softwares" target="_blank">Agaram softwares</a>.
-                        </div>
+                        </div> */}
                     </div>
                 </footer>
             </div>

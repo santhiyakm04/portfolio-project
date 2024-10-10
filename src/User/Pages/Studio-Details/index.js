@@ -50,7 +50,7 @@ export const Studio_Details = () => {
   return (
     <div>
       <div className="header-3">
-        <nav className="navbar navbar-expand-lg bg-primary lsting-navbar">
+        <nav className="navbar navbar-expand-lg bg-warning lsting-navbar">
           <div className="container">
             <div className="navbar-translate">
               <button className="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -104,7 +104,7 @@ export const Studio_Details = () => {
         <div className="carousel-inner" role="listbox">
           <div className="carousel-item active">
             <div className="page-header header-filter">
-              <div className="page-header-image" style={{ backgroundImage: "url('/assets/img/bg30.jpg')" }}></div>
+              <div className="page-header-image" style={{ backgroundImage: "url('/assets/img/pexels-trungnguyenphotog-5096300.jpg')" }}></div>
               <div className="content-center text-center">
                 <div className="row">
                   <div className="col-md-8 ">
@@ -116,7 +116,7 @@ export const Studio_Details = () => {
           </div>
           <div className="carousel-item">
             <div className="page-header header-filter">
-              <div className="page-header-image" style={{ backgroundImage: "url('/assets/img/bg29.jpg')" }}></div>
+              <div className="page-header-image" style={{ backgroundImage: "url('/assets/img/pexels-anas-ahmed-1606053043-27535714.jpg')" }}></div>
               <div className="content-center">
                 <div className="row">
                   
@@ -126,7 +126,7 @@ export const Studio_Details = () => {
           </div>
           <div className="carousel-item">
             <div className="page-header header-filter">
-              <div className="page-header-image" style={{ backgroundImage: "url('/assets/img/bg28.jpg')" }}></div>
+              <div className="page-header-image" style={{ backgroundImage: "url('/assets/img/pexels-hatice-796619215-28191695.jpg')" }}></div>
               <div className="content-center text-center">
                 <div className="row">
                 </div>
@@ -146,9 +146,9 @@ export const Studio_Details = () => {
 
         <div className="card">
           <div className="card-header">
-            <ul className="nav nav-tabs nav-tabs-neutral justify-content-center" role="tablist" data-background-color="orange">
+            <ul className="nav nav-tabs nav-tabs-neutral justify-content-center bg-warning" role="tablist" data-background-color="orange">
               <li className="nav-item">
-                <a className="nav-link active" data-toggle="tab" href="#tradition">Traditional</a>
+                <a className="nav-link " data-toggle="tab" href="#tradition">Traditional</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" data-toggle="tab" href="#candid">Candid</a>
@@ -197,9 +197,10 @@ export const Studio_Details = () => {
        
         {/* {update.map((each)=> */}
         <div>
+        {/* <div className='box' style={{ backgroundImage: "url('/assets/img/pexels-hatice-796619215-28191695.jpg')" }} > */}
         <div class="row no-gutters justify-content-center">
                         <div class="col-8">
-                        <h3 class="title text-center">Packages</h3>
+                        <h3 class="title text-center text-dark">Packages</h3>
                             <div class="accordion" id="planscollapse">
                              
                                     <div class="card pricingcard">
@@ -340,12 +341,13 @@ export const Studio_Details = () => {
                     </div>
         
                     <div className='text-center'>
-                     <button className="btn btn-primary" onClick={()=>{navigate(`/user/bookdetails?user_id=${logvalue.id}&studio_id=${id}`)}}>Book Now</button>
+                     <button className="btn btn-danger" onClick={()=>{navigate(`/user/bookdetails?user_id=${logvalue.id}&studio_id=${id}`)}}>Book Now</button>
                      </div>
                     </div>
+                    {/* </div> */}
                   {/* )} */}
     
-      <h2 className="text-center">Client Review</h2>
+      {/* <h2 className="text-center">Client Review</h2>
       {review.map((e) =>
         <div>
           <div id="comments">
@@ -410,7 +412,7 @@ export const Studio_Details = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <footer className="footer footer-big" data-background-color="black">
         <div className="container">
           <div className="content">
