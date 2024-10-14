@@ -413,7 +413,7 @@ export const Studio_Details = () => {
           </div>
         </div>
       </div> */}
-      <footer className="footer footer-big" data-background-color="black">
+      {/* <footer className="footer footer-big" data-background-color="black">
         <div className="container">
           <div className="content">
               <div>
@@ -448,7 +448,50 @@ export const Studio_Details = () => {
               </div>
               </div>
               
-      </footer>
+      </footer> */}
+
+<section id="stats" className="stats section dark-background">
+
+<img src="../../../assets/img/stats-bg.jpg" alt="" data-aos="fade-in" />
+
+<div className="container position-relative" data-aos="fade-up" data-aos-delay="100">
+  <div  className='row about-section-detail gy-4 justify-content-center'>
+      <h2>About Us</h2>
+      <h3>{viewdata.about_us}</h3>
+
+      <p>{viewdata.name_of_founder}</p>
+      <p>Photographer</p>
+  </div>
+
+  <div className="row gy-4">
+
+    <div className="col-lg-3 col-md-6">
+      <div className="stats-item text-center w-100 h-100">
+        <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" className="purecounter">45</span>
+        <p>{viewdata.no_of_achievements}</p>
+      </div>
+    </div>
+    
+
+    <div className="col-lg-3 col-md-6">
+      <div className="stats-item text-center w-100 h-100">
+        <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" className="purecounter">45</span>
+        <p>{viewdata.no_of_branches}</p>
+      </div>
+    </div>
+
+    <div className="col-lg-3 col-md-6">
+      <div className="stats-item text-center w-100 h-100">
+        <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" className="purecounter">11</span>
+        <p>{viewdata.no_of_employees}</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</section>
     </div >
     // )}
     // </div>
