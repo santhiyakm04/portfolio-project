@@ -14,6 +14,10 @@
     width: 90%;
     text-align: center;
 }
+.tab{
+    background-color: orangered;
+}
+
 .tablelist{
     margin-top:30px;
 }
@@ -40,4 +44,19 @@
 }
 .searchbars{
     width: 40%;
+}
+.textbar{
+    margin-left: 38%;
+    color: orangered;
+    vertical-align: middle;
+    align-items: center;
+}
+.text2{
+    margin-bottom: 10px;
+}
+.inputbar{
+    display: inline-block;
+}
+.tabbar{
+    background-color: orangered;
 }

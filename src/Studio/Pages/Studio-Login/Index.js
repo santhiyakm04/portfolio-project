@@ -55,7 +55,7 @@ export const Studio_Login = () => {
                     </div>
                     <div className="navbar-translate">
                         <a className="navbar-brand" href="https://demos.creative-tim.com/now-ui-kit-pro/index.html" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
-                            PORTFOLIO
+                            LIGHTS ON FOCUS
                         </a>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-bar top-bar"></span>
@@ -65,7 +65,12 @@ export const Studio_Login = () => {
                     </div>
                     <div className="collapse navbar-collapse" data-nav-image="../assets/img//blurred-image-1.jpg" data-color="orange">
                         <ul className="navbar-nav ml-auto">
-                            <li className="nav-item dropdown">
+                            <li className="nav-item ">
+                           
+                           <Link to={"/user/login"} className="back"><i> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 24 16">
+                           //                                     <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
+                           //                                 </svg></i> Go back</Link>
+                        
                             </li>
                         </ul>
                     </div>
@@ -73,7 +78,7 @@ export const Studio_Login = () => {
             </nav>
             {/* // <!-- End Navbar --> */}
             <div className="page-header header-filter" filter-color="orange">
-                <div className="page-header-image" style={{ backgroundImage: "url(../assets/img/login.jpg)" }}></div>
+                <div className="page-header-image" style={{ backgroundImage: "url(../assets/img/back3.jpg)" }}></div>
                 <div className="content">
                     <div className="container">
                         <div className="col-md-5 ml-auto mr-auto">
@@ -87,7 +92,7 @@ export const Studio_Login = () => {
                                     <div className="card-body" >
                                         <div className="input-group no-border input-lg">
                                             <div className="input-group-prepend">
-                                                <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
+                                                <span className="input-group-text"><i className="now-ui-icons ui-1_email-85"></i></span>
                                             </div>
                                             <input type="text" className="form-control " onKeyUp={(n) => dispatch(userlog({ ...logup, email: n.target.value }))} placeholder="Email" />
                                         </div>
@@ -95,11 +100,11 @@ export const Studio_Login = () => {
                                             <div className="input-group-prepend">
                                                 <span className="input-group-text"><i className="now-ui-icons text_caps-small"></i></span>
                                             </div>
-                                            <input type="text" className="form-control" onKeyUp={(n) => dispatch(userlog({ ...logup, password: n.target.value }))} placeholder="Password" />
+                                            <input type="password" className="form-control" onKeyUp={(n) => dispatch(userlog({ ...logup, password: n.target.value }))} placeholder="Password" />
                                         </div>
                                     </div>
                                     <div className="card-footer text-center">
-                                        <button className="btn btn-primary btn-round btn-lg btn-block" onClick={logged}>Login</button>
+                                        <button className="btn btn-primary btn-round btn-lg btn-block " onClick={logged}>Login</button>
                                     </div>
                                     <div className="pull-center mt-3">
                                         <h6>

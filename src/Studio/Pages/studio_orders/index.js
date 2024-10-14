@@ -21,8 +21,8 @@ export const Studio_Order = () => {
     // const navigate = useNavigate()
 
     const [order, setorder] = useState([])
-    const[search,setsearch]=useState([order])
-    const[searchbar,setsearchbar]=useState({date:""})
+    // const[search,setsearch]=useState([order])
+    // const[searchbar,setsearchbar]=useState({date:""})
 
 
     // const [ordername, setordername] = useState([])
@@ -41,6 +41,7 @@ export const Studio_Order = () => {
         formData.append("name_of_founder", det.name_of_founder)
         formData.append("no_of_branches", det.no_of_branches)
         formData.append("no_of_achievements", det.no_of_achievements)
+        formData.append("no_of_employees", det.no_of_employees)
         formData.append("about_us", det.about_us)
         formData.append("packages", JSON.stringify(det.packages))
         formData.append("studio_id", logup.data.id)
@@ -63,6 +64,8 @@ export const Studio_Order = () => {
 
     const orderlist = () => {
         axios.get(`https://agaram.academy/api/action.php?request=studio_getBookingDetails&studio_id=${logup.data.id}`).then((n) => {
+            // axios.get("https://agaram.academy/api/action.php?request=studio_getBookingDetails").then((n) => {
+            console.log(n.data.data)
             setorder(n.data.data)
             
         })
@@ -72,13 +75,13 @@ export const Studio_Order = () => {
     },[])
 
 
-    const searchs =()=>{
-        let bar = order.filter((v)=>{                     
-             return  v.event_date==searchbar.event_date
-        }
-    )
-        setsearch(bar)
-    }
+    // const searchs =()=>{
+    //     let bar = order.filter((v)=>{                     
+    //          return  v.event_date==searchbar.event_date
+    //     }
+    // )
+    //     setsearch(bar)
+    // }
 
     // ------------------------------------------------------------------------------
 
@@ -99,7 +102,7 @@ export const Studio_Order = () => {
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-transparent">
+            {/* <nav className="navbar navbar-expand-lg navbar-transparent">
                 <div className="container card1">
                     <div className="navbar-translate">
                         <a className="navbar-brand" href="#pablo">portfolio</a>
@@ -130,9 +133,49 @@ export const Studio_Order = () => {
                         </ul>
                     </div>
                 </div>
+            </nav> */}
+
+<nav class="navbar navbar-expand-lg bg-primary ">
+              <div class="container">
+              <div className="dropdown button-dropdown">
+                        <a href="#pablo" className="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown">
+                            <span className="button-bar"></span>
+                            <span className="button-bar"></span>
+                            <span className="button-bar"></span>
+                        </a>
+                    </div>
+                <div class="navbar-translate ">
+                  <a class="navbar-brand" href="#pablo">LIGHTS ON FOCUS</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#example-navbar-primary" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar bar1"></span>
+                    <span class="navbar-toggler-bar bar2"></span>
+                    <span class="navbar-toggler-bar bar3"></span>
+                  </button>
+                </div>
+                <div class="collapse navbar-collapse" id="example-navbar-primary">
+                  <ul class="navbar-nav ml-auto">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link" href="#pablo">
+                        <Link to={"/Studio/login"} className="back"><i class="now-ui-icons users_circle-08"></i> logout</Link>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#pablo">
+                        
+                        <Link to={"/Studio/login"} className="back"><i> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 24 16">
+                                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
+                                    </svg></i> Go back</Link>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </nav>
+
+
             {/* ------------ */}
-            <div className="col-md-12">
+            <div className="col-md-12 ">
 
                 <div className="nav-align-center">
                     <ul className="nav nav-pills nav-pills-primary " role="tablist">
@@ -158,19 +201,38 @@ export const Studio_Order = () => {
                 </div>
                 {/* -------------------------------------- */}
 
-                
+               
 
                 {/* <!-- Tab panes --> */}
                 <div className="tab-content gallery">
                     <div className="tab-pane active" id="profile" role="tabpanel">
                         <div className="row">
 
+                        <div className="card  card-form-horizontal cardb">
+                    <div className="card-body">
+                      <form method="" action="">
+                        <div className="row">
+                          <div className="col-sm-4  textbar ">
+                            <div className=" input-group ">
+                            <div class="input-group-prepend">
+                              <h2 className=" text2 "><b>upload ur profile </b> </h2>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+
+
+
+
                             <form role="form" className="forms" id="contact-form" method="post">
                                 {/* <small>
                                     {JSON.stringify(det)}
                                 </small> */}
 
-                                <label>Name of founder:</label>
+                                {/* <label>Name of founder:</label>
                                 <div className="input-group">
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><i class="now-ui-icons users_circle-08"></i></span>
@@ -259,7 +321,14 @@ export const Studio_Order = () => {
                                         <span className="input-group-text"><i class=""></i></span>
                                     </div>
                                     <input type="text" className="form-control" placeholder="about us" onKeyUp={(e) => dispatch(studio({ ...det, about_us: e.target.value }))} aria-label="amount" autocomplete="amount" />
-                                </div>
+                                </div> */}
+
+
+
+
+
+
+
 
                                 <div className="submit text-center">
                                     <button type='button' className="btn btn-primary btn-round btn-lg" onClick={() => userdetail()}>upload</button>
@@ -268,8 +337,7 @@ export const Studio_Order = () => {
 
                         </div>
                     </div>
-
-                    {/* ------------------------------------------------------------- */}
+ {/* ------------------------------------------------------------- */}
 
                     <div className="tab-pane" id="home" role="tabpanel">
                         <div className="row">
@@ -284,11 +352,15 @@ export const Studio_Order = () => {
                               <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="now-ui-icons ui-1_zoom-bold"></i></span>
                               </div>
-                              <input type="text" class="form-control "  onKeyUp={(s)=>setsearchbar({...searchbar,date:s.target.value})} placeholder="search here..."/>
+                              <input type="text" class="form-control " 
+                            //    onKeyUp={(s)=>setsearchbar({...searchbar,date:s.target.value})} 
+                               placeholder="search here..."/>
                             </div>
                           </div>
                           <div class="col-sm-2 ">
-                            <button type="button" class="btn btn-primary btn-round btn-block bts"  onClick={()=>searchs(searchbar)}>search</button>
+                            <button type="button" class="btn btn-primary btn-round btn-block bts" 
+                            //  onClick={()=>searchs(searchbar)}
+                             >search</button>
                           </div>
                         </div>
                       </form>
@@ -297,7 +369,7 @@ export const Studio_Order = () => {
 
 
                             <table className="  table-light clientlist" >
-                                <thead className="table table-dark">
+                                <thead className="table table-dark tabbar">
                                     <tr>
                                         {/* <th>Name</th> */}
                                         
@@ -307,11 +379,11 @@ export const Studio_Order = () => {
                                         <th>time</th>
                                         <th>Place</th>
                                         <th>location</th>
-                                        {/* <th>Action</th> */}
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody  >
-                                    {search.map((each) =>
+                                    {order.map((each) =>
 
                                         <tr className="table my-3">
                                             {/* {ordername.map((n) =>
@@ -329,7 +401,8 @@ export const Studio_Order = () => {
 
                                             
                                             
-                                            {/* <td><button type='button' onClick={() => Viewpage(each.id)}>view</button></td> */}
+                                            <td> <button  className="btn btn-danger"> <i className="now-ui-icons ui-1_simple-remove"></i></button>
+                                            </td>
 
 
                                         </tr>
