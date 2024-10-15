@@ -1,7 +1,6 @@
 import './index.css'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-// import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { studio } from '../../Slices/profileslice'
@@ -15,17 +14,15 @@ export const Studio_Order = () => {
     const dispatch = useDispatch();
     const [packages, setPackages] = useState({ name: "", amount: "" })
 
-    // console.log(det)
+    
     // --------------------------------------------------------------------------
 
-    // const navigate = useNavigate()
-
     const [order, setorder] = useState([])
-    // const[search,setsearch]=useState([order])
-    // const[searchbar,setsearchbar]=useState({date:""})
+    const[search,setsearch]=useState([order])
+    const[searchbar,setsearchbar]=useState({date:""})
 
 
-    // const [ordername, setordername] = useState([])
+    
     // ----------------------------------------------------------------------------
     const logup = useSelector((state) => state.logs).studiolog;
 
@@ -67,6 +64,7 @@ export const Studio_Order = () => {
             // axios.get("https://agaram.academy/api/action.php?request=studio_getBookingDetails").then((n) => {
             console.log(n.data.data)
             setorder(n.data.data)
+            setsearch(n.data.data)
             
         })
     }
@@ -74,14 +72,15 @@ export const Studio_Order = () => {
         orderlist()
     },[])
 
+    //  -----search-----------------------------------------------------------
 
-    // const searchs =()=>{
-    //     let bar = order.filter((v)=>{                     
-    //          return  v.event_date==searchbar.event_date
-    //     }
-    // )
-    //     setsearch(bar)
-    // }
+    const searchs =()=>{
+        let bar = order.filter((v)=>{                     
+             return  v.event_date.toLowerCase()==searchbar.event_date
+        }
+    )
+        setsearch(bar)
+    }
 
     // ------------------------------------------------------------------------------
 
@@ -155,19 +154,18 @@ export const Studio_Order = () => {
                 <div class="collapse navbar-collapse" id="example-navbar-primary">
                   <ul class="navbar-nav ml-auto">
                     
-                    <li class="nav-item">
+                  <li class="nav-item">
                       <a class="nav-link" href="#pablo">
-                        <Link to={"/Studio/login"} className="back"><i class="now-ui-icons users_circle-08"></i> logout</Link>
+                        <Link to={"/"} className="back"><i class="now-ui-icons users_circle-08"></i> Edit profile</Link>
                       </a>
                     </li>
+
                     <li class="nav-item">
                       <a class="nav-link" href="#pablo">
-                        
-                        <Link to={"/Studio/login"} className="back"><i> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 24 16">
-                                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
-                                    </svg></i> Go back</Link>
+                        <Link to={"/Studio/login"} className="back"><i class="now-ui-icons arrows-1_share-66"></i> logout</Link>
                       </a>
                     </li>
+                   
                   </ul>
                 </div>
               </div>
@@ -191,12 +189,12 @@ export const Studio_Order = () => {
                                 <b>orders</b>
                             </a>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link" data-toggle="tab" href="#messages" role="tablist">
+                        {/* <li className="nav-item"> */}
+                            {/* <a className="nav-link" data-toggle="tab" href="#messages" role="tablist"> */}
                                 {/* <i className="now-ui-icons design-2_ruler-pencil"></i> */}
-                                <b>upload files </b>
-                            </a>
-                        </li>
+                                {/* <b>upload files </b> */}
+                            {/* </a> */}
+                        {/* </li> */}
                     </ul>
                 </div>
                 {/* -------------------------------------- */}
@@ -232,15 +230,15 @@ export const Studio_Order = () => {
                                     {JSON.stringify(det)}
                                 </small> */}
 
-                                {/* <label>Name of founder:</label>
+                                <label className="colrs">Name of founder:</label>
                                 <div className="input-group">
                                     <div className="input-group-prepend">
-                                        <span className="input-group-text"><i class="now-ui-icons users_circle-08"></i></span>
+                                        <span className="input-group-text"><i class=""></i></span>
                                     </div>
                                     <input type="text" className="form-control" placeholder="Enter ur name"     onKeyUp={(e) => dispatch(studio({ ...det, name_of_founder: e.target.value }))} autocomplete="name" />
                                 </div>
 
-                                <label>No of branches:</label>
+                                <label className="colrs">No of branches:</label>
                                 <div className="input-group">
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><i className=""></i></span>
@@ -248,7 +246,7 @@ export const Studio_Order = () => {
                                     <input type="number" className="form-control" placeholder="No of branches" onKeyUp={(e) => dispatch(studio({ ...det, no_of_branches: e.target.value }))} aria-label="branches" autocomplete="branches" />
                                 </div>
 
-                                <label>No of achievements:</label>
+                                <label className="colrs">No of achievements:</label>
                                 <div className="input-group">
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><i class=""></i></span>
@@ -256,7 +254,7 @@ export const Studio_Order = () => {
                                     <input type="number" className="form-control" placeholder="No of achievements" onKeyUp={(e) => dispatch(studio({ ...det, no_of_achievements: e.target.value }))} aria-label="achievements" autocomplete="achievements" />
                                 </div>
 
-                                <label>No of employees:</label>
+                                <label className="colrs">No of employees:</label>
                                 <div className="input-group">
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><i class=""></i></span>
@@ -264,7 +262,7 @@ export const Studio_Order = () => {
                                     <input type="number" className="form-control" placeholder="No of employees" onKeyUp={(e) => dispatch(studio({ ...det, no_of_employees: e.target.value }))} aria-label="employees" autocomplete="employees" />
                                 </div>
 
-                                <label>Amount for basic  package:</label>
+                                <label className="colrs">Amount for basic  package:</label>
                                
                                 <div className="input-group">
                                     <div className="input-group-prepend">
@@ -278,7 +276,7 @@ export const Studio_Order = () => {
                                 <br>
                                 </br>
 
-                                <label>Amount for silver  package:</label>
+                                <label className="colrs">Amount for silver  package:</label>
                                 <div className="input-group">
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><i class=""></i></span>
@@ -291,7 +289,7 @@ export const Studio_Order = () => {
                                 <br>
                                 </br>
 
-                                <label>Amount for gold package:</label>
+                                <label className="colrs">Amount for gold package:</label>
                                 <div className="input-group">
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><i class=""></i></span>
@@ -304,7 +302,7 @@ export const Studio_Order = () => {
                                 <br>
                                 </br>
 
-                                <label>Amount for platinum package:</label>
+                                <label className="colrs">Amount for platinum package:</label>
                                 <div className="input-group">
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><i class=""></i></span>
@@ -315,13 +313,14 @@ export const Studio_Order = () => {
                                 <button  className="btn btn-primary btn-round btn-sm addbtn" type="button" onClick={() => addlist()}>confirm amount</button>
                                 <br>
                                 </br>
-                                <label>About us:</label>
+                                <label className="colrs">About us:</label>
                                 <div className="input-group">
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><i class=""></i></span>
                                     </div>
                                     <input type="text" className="form-control" placeholder="about us" onKeyUp={(e) => dispatch(studio({ ...det, about_us: e.target.value }))} aria-label="amount" autocomplete="amount" />
-                                </div> */}
+                                </div>
+                                <br></br>
 
 
 
@@ -353,13 +352,17 @@ export const Studio_Order = () => {
                                 <span class="input-group-text"><i class="now-ui-icons ui-1_zoom-bold"></i></span>
                               </div>
                               <input type="text" class="form-control " 
-                            //    onKeyUp={(s)=>setsearchbar({...searchbar,date:s.target.value})} 
-                               placeholder="search here..."/>
+
+                               onKeyUp={(s)=>setsearchbar({...searchbar,event_date:s.target.value})} 
+
+                               placeholder="  YYYY-MM-DD"/>
                             </div>
                           </div>
                           <div class="col-sm-2 ">
                             <button type="button" class="btn btn-primary btn-round btn-block bts" 
-                            //  onClick={()=>searchs(searchbar)}
+
+                             onClick={()=>searchs(searchbar)}
+
                              >search</button>
                           </div>
                         </div>
@@ -383,7 +386,7 @@ export const Studio_Order = () => {
                                     </tr>
                                 </thead>
                                 <tbody  >
-                                    {order.map((each) =>
+                                    {search.map((each) =>
 
                                         <tr className="table my-3">
                                             {/* {ordername.map((n) =>

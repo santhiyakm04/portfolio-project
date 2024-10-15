@@ -6,15 +6,17 @@ import { Link } from 'react-router-dom';
 
 
 
-
-
 export const Studio_Register = () => {
     const navigate = useNavigate();
     const reg = useSelector((state) => state.regis).studioReg;
 
     const dispatch = useDispatch();
     const regist = () => {
+       
         let formData = new FormData()
+        console.debug(reg)
+
+        
 
         formData.append("name", reg.name)
         formData.append("status", reg.status)
@@ -27,151 +29,38 @@ export const Studio_Register = () => {
         formData.append("pin", reg.pin)
 
 
-        axios.post("https://agaram.academy/api/action.php?request=studio_create_studio", formData).then((e) => {
-            console.log(e)
+        if((reg.name =="")||(reg.email =="")||(reg.password =="")||(reg.password =="")||(reg.address =="")||(reg.phone =="")||(reg.city =="")||(reg.area =="")||(reg.pin =="") ){
+            alert ("pls fill the data")
+          }else{
 
-            alert("Register sucessfully")
-            navigate("/studio/login")
+            axios.post("https://agaram.academy/api/action.php?request=studio_create_studio", formData).then((e) => {
+                console.log(e)
+                let value = e.data.status
+                  
+            
+    
+                if (value == "success") {
+                    alert("Register sucessfully")
+                    navigate("/studio/login")
+                }
+                     else {
+                    alert("Register failed")
+                }
+    
+               
+                
+            })
+            
+          }
 
-        })
+
 
     }
 
 
     return (
-        // <div class="signup-page sidebar-collapse">
-
-
-        //     {/* <!-- End Navbar --> */}
-
-        //     <div className="page-header header-filter" filter-color="black">
-        //         <div className="page-header-image" style={{ backgroundImage: "url(../assets/img/bg18.jpg)" }}></div>
-
-        //         <nav className="navbar navbar-expand-lg navbar-transparent">
-        //             <div className="container card1">
-        //                 <div className="navbar-translate">
-        //                     <a className="navbar-brand" href="#pablo">portfolio</a>
-        //                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#example-navbar-transparent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        //                         <span className="navbar-toggler-bar bar1"></span>
-        //                         <span className="navbar-toggler-bar bar2"></span>
-        //                         <span className="navbar-toggler-bar bar3"></span>
-        //                     </button>
-        //                 </div>
-        //                 <div className="collapse navbar-collapse" id="example-navbar-transparent">
-        //                     <ul className="navbar-nav ml-auto">
-
-
-        //                         <li className="nav-item">
-        //                             <a className="nav-link" href="#pablo">
-
-        //                                 <Link to={"/Studio_login"} className="back"><i> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 24 16">
-        //                                     <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
-        //                                 </svg></i> Go back</Link>
-        //                             </a>
-        //                         </li>
-        //                     </ul>
-        //                 </div>
-        //             </div>
-        //         </nav>
-
-
-
-
-
-        //         <div className="content">
-        //             <div className="container">
-        //                 <div className="row">
-
-        //                     <div className="col-md-4 mx-auto">
-        //                         <div className="card card-signup">
-        //                             <div className="card-body">
-        //                                 <h4 className="card-title text-center">Studio Register</h4>
-                                       
-        //                                 <div className="form" method="" action="">
-        //                                     <div className="input-group">
-        //                                         <div className="input-group-prepend">
-        //                                             <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
-        //                                         </div>
-        //                                         <input type="text" className="form-control" placeholder="Studio Name" onKeyUp={(e) => dispatch(user({ ...reg, name: e.target.value }))} autocomplete="fullname" />
-        //                                     </div>
-
-        //                                     <div className="input-group">
-        //                                         <div className="input-group-prepend">
-        //                                             <span className="input-group-text"><i className="now-ui-icons ui-1_email-85"></i></span>
-        //                                         </div>
-        //                                         <input type="text" className="form-control" placeholder="Studio Email" onKeyUp={(e) => dispatch(user({ ...reg, email: e.target.value }))} autocomplete="email" />
-        //                                     </div>
-        //                                     <div className="input-group">
-        //                                         <div className="input-group-prepend">
-        //                                             <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
-        //                                         </div>
-        //                                         <input type="password" className="form-control" placeholder="Password" onKeyUp={(e) => dispatch(user({ ...reg, password: e.target.value }))} autocomplete="fullname" />
-        //                                     </div>
-
-
-                                         
-        //                                     <div className="input-group">
-        //                                         <div className="input-group-prepend">
-        //                                             <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
-        //                                         </div>
-        //                                         <input type="text" className="form-control" placeholder="Studio Address" onKeyUp={(e) => dispatch(user({ ...reg, address: e.target.value }))} autocomplete="fullname" />
-        //                                     </div>
-        //                                     <div className="input-group">
-        //                                         <div className="input-group-prepend">
-        //                                             <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
-        //                                         </div>
-        //                                         <input type="number" className="form-control" placeholder="Phone Number" onKeyUp={(e) => dispatch(user({ ...reg, phone: e.target.value }))} autocomplete="fullname" />
-        //                                     </div>
-
-        //                                     <div className="input-group">
-        //                                         <div className="input-group-prepend">
-        //                                             <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
-        //                                         </div>
-        //                                         <input type="text" className="form-control" placeholder="Area" onKeyUp={(e) => dispatch(user({ ...reg, area: e.target.value }))} autocomplete="fullname" />
-        //                                     </div>
-        //                                     <div className="input-group">
-        //                                         <div className="input-group-prepend">
-        //                                             <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
-        //                                         </div>
-        //                                         <input type="text" className="form-control" placeholder="city" onKeyUp={(e) => dispatch(user({ ...reg, city: e.target.value }))} autocomplete="fullname" />
-        //                                     </div>
-        //                                     <div className="input-group">
-        //                                         <div className="input-group-prepend">
-        //                                             <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
-        //                                         </div>
-        //                                         <input type="number" className="form-control" placeholder="Pincode" onKeyUp={(e) => dispatch(user({ ...reg, pin: e.target.value }))} autocomplete="fullname" />
-        //                                     </div>
-
-
-
-
-
-        //                                     <div className="card-footer text-center">
-        //                                         <button className="btn btn-primary btn-round btn-lg" onClick={regist}>Register</button>
-        //                                     </div>
-        //                                 </div>
-        //                             </div>
-        //                         </div>
-        //                     </div>
-        //                 </div>
-        //             </div>
-        //         </div>
-        //         <footer className="footer">
-        //             <div className=" container ">
-
-        //                 <div className="copyright" id="copyright">
-        //                     &copy;
-        //                     <script>
-        //                         document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-        //                     </script>, Designed by
-        //                     <a href="portfolio" target="_blank">Portfolio</a>. Coded by
-        //                     <a href="agaram" target="_blank">Agaram softwares</a>.
-        //                 </div>
-        //             </div>
-        //         </footer>
-        //     </div>
-        // </div>
-
+        
+        <form >
         <div className="login-page sidebar-collapse">
         <nav className="navbar navbar-expand-lg bg-white fixed-top navbar-transparent" color-on-scroll="500">
             <div className="container">
@@ -196,9 +85,12 @@ export const Studio_Register = () => {
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item ">
                            
-                              <Link to={"/Studio/login"} className="back"><i> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 24 16">
+                           <button style={{backgroundColor:"orangered",
+                                           border:"0px",
+                                           borderRadius:"8px"
+                                           }}> <Link to={"/Studio/login"} className="back"><i> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 24 16">
                               //                                     <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
-                              //                                 </svg></i> Go back</Link>
+                              //                                 </svg></i> LOGIN</Link></button>
                            
                         
                         </li>
@@ -235,20 +127,20 @@ export const Studio_Register = () => {
                                         <div className="input-group-prepend">
                                             <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
                                         </div>
-                                        <input type="text" className="form-control " onKeyUp={(e) => dispatch(user({ ...reg, name: e.target.value }))} placeholder="Studio name" />
+                                        <input type="text" className="form-control " onKeyUp={(e) => dispatch(user({ ...reg, name: e.target.value }))} placeholder="Studio name" required />
                                     </div>
 
                                     <div className="input-group no-border input-lg">
                                         <div className="input-group-prepend">
                                             <span className="input-group-text"><i className="now-ui-icons ui-1_email-85"></i></span>
                                         </div>
-                                        <input type="email" className="form-control " onKeyUp={(e) => dispatch(user({ ...reg, email: e.target.value }))} placeholder="Email" />
+                                        <input type="email" className="form-control " onKeyUp={(e) => dispatch(user({ ...reg, email: e.target.value }))} placeholder="Email" required/>
                                     </div>
                                     <div className="input-group no-border input-lg">
                                         <div className="input-group-prepend">
                                             <span className="input-group-text"><i className="now-ui-icons text_caps-small"></i></span>
                                         </div>
-                                        <input type="password" className="form-control" onKeyUp={(e) => dispatch(user({ ...reg, password: e.target.value }))}  placeholder="Password" />
+                                        <input type="password" className="form-control" onKeyUp={(e) => dispatch(user({ ...reg, password: e.target.value }))}  placeholder="Password" required/>
                                     </div>
 
 {/* --------------------------------------------------------------------------------------------------------------- */}
@@ -256,35 +148,35 @@ export const Studio_Register = () => {
                                         <div className="input-group-prepend">
                                             <span className="input-group-text"><i className="now-ui-icons shopping_shop"></i></span>
                                         </div>
-                                        <input type="address" className="form-control " onKeyUp={(e) => dispatch(user({ ...reg, address: e.target.value }))}  placeholder="studio Residency" />
+                                        <input type="address" className="form-control " onKeyUp={(e) => dispatch(user({ ...reg, address: e.target.value }))}  placeholder="studio Residency" required/>
                                     </div>
 
                                     <div className="input-group no-border input-lg">
                                         <div className="input-group-prepend">
                                             <span className="input-group-text"><i className="now-ui-icons tech_mobile"></i></span>
                                         </div>
-                                        <input type="number" className="form-control " onKeyUp={(e) => dispatch(user({ ...reg, phone: e.target.value }))}  placeholder="phone no" />
+                                        <input type="number" className="form-control " onKeyUp={(e) => dispatch(user({ ...reg, phone: e.target.value }))}  placeholder="phone no" required/>
                                     </div>
 
                                     <div className="input-group no-border input-lg">
                                         <div className="input-group-prepend">
                                             <span className="input-group-text"><i className="now-ui-icons location_pin"></i></span>
                                         </div>
-                                        <input type="text" className="form-control "  onKeyUp={(e) => dispatch(user({ ...reg, area: e.target.value }))}  placeholder="Area" />
+                                        <input type="text" className="form-control "  onKeyUp={(e) => dispatch(user({ ...reg, area: e.target.value }))}  placeholder="Area" required/>
                                     </div>
 
                                     <div className="input-group no-border input-lg">
                                         <div className="input-group-prepend">
                                             <span className="input-group-text"><i className="now-ui-icons location_compass-05"></i></span>
                                         </div>
-                                        <input type="text" className="form-control " onKeyUp={(e) => dispatch(user({ ...reg, city: e.target.value }))}  placeholder="City" />
+                                        <input type="text" className="form-control " onKeyUp={(e) => dispatch(user({ ...reg, city: e.target.value }))}  placeholder="City" required/>
                                     </div>
 
                                     <div className="input-group no-border input-lg">
                                         <div className="input-group-prepend">
                                             <span className="input-group-text"><i className="now-ui-icons objects_globe"></i></span>
                                         </div>
-                                        <input type="number" className="form-control " onKeyUp={(e) => dispatch(user({ ...reg, pin: e.target.value }))}  placeholder="pincode" />
+                                        <input type="number" className="form-control " onKeyUp={(e) => dispatch(user({ ...reg, pin: e.target.value }))}  placeholder="pincode"  required />
                                     </div>
                 
 
@@ -294,7 +186,7 @@ export const Studio_Register = () => {
                                 <div className="card-footer text-center">
                                     <button style={{width:"190px",
                                         marginLeft:"60px"
-                                    }} className="btn btn-primary btn-round btn-lg btn-block butt" onClick={regist}>Register</button>
+                                    }} className="btn btn-primary btn-round btn-lg btn-block butt" type="button" onClick={regist}>Register</button>
                                 </div>
                                 
 
@@ -307,7 +199,7 @@ export const Studio_Register = () => {
         </div>
         
     </div>
-
+    </form>
 
     )
 }
