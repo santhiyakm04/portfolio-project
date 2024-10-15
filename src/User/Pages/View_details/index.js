@@ -8,9 +8,9 @@ export const View_Details = () => {
 
   return (
     <div>
-      <nav class="navbar navbar-expand-lg bg-primary p-0">
+      <nav class="navbar navbar-expand-lg bg-warning p-0">
         <div class="container">
-          <h4 className="text-light">PORTFOLIO</h4>
+          <h4 className="text-light">Lights On Focus</h4>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#example-navbar-icons" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar bar1"></span>
             <span class="navbar-toggler-bar bar2"></span>
@@ -18,14 +18,16 @@ export const View_Details = () => {
           </button>
           <div class="collapse navbar-collapse" id="example-navbar-icons">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown">
-                  <i class="now-ui-icons ui-1_settings-gear-63" aria-hidden="true"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <Link to="/user_login" className='text-dark m-5'>Logout</Link>
-                </div>
-              </li>
+              <li class="nav-item">
+                <a class="nav-link">
+                <Link to="/" className='text-light'>Logout</Link>
+              </a>
+               </li>
+               <li class="nav-item">
+                <a class="nav-link">
+                <Link to="/user/bookdetails" className='text-light'>Back</Link>
+              </a>
+               </li>
             </ul>
           </div>
         </div>

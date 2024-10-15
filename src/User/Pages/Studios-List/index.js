@@ -43,24 +43,15 @@ const Filterbtn =(event)=>{
             
             <div className="collapse navbar-collapse show" data-nav-image="./assets/img//blurred-image-1.jpg">
               <ul className="navbar-nav ml-auto">
-                <li className="nav-item">
-                  <a className="nav-link">
-                    Home
-                  </a>
+              <li className="nav-item">
+                  <Link className="nav-link" to="/user/viewdetails">My Orders</Link>
                 </li>
-                <li className="nav-item">
-                <a className="nav-link" href="#pablo">
-                    Message
+                <li class="nav-item">
+                <a className="nav-link">
+                <Link to="/">Log out</Link>
+
                   </a>
-                    </li>
-                <li class="nav-item dropdown">
-                        <a href="#" className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown">
-                          <i className="now-ui-icons ui-1_settings-gear-63" aria-hidden="true"></i>
-                        </a>
-                        <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        
-                   <Link to="/">Log out</Link>
-                        </div>
+
                       </li>
               </ul>
             </div>
