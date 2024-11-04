@@ -8,7 +8,7 @@ import { pack } from '../../Slices/profileslice'
 
 export const Studio_Order = () => {
 
-    // const login_details = useSelector((state) => state.logs).studiolog;
+
     const det = useSelector((state) => state.details).studioProfile;
     //   console.log(det)
     const dispatch = useDispatch();
@@ -25,7 +25,6 @@ export const Studio_Order = () => {
     
     // ----------------------------------------------------------------------------
     const logup = useSelector((state) => state.logs).studiolog;
-    console.log(logup)
 
     const addlist = () => {
         dispatch(pack([...det.packages, packages]))
@@ -36,7 +35,6 @@ export const Studio_Order = () => {
         // dispatch(pack([...det.packages, packages]))
 
         let formData = new FormData()
-
         formData.append("name_of_founder",det.name_of_founder)
         formData.append("no_of_branches",det.no_of_branches)
         formData.append("no_of_achievements",det.no_of_achievements)
@@ -49,7 +47,7 @@ export const Studio_Order = () => {
         axios.put("https://subhashs.pythonanywhere.com/edit",formData).then((e) => {
 
             // console.log(e)
-            // alert("upload profile sucessfully")
+            alert("upload profile sucessfully")
             
         })
     }
@@ -64,22 +62,27 @@ export const Studio_Order = () => {
     //     navigate(`/clientdetails/${idvalue}`)
     // }
 
-    // const orderlist = () => {
-    //     axios.get(`https://agaram.academy/api/action.php?request=studio_getBookingDetails&studio_id=${logup.data.id}`).then((n) => {
-    //         // axios.get("https://agaram.academy/api/action.php?request=studio_getBookingDetails").then((n) => {
-    //             // axios.get("https://subhashs.pythonanywhere.com/users").then((n) => {
+    const orderlist = () => {
+        // axios.get(`https://agaram.academy/api/action.php?request=studio_getBookingDetails&studio_id=${logup.data.id}`).then((n) => {
+            // axios.get("https://agaram.academy/api/action.php?request=studio_getBookingDetails").then((n) => {
+                axios.get("https://subhashs.pythonanywhere.com/bookinglist").then((n) => {
 
-    //        console.log(n.data.data)
-    //         setorder(n.data.data)
-    //         setsearch(n.data.data)
+           console.log(n.data.data)
+            setorder(n.data)
+            setsearch(n.data)
             
-    //     })
-    // }
-    // useEffect(() => {
-    //     orderlist()
-    // },[])
+        })
+    }
+    useEffect(() => {
+        orderlist()
+    },[])
 
-    
+    const Deletedlist=(idvalue)=>{
+        axios.delete(`https://subhashs.pythonanywhere.com/deleted/${idvalue}`).then((value)=>{
+            console.log(value)
+            orderlist()
+        })
+        }
 
 
 
@@ -306,8 +309,6 @@ export const Studio_Order = () => {
                                         <span className="input-group-text"><i class=""></i></span>
                                     </div>
                                     <input type="number" className="form-control" placeholder="enter ur package amount" onChange={(e) => setPackages({ name: "gold", amount: e.target.value })} aria-label="amount" autocomplete="amount" />
-
-                                    
                                 </div>
                                 <button  className="btn btn-primary btn-round btn-sm addbtn" type="button" onClick={() => addlist()}>confirm amount</button>
                                 <br>
@@ -321,8 +322,6 @@ export const Studio_Order = () => {
                                         <span className="input-group-text"><i class=""></i></span>
                                     </div>
                                     <input type="number" className="form-control" placeholder="enter ur package amount" onChange={(e) => setPackages({ name: "platinum", amount: e.target.value })} aria-label="amount" autocomplete="amount" />
-
-                                    
 
                                 </div>
                                 <button  className="btn btn-primary btn-round btn-sm addbtn" type="button" onClick={() => addlist()}>confirm amount</button>
@@ -410,16 +409,16 @@ export const Studio_Order = () => {
 
                                                 </tr>
                                             )} */}
-                                            <td>{each.event_date}</td>
-                                            <td>{each.package}</td>
-                                            <td>{each.event_type}</td>
-                                            <td>{each.event_time}</td>
+                                            <td>{each.event_Date}</td>
+                                            <td>{each.packages}</td>
+                                            <td>{each.event_Type}</td>
+                                            <td>{each.event_Time}</td>
                                             <td>{each.venue}</td>
                                             <td>{each.location}</td>
 
                                             
                                             
-                                            <td> <button  className="btn btn-danger"> <i className="now-ui-icons ui-1_simple-remove"></i></button>
+                                            <td> <button  className="btn btn-danger" onClick={()=>Deletedlist(each.id)}> <i className="now-ui-icons ui-1_simple-remove"></i></button>
                                             </td>
 
 
