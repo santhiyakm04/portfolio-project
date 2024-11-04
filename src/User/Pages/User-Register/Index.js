@@ -101,11 +101,25 @@ export const User_Register = () => {
                                                 </div>
                                                 <input type="text" className="form-control" onKeyUp={(e)=>dispatch(details({...uservalue,address:e.target.value}))} placeholder="Address" autocomplete="fullname"/>
                                             </div>
+
                                             <div className="input-group">
                                                 <div className="input-group-prepend">
                                                     <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
                                                 </div>
-                                                <input type="number" className="form-control" onKeyUp={(e)=>dispatch(details({...uservalue,phone:e.target.value}))} placeholder="Phone Number" autocomplete="fullname"/>
+                                                <input type="number" className="form-control" onKeyUp={(e)=>dispatch(details({...uservalue,phone:e.target.value}))} placeholder="Phone Number" autocomplete="fullname
+                                            <input type="number" className="form-control bg-dark text-light " onKeyUp={(e) => dispatch(details({ ...uservalue, aadhar: e.target.value }))} placeholder="Aaadhar number"  requried />
+                                        </div>
+
+                                        <div className="input-group no-border input-lg">
+                                            <div className="input-group-prepend">
+                                                <span className="input-group-text"></span>
+                                            </div>
+                                            <input type="text" className="form-control bg-dark text-light " onKeyUp={(e) => dispatch(details({ ...uservalue, address: e.target.value }))} placeholder="Address"  requried />
+                                        </div>
+                                        <div className="input-group no-border input-lg">
+                                            <div className="input-group-prepend">
+                                                <span className="input-group-text"></span>
+
                                             </div>
                                             <div className="input-group">
                                                 <div className="input-group-prepend">
@@ -151,6 +165,7 @@ export const User_Register = () => {
                     </div>
                 </footer>
             </div>
+        </div>
         </div>
 
     )
