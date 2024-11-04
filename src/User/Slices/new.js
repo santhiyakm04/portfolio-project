@@ -10,9 +10,10 @@ export const bookslice = createSlice({
     location:"",
     venue:"",
     event_type:"",
-    package:"",
-    user_id:"22",
-    studio_id:"22"
+    packages:"",
+    user_id:"",
+    studio_id:"",
+    // status: ""
 },
    
 },
