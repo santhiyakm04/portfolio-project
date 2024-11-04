@@ -8,7 +8,7 @@ import { pack } from '../../Slices/profileslice'
 
 export const Studio_Order = () => {
 
-
+    // const login_details = useSelector((state) => state.logs).studiolog;
     const det = useSelector((state) => state.details).studioProfile;
     //   console.log(det)
     const dispatch = useDispatch();
@@ -25,6 +25,7 @@ export const Studio_Order = () => {
     
     // ----------------------------------------------------------------------------
     const logup = useSelector((state) => state.logs).studiolog;
+    console.log(logup)
 
     const addlist = () => {
         dispatch(pack([...det.packages, packages]))
@@ -35,6 +36,7 @@ export const Studio_Order = () => {
         // dispatch(pack([...det.packages, packages]))
 
         let formData = new FormData()
+
         formData.append("name_of_founder",det.name_of_founder)
         formData.append("no_of_branches",det.no_of_branches)
         formData.append("no_of_achievements",det.no_of_achievements)
@@ -304,6 +306,8 @@ export const Studio_Order = () => {
                                         <span className="input-group-text"><i class=""></i></span>
                                     </div>
                                     <input type="number" className="form-control" placeholder="enter ur package amount" onChange={(e) => setPackages({ name: "gold", amount: e.target.value })} aria-label="amount" autocomplete="amount" />
+
+                                    
                                 </div>
                                 <button  className="btn btn-primary btn-round btn-sm addbtn" type="button" onClick={() => addlist()}>confirm amount</button>
                                 <br>
@@ -317,6 +321,8 @@ export const Studio_Order = () => {
                                         <span className="input-group-text"><i class=""></i></span>
                                     </div>
                                     <input type="number" className="form-control" placeholder="enter ur package amount" onChange={(e) => setPackages({ name: "platinum", amount: e.target.value })} aria-label="amount" autocomplete="amount" />
+
+                                    
 
                                 </div>
                                 <button  className="btn btn-primary btn-round btn-sm addbtn" type="button" onClick={() => addlist()}>confirm amount</button>

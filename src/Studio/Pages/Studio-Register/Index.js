@@ -28,7 +28,6 @@ export const Studio_Register = () => {
         formData.append("area",reg.area)
         formData.append("pin",reg.pin)
 
-
         if((reg.name =="")||(reg.email =="")||(reg.password =="")||(reg.address =="")||(reg.phone =="")||(reg.area =="")||(reg.city =="")||(reg.pin =="") ){
             alert ("pls fill the data")
           }else{

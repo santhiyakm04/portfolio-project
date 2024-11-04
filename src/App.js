@@ -18,9 +18,16 @@ import { Studio_Login } from './Studio/Pages/Studio-Login/Index';
 
 const router = createBrowserRouter([
   {
-    path:"/user_login",
+    path:"/",
     element: <div><User_Login/></div>
   },
+  
+  {
+    path:"/studio_register",
+    element: <div><Studio_Register/></div>
+  },
+  
+
   {
     path:"/studio/login",
     element: <div><Studio_Login/></div>
@@ -29,11 +36,7 @@ const router = createBrowserRouter([
     path:"/studio/register",
     element: <div><Studio_Register/></div>
   },
-  
-  {
-    path:"/user_register",
-    element: <div><User_Register/></div>
-  },
+ 
   {
     path:"/admin/login",
     element: <div><Admin_Login/></div>
@@ -49,11 +52,11 @@ const router = createBrowserRouter([
   },
 
   {
-    path:"/user_register",
+    path:"/user/register",
     element: <div><User_Register/></div>
   },
   {
-    path:"/book_details",
+    path:"/user/bookdetails",
     element: <div><Book_Details/></div>
   },
   {
@@ -65,16 +68,16 @@ const router = createBrowserRouter([
     element: <div><Viewdetails/></div>
   },
   {
-    path:"/view_details",
+    path:"/user/viewdetails",
     element: <div><View_Details/></div>
   },
   {
-    path:"/studio/list",
+    path:"/user/studiolist",
     element: <div><Studio_Listing/></div>
     
   },
   {
-    path:"/studio/details/:id",
+    path:"/user/studiodetails/:id/",
     element: <div><Studio_Details/></div>
   }
 
