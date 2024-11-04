@@ -13,6 +13,7 @@ export const Admin_Panel=()=>{
     
         const navigate=useNavigate();
         const Display=()=>{
+
             axios.get("https://SanthiyaKumarMallika.pythonanywhere.com/list").then((datavalue)=>{
                 // setUserList(datavalue.data)
                 setrecord(datavalue.data)
@@ -26,6 +27,7 @@ export const Admin_Panel=()=>{
           }
         
     const Deletelist=(idvalue)=>{
+
         axios.delete(`https://SanthiyaKumarMallika.pythonanywhere.com/delete/${idvalue}`).then((value)=>{
             console.log(value)
             Display()
@@ -56,8 +58,10 @@ export const Admin_Panel=()=>{
           }
         
     const Delete=(idvalue)=>{
+
         axios.delete(`https://SanthiyaKumarMallika.pythonanywhere.com/deletestudio/${idvalue}`).then((val)=>{
             console.log(val)
+
             Studio()
         })
         }

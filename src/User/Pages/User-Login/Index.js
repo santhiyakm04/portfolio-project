@@ -10,8 +10,7 @@ export const User_Login = () => {
    const dispatch=useDispatch()
 
    const login = () => {
-      const formData=new FormData();
-      formData.append("request",logvalue.request) 
+      const formData=new FormData(); 
       formData.append("email",logvalue.email)
       formData.append("password",logvalue.password)
       // axios.post("https://agaram.academy/api/action.php?request=studio_user_login",formData).then((res)=>{
@@ -27,6 +26,7 @@ export const User_Login = () => {
 
           if((logvalue.email=="")||(logvalue.password=="")){
             console.log("plese fill all the feilds")
+
           }
           else{
             axios.post("https://SanthiyaKumarMallika.pythonanywhere.com/login",formData).then((res)=>{

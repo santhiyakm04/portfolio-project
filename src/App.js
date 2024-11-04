@@ -29,13 +29,14 @@ const router = createBrowserRouter([
   
 
   {
-    path:"/studio_login",
+    path:"/studio/login",
     element: <div><Studio_Login/></div>
   },
   {
-    path:"/studio_register",
+    path:"/studio/register",
     element: <div><Studio_Register/></div>
   },
+ 
   {
     path:"/admin/login",
     element: <div><Admin_Login/></div>
@@ -59,7 +60,7 @@ const router = createBrowserRouter([
     element: <div><Book_Details/></div>
   },
   {
-    path:"/Studio_Orders",
+    path:"/Studio/Orders",
     element: <div><Studio_Order/></div>
   },
   {

@@ -21,10 +21,14 @@ export const Profileslice = createSlice({
 
         studio: (state, action) => {
             state.studioProfile = action.payload
+        },
+        pack:(state,action)=>{
+            state.studioProfile.packages = action.payload
+
         }
     }
 })
-export const { studio } = Profileslice.actions
+export const { studio,pack } = Profileslice.actions
 
 export default Profileslice.reducer
 

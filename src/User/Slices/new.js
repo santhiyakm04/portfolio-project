@@ -14,6 +14,7 @@ export const bookslice = createSlice({
     user_id:"",
     studio_id:"",
     // status: ""
+
 },
    
 },

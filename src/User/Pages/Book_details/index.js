@@ -8,6 +8,7 @@ import axios from "axios"
 
 
 export const Book_Details = () => {
+
   const navigate = useNavigate()
   const bookdetail = useSelector((state) => state.book)
   const bookvalue = bookdetail.book_details
