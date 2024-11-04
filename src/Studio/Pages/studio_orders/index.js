@@ -47,7 +47,7 @@ export const Studio_Order = () => {
         axios.put("https://subhashs.pythonanywhere.com/edit",formData).then((e) => {
 
             // console.log(e)
-            // alert("upload profile sucessfully")
+            alert("upload profile sucessfully")
             
         })
     }
@@ -62,22 +62,27 @@ export const Studio_Order = () => {
     //     navigate(`/clientdetails/${idvalue}`)
     // }
 
-    // const orderlist = () => {
-    //     axios.get(`https://agaram.academy/api/action.php?request=studio_getBookingDetails&studio_id=${logup.data.id}`).then((n) => {
-    //         // axios.get("https://agaram.academy/api/action.php?request=studio_getBookingDetails").then((n) => {
-    //             // axios.get("https://subhashs.pythonanywhere.com/users").then((n) => {
+    const orderlist = () => {
+        // axios.get(`https://agaram.academy/api/action.php?request=studio_getBookingDetails&studio_id=${logup.data.id}`).then((n) => {
+            // axios.get("https://agaram.academy/api/action.php?request=studio_getBookingDetails").then((n) => {
+                axios.get("https://subhashs.pythonanywhere.com/bookinglist").then((n) => {
 
-    //        console.log(n.data.data)
-    //         setorder(n.data.data)
-    //         setsearch(n.data.data)
+           console.log(n.data.data)
+            setorder(n.data)
+            setsearch(n.data)
             
-    //     })
-    // }
-    // useEffect(() => {
-    //     orderlist()
-    // },[])
+        })
+    }
+    useEffect(() => {
+        orderlist()
+    },[])
 
-    
+    const Deletedlist=(idvalue)=>{
+        axios.delete(`https://subhashs.pythonanywhere.com/deleted/${idvalue}`).then((value)=>{
+            console.log(value)
+            orderlist()
+        })
+        }
 
 
 
@@ -404,16 +409,16 @@ export const Studio_Order = () => {
 
                                                 </tr>
                                             )} */}
-                                            <td>{each.event_date}</td>
-                                            <td>{each.package}</td>
-                                            <td>{each.event_type}</td>
-                                            <td>{each.event_time}</td>
+                                            <td>{each.event_Date}</td>
+                                            <td>{each.packages}</td>
+                                            <td>{each.event_Type}</td>
+                                            <td>{each.event_Time}</td>
                                             <td>{each.venue}</td>
                                             <td>{each.location}</td>
 
                                             
                                             
-                                            <td> <button  className="btn btn-danger"> <i className="now-ui-icons ui-1_simple-remove"></i></button>
+                                            <td> <button  className="btn btn-danger" onClick={()=>Deletedlist(each.id)}> <i className="now-ui-icons ui-1_simple-remove"></i></button>
                                             </td>
 
 
