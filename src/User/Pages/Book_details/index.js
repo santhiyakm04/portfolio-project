@@ -15,9 +15,9 @@ export const Book_Details = () => {
   const dispatch = useDispatch()
 
   const searchparam = new URLSearchParams(window.location.search)
-  const param1 = searchparam.get('user_id')
-  const param2 = searchparam.get('studio_id')
-  const param3 = searchparam.get('status')
+  const param1=searchparam.get('user_id')
+  const param2=searchparam.get('studio_id')
+  // const param3=searchparam.get('status')
 
 
 
@@ -25,18 +25,18 @@ export const Book_Details = () => {
 
     const formData = new FormData();
 
-    formData.append("event_date", bookvalue.event_date)
-    formData.append("event_time", bookvalue.event_time)
-    formData.append("location", bookvalue.location)
-    formData.append("venue", bookvalue.venue)
-    formData.append("event_type", bookvalue.event_type)
-    formData.append("package", bookvalue.package)
-    formData.append("user_id", param1)
-    formData.append("studio_id", param2)
-    formData.append("status", param3)
+    formData.append("event_date",bookvalue.event_date)
+    formData.append("event_time",bookvalue.event_time)
+    formData.append("location",bookvalue.location)
+    formData.append("venue",bookvalue.venue)
+    formData.append("event_type",bookvalue.event_type)
+    formData.append("packages",bookvalue.packages)
+    formData.append("user_id",param1)
+    formData.append("studio_id",param2)
+    // formData.append("status",param3)
 
-    axios.post("https://agaram.academy/api/action.php?request=studio_create_booking", formData).then((res) => {
-      console.log(res.data.data)
+    axios.post("https://santhiyakumarmallika.pythonanywhere.com/userbooking",formData).then((res)=>{
+      console.log(res.data)
     })
     // alert("Booked Successfully")
     // navigate("/user/viewdetails")
@@ -131,7 +131,7 @@ export const Book_Details = () => {
                       <div className="input-group">
                         <div className="input-group-prepend">
                           <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
-                        </div><select class="form-select form-select-sm form-control" aria-label="Small select example" onClick={(e) => dispatch(booking({ ...bookvalue, package: e.target.value }))} required>
+                        </div><select class="form-select form-select-sm form-control" aria-label="Small select example" onClick={(e) => dispatch(booking({ ...bookvalue, packages: e.target.value }))} required>
                           <option selected>Packages</option>
                           <option value="Basic">Basic</option>
                           <option value="Silver">Silver</option>
@@ -141,8 +141,8 @@ export const Book_Details = () => {
 
                       </div>
                       <div className="p-2">
-                        <button class="btn btn-warning" data-toggle="modal" data-target="#myModal1" onClick={submit} >Submit</button>
-                        {/* <button className="btn btn-success" onClick={submit}>Submit</button> */}
+                        {/* <button class="btn btn-warning" data-toggle="modal" data-target="#myModal1" onClick={submit} >Submit</button> */}
+                        <button className="btn btn-success" onClick={submit}>Submit</button>
                       </div>
                     </div>
                   </div>
@@ -152,7 +152,7 @@ export const Book_Details = () => {
           </div>
         </div>
       </div>
-      <div className="modal fade modal-mini modal-light" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      {/* <div className="modal fade modal-mini modal-light" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header justify-content-center">
@@ -170,7 +170,7 @@ export const Book_Details = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       </form>
     </div>
   )

@@ -17,17 +17,17 @@ export const Studio_Login = () => {
         let formData = new FormData()
 
        
-        formData.append("email", logup.email)
-        formData.append("password", logup.password) 
+        formData.append("email",logup.email)
+        formData.append("password",logup.password) 
         
 
-        axios.post("https://agaram.academy/api/action.php?request=studio_studio_login", formData).then((n) => {
+        axios.post("https://SanthiyaKumarMallika.pythonanywhere.com/studiologin", formData).then((n) => {
          let s = n.data.status
                         
          if (s=="success"){
              alert("login sucessfully")
              navigate("/Studio_Orders")
-             dispatch(userlog(n.data))
+             dispatch(userlog(n.data.data))
              
          }else{
              alert("login failed")

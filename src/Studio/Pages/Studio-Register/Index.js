@@ -15,18 +15,18 @@ export const Studio_Register = () => {
     const regist = () => {
         let formData = new FormData()
 
-        formData.append("name", reg.name)
-        formData.append("status", reg.status)
-    formData.append("email", reg.email)
-    formData.append("password", reg.password) 
-    formData.append("address", reg.address)
-    formData.append("phone", reg.phone)
-    formData.append("city", reg.city)
-    formData.append("area", reg.area)
-    formData.append("pin", reg.pin)
+    formData.append("name",reg.name)
+    formData.append("email",reg.email)
+    formData.append("password",reg.password) 
+    formData.append("phone",reg.phone)
+    formData.append("address",reg.address)
+    formData.append("area",reg.area)
+    formData.append("city",reg.city)
+    formData.append("pin",reg.pin)
+    formData.append("status",reg.status)
         
 
-        axios.post("https://agaram.academy/api/action.php?request=studio_create_studio", formData).then((e) => {
+        axios.post("https://SanthiyaKumarMallika.pythonanywhere.com/studioregister",formData).then((e) => {
               console.log(e)
               
             //   alert("Register sucessfully")

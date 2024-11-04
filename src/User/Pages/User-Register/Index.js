@@ -15,15 +15,15 @@ export const User_Register = () => {
     const register = () => {
         const formData = new FormData();
 
-        formData.append(" name", uservalue.name)
-        formData.append(" email", uservalue.email)
-        formData.append(" password", uservalue.password)
-        formData.append(" aadhar", uservalue.aadhar)
-        formData.append(" address", uservalue.address)
-        formData.append(" phone", uservalue.phone)
-        formData.append(" city", uservalue.city)
-        formData.append(" area", uservalue.area)
-        formData.append(" pin", uservalue.pin)
+        formData.append("name", uservalue.name)
+        formData.append("email", uservalue.email)
+        formData.append("password", uservalue.password)
+        formData.append("aadhar", uservalue.aadhar)
+        formData.append("address", uservalue.address)
+        formData.append("phone", uservalue.phone)
+        formData.append("city", uservalue.city)
+        formData.append("area", uservalue.area)
+        formData.append("pin", uservalue.pin)
     //     axios.post(" https://agaram.academy/api/action.php?request=studio_create_user", formData).then((value) => {
     //         console.log(value)
     //         if (value.data.status=="success") {
@@ -43,7 +43,7 @@ export const User_Register = () => {
         console.log("plese fill all the feilds")
       }
       else{
-        axios.post(" https://agaram.academy/api/action.php?request=studio_create_user", formData).then((value) => {
+        axios.post("https://SanthiyaKumarMallika.pythonanywhere.com/register", formData).then((value) => {
             console.log(value)
             if (value.data.status=="success") {
                 // alert("successfully registered")

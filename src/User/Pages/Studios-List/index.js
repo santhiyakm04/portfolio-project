@@ -11,9 +11,9 @@ const [studioData, setStudioData]=useState([])
 const [searchFilterData,setSearchData]=useState(studioData)
 
 useEffect(()=>{
-  axios.get("http://agaram.academy/api/action.php?request=studio_getAllStudio").then((res)=>{
-    setStudioData(res.data.data)
-    setSearchData(res.data.data)
+  axios.get("https://SanthiyaKumarMallika.pythonanywhere.com/studiolist").then((res)=>{
+    setStudioData(res.data)
+    setSearchData(res.data)
 })
 },[])
 
@@ -178,18 +178,19 @@ const Filterbtn =(event)=>{
                   </div>
                   <div className="col-md-7">
                     <div className="card-body">
-                      <h3 className="card-title">{each.name}</h3>
+                      <h3 className="card-title">{each.studio_name}</h3>
                       <h5 className="card-title">{each.city}</h5>
                       <h5 className="card-title">{each.phone}</h5>
-                    <button class="btn btn-facebook" onClick={()=>Viewlist(each.id)}>view</button>
+                    <button class="btn btn-facebook" onClick={()=>Viewlist(each.studio_id)}>view</button>
                     </div>
                   </div>
                 </div>
               </div>
+              
             </div>
             )
-                
-          })}
+                })}
+
             
           </div>
         </div>

@@ -11,7 +11,7 @@ export const Studio_Details = () => {
   // console.log(id)
   const navigate=useNavigate()
   const [viewdata, setviewdata] = useState({})
-  console.log(viewdata.name_of_founder)
+  // console.log(viewdata.name_of_founder)
   const [review, setreview] = useState([])
   const [comment, setcomment] = useState({
     name: "",
@@ -33,7 +33,7 @@ export const Studio_Details = () => {
     setreview([...review, comment])
   }
   useEffect(() => {
-    axios.get(`https://agaram.academy/api/action.php?request=studio_getViewDetails&id=${id}`).then((res) => {
+    axios.get(`https://SanthiyaKumarMallika.pythonanywhere.com/viewlist/${id}`).then((res) => {
       setviewdata(res.data.data)
       setupdate(JSON.parse(res.data.data.packages))
      

@@ -29,7 +29,7 @@ export const User_Login = () => {
             console.log("plese fill all the feilds")
           }
           else{
-            axios.post("https://agaram.academy/api/action.php?request=studio_user_login",formData).then((res)=>{
+            axios.post("https://SanthiyaKumarMallika.pythonanywhere.com/login",formData).then((res)=>{
               if(res.data.status=="success"){
                 // alert("login successfull")
                 dispatch(log(res.data.data))
