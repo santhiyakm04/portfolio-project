@@ -10,7 +10,9 @@ export const Admin_View=()=>{
 
 
     useEffect(() => {
-        axios.get(`http://agaram.academy/api/action.php?request=studio_getViewDetails&id=${id}`).then((viewlist) => {
+        // axios.get(`http://agaram.academy/api/action.php?request=studio_getViewDetails&id=${id}`).then((viewlist) => {
+            axios.get(`https://subhashs.pythonanywhere.com/logins&id=${id}`).then((viewlist) => {
+
             setview(viewlist.data.data)
         })
     },[])
