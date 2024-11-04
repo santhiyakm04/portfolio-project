@@ -154,7 +154,7 @@ export const User_Register = () => {
 
                                         <div className="input-group no-border input-lg">
                                             <div className="input-group-prepend">
-                                                <span className="input-group-text"></span
+                                                <span className="input-group-text"></span>
                                             </div>
                                             <input type="text" className="form-control bg-dark text-light " onKeyUp={(e) => dispatch(details({ ...uservalue, address: e.target.value }))} placeholder="Address"  requried />
                                         </div>
@@ -209,6 +209,7 @@ export const User_Register = () => {
                 </footer>
             </div>
             {/* </form> */}
+        </div>
         </div>
 
     )
