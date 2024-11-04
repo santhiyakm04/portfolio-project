@@ -8,8 +8,8 @@ export const User_View=()=>{
     const [user, setuser] = useState({})
     const { user_id } = useParams()
     useEffect(() => {
-        axios.get(`http://agaram.academy/api/action.php?request=studio_getUserDetails&user_id=${user_id}`).then((View) => {
-            setuser(View.data.data)
+        axios.get(`http://SanthiyaKumarMallika.pythonanywhere.com/userview/${user_id}`).then((View) => {
+            setuser(View.data)
         })
     },[])
 

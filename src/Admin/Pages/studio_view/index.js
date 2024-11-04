@@ -10,8 +10,8 @@ export const Admin_View=()=>{
     const { id } = useParams()
 
     useEffect(() => {
-        axios.get(`http://agaram.academy/api/action.php?request=studio_getViewDetails&id=${id}`).then((viewlist) => {
-            setview(viewlist.data.data)
+        axios.get(`http://SanthiyaKumarMallika.pythonanywhere.com/viewlist/${id}`).then((viewlist) => {
+            setview(viewlist.data)
         })
     },[])
     return(
