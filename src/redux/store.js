@@ -8,7 +8,6 @@ import AdminSlice  from '../Admin/Slices/AdminLoginSlice'
 import ListingSlice from '../User/Slices/listingslice'
 import  RegSlice  from '../User/Slices/registerslice'
 import loginslice from '../User/Slices/loginslice'
-import  Editslice  from '../Studio/Slices/Editprofileslice' 
 import neww from '../User/Slices/new'
 export default configureStore({
   reducer:{
@@ -22,6 +21,6 @@ export default configureStore({
     register:RegSlice,
     login:loginslice,
     book:neww,
-    updates:Editslice
+    
   }
 })

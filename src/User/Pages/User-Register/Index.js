@@ -14,20 +14,21 @@ export const User_Register = () => {
      const register=()=>{
         const formData=new FormData();
        
-        formData.append(" name",uservalue.name)
-        formData.append(" email",uservalue.email)
-        formData.append(" password",uservalue.password)
-        formData.append(" aadhar",uservalue.aadhar)
-        formData.append(" address",uservalue.address)
-        formData.append(" phone",uservalue.phone)
-        formData.append(" city",uservalue.city)
-        formData.append(" area",uservalue.area)
-        formData.append(" pin",uservalue.pin)
-    axios.post(" https://agaram.academy/api/action.php?request=studio_create_user",formData).then((data)=>{
+        formData.append("name",uservalue.name)
+        formData.append("email",uservalue.email)
+        formData.append("password",uservalue.password)
+        formData.append("address",uservalue.address)
+        formData.append("phone",uservalue.phone)
+        formData.append("city",uservalue.city)
+        formData.append("area",uservalue.area)
+        formData.append("pin",uservalue.pin)
+    // axios.post(" https://agaram.academy/api/action.php?request=studio_create_user",formData).then((data)=>{
+        axios.post("https://subhashs.pythonanywhere.com/register",formData).then((data)=>{
+
         console.log(data)
-        // if(data.data.status){
-        //     alert("successfully registered")
-        // }
+        if(data.data.status){
+            alert("successfully registered")
+        }
         // navigate("/user_login")
     })
     }
@@ -87,12 +88,12 @@ export const User_Register = () => {
                                                 </div>
                                                 <input type="password" className="form-control" onKeyUp={(e)=>dispatch(details({...uservalue,password:e.target.value}))} placeholder="password" autocomplete="fullname"/>
                                             </div>
-                                            <div className="input-group">
+                                            {/* <div className="input-group">
                                                 <div className="input-group-prepend">
                                                     <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
                                                 </div>
                                                 <input type="number" className="form-control" onKeyUp={(e)=>dispatch(details({...uservalue,aadhar:e.target.value}))} placeholder="Aaadhar number" autocomplete="fullname"/>
-                                            </div>
+                                            </div> */}
                                            
                                             <div className="input-group">
                                                 <div className="input-group-prepend">

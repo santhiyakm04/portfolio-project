@@ -13,11 +13,10 @@ export const Admin_Panel=()=>{
     
         const navigate=useNavigate();
         const Display=()=>{
-            axios.post(" https://agaram.academy/api/action.php?request=studio_getAllUser").then((datavalue)=>{
-                setUserList(datavalue.data.data)
-                setrecord(datavalue.data.data)
-                // console.log(datavalue)
-    
+            axios.get(" https://subhashs.pythonanywhere.com/users").then((datavalue)=>{
+                setUserList(datavalue.data)
+                setrecord(datavalue.data)
+                // console.log(datavalue)    
             })
     
         }
@@ -26,7 +25,7 @@ export const Admin_Panel=()=>{
           }
         
     const Deletelist=(idvalue)=>{
-        axios.get(` https://agaram.academy/api/action.php?request=studio_removeDetails&id=${idvalue}`).then((value)=>{
+        axios.delete(`https://subhashs.pythonanywhere.com/delete/${idvalue}`).then((value)=>{
             // console.log(value)
             Display()
         })
@@ -43,9 +42,9 @@ export const Admin_Panel=()=>{
 
 
         const Studio=()=>{
-            axios.post(" https://agaram.academy/api/action.php?request=studio_getAllStudio").then((datavalue)=>{
+            axios.get("https://subhashs.pythonanywhere.com/studiolist").then((datavalue)=>{
                 // setUserList(datavalue.data.data)
-                setstudio(datavalue.data.data)
+                setstudio(datavalue.data)
                 // console.log(datavalue)
     
             })
@@ -56,7 +55,7 @@ export const Admin_Panel=()=>{
           }
         
     const Delete=(idvalue)=>{
-        axios.get(` https://agaram.academy/api/action.php?request=studio_removeDetails&id=${idvalue}`).then((value)=>{
+        axios.delete(`https://subhashs.pythonanywhere.com/deletes/${idvalue}`).then((value)=>{
             // console.log(value)
             Studio()
         })

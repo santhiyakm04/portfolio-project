@@ -10,15 +10,16 @@ export const User_Login = () => {
    const dispatch=useDispatch()
 
    const login = () => {
-      const formData=new FormData();
-      formData.append("request",logvalue.request) 
+      const formData=new FormData(); 
       formData.append("email",logvalue.email)
       formData.append("password",logvalue.password)
-      axios.post("https://agaram.academy/api/action.php?request=studio_user_login",formData).then((log)=>{
+    //   axios.post("https://agaram.academy/api/action.php?request=studio_user_login",formData).then((log)=>{
+        axios.post("https://subhashs.pythonanywhere.com/login",formData).then((log)=>{
+
           console.log(log)
           if(log.data.status=="success"){
-            alert("success")
-            navigate("/studio/list")
+            // alert("success")
+            // navigate("/studio/list")
           }
       })
   }

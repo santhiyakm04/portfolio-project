@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState={
       logData:{
-        request: "studio_user_login",
         email: "",
         password: ""
       },

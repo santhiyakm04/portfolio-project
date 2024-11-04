@@ -35,17 +35,20 @@ export const Studio_Order = () => {
         // dispatch(pack([...det.packages, packages]))
 
         let formData = new FormData()
-        formData.append("name_of_founder", det.name_of_founder)
-        formData.append("no_of_branches", det.no_of_branches)
-        formData.append("no_of_achievements", det.no_of_achievements)
-        formData.append("no_of_employees", det.no_of_employees)
-        formData.append("about_us", det.about_us)
-        formData.append("packages", JSON.stringify(det.packages))
-        formData.append("studio_id", logup.data.id)
+        formData.append("name_of_founder",det.name_of_founder)
+        formData.append("no_of_branches",det.no_of_branches)
+        formData.append("no_of_achievements",det.no_of_achievements)
+        formData.append("no_of_employees",det.no_of_employees)
+        formData.append("about_us",det.about_us)
+        formData.append("packages",JSON.stringify(det.packages))
+        formData.append("studio_id",logup.data.id)
 
-        axios.post("https://agaram.academy/api/action.php?request=studio_update_profile", formData).then((e) => {
+        // axios.post("https://agaram.academy/api/action.php?request=studio_update_profile", formData).then((e) => {
+        axios.put("https://subhashs.pythonanywhere.com/edit",formData).then((e) => {
+
             // console.log(e)
-            alert("upload profile sucessfully")
+            // alert("upload profile sucessfully")
+            
         })
     }
 
@@ -59,18 +62,24 @@ export const Studio_Order = () => {
     //     navigate(`/clientdetails/${idvalue}`)
     // }
 
-    const orderlist = () => {
-        axios.get(`https://agaram.academy/api/action.php?request=studio_getBookingDetails&studio_id=${logup.data.id}`).then((n) => {
-            // axios.get("https://agaram.academy/api/action.php?request=studio_getBookingDetails").then((n) => {
-            console.log(n.data.data)
-            setorder(n.data.data)
-            setsearch(n.data.data)
+    // const orderlist = () => {
+    //     axios.get(`https://agaram.academy/api/action.php?request=studio_getBookingDetails&studio_id=${logup.data.id}`).then((n) => {
+    //         // axios.get("https://agaram.academy/api/action.php?request=studio_getBookingDetails").then((n) => {
+    //             // axios.get("https://subhashs.pythonanywhere.com/users").then((n) => {
+
+    //        console.log(n.data.data)
+    //         setorder(n.data.data)
+    //         setsearch(n.data.data)
             
-        })
-    }
-    useEffect(() => {
-        orderlist()
-    },[])
+    //     })
+    // }
+    // useEffect(() => {
+    //     orderlist()
+    // },[])
+
+    
+
+
 
     //  -----search-----------------------------------------------------------
 

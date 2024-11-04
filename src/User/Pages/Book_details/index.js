@@ -25,11 +25,13 @@ export const Book_Details = () => {
         formData.append("location",bookvalue.location)
         formData.append("venue",bookvalue.venue)
         formData.append("event_type",bookvalue.event_type)
-        formData.append("package",bookvalue.package)
+        formData.append("packages",bookvalue.packages)
         formData.append("user_id",bookvalue.user_id)
         formData.append("studio_id",bookvalue.studio_id)
         
-        axios.post("https://agaram.academy/api/action.php?request=studio_create_booking",formData).then((res)=>{
+        // axios.post("https://agaram.academy/api/action.php?request=studio_create_booking",formData).then((res)=>{
+            axios.post("https://subhashs.pythonanywhere.com/details",formData).then((res)=>{
+
             console.log(res.data.data)
         })
         // alert("Booked successfully")

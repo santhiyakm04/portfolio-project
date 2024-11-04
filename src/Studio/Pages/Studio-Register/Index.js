@@ -18,23 +18,25 @@ export const Studio_Register = () => {
 
         
 
-        formData.append("name", reg.name)
-        formData.append("status", reg.status)
-        formData.append("email", reg.email)
-        formData.append("password", reg.password)
-        formData.append("address", reg.address)
-        formData.append("phone", reg.phone)
-        formData.append("city", reg.city)
-        formData.append("area", reg.area)
-        formData.append("pin", reg.pin)
+        formData.append("name",reg.name)
+        // formData.append("status",reg.status)
+        formData.append("email",reg.email)
+        formData.append("password",reg.password)
+        formData.append("address",reg.address)
+        formData.append("phone",reg.phone)
+        formData.append("city",reg.city)
+        formData.append("area",reg.area)
+        formData.append("pin",reg.pin)
 
 
-        if((reg.name =="")||(reg.email =="")||(reg.password =="")||(reg.password =="")||(reg.address =="")||(reg.phone =="")||(reg.city =="")||(reg.area =="")||(reg.pin =="") ){
+        if((reg.name =="")||(reg.email =="")||(reg.password =="")||(reg.address =="")||(reg.phone =="")||(reg.area =="")||(reg.city =="")||(reg.pin =="") ){
             alert ("pls fill the data")
           }else{
 
-            axios.post("https://agaram.academy/api/action.php?request=studio_create_studio", formData).then((e) => {
-                console.log(e)
+            // axios.post("https://agaram.academy/api/action.php?request=studio_create_studio", formData).then((e) => {
+                axios.post("https://subhashs.pythonanywhere.com/registers",formData).then((e) => {
+
+                // console.log(e.data.data)
                 let value = e.data.status
                   
             
@@ -162,7 +164,7 @@ export const Studio_Register = () => {
                                         <div className="input-group-prepend">
                                             <span className="input-group-text"><i className="now-ui-icons location_pin"></i></span>
                                         </div>
-                                        <input type="text" className="form-control "  onKeyUp={(e) => dispatch(user({ ...reg, area: e.target.value }))}  placeholder="Area" required/>
+                                        <input type="text" className="form-control "  onKeyUp={(e) => dispatch(user({ ...reg,area: e.target.value }))}  placeholder="Area" required/>
                                     </div>
 
                                     <div className="input-group no-border input-lg">
