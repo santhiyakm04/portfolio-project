@@ -22,7 +22,7 @@ export const Studio_Login = () => {
 
 
         // axios.post("https://agaram.academy/api/action.php?request=studio_studio_login", formData).then((n) => {
-            axios.post("https://subhashs.pythonanywhere.com/logins", formData).then((n) => {
+            axios.post("https://SanthiyaKumarMallika.pythonanywhere.com/studiologin", formData).then((n) => {
                 
                 console.log(n.data.data)
 

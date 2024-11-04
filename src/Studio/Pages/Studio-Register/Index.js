@@ -33,7 +33,7 @@ export const Studio_Register = () => {
           }else{
 
             // axios.post("https://agaram.academy/api/action.php?request=studio_create_studio", formData).then((e) => {
-                axios.post("https://subhashs.pythonanywhere.com/registers",formData).then((e) => {
+                axios.post("https://SanthiyaKumarMallika.pythonanywhere.com/studioregister",formData).then((e) => {
 
                 // console.log(e.data.data)
                 let value = e.data.status

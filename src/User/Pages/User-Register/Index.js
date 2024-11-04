@@ -46,9 +46,9 @@ export const User_Register = () => {
       else{
         axios.post("https://SanthiyaKumarMallika.pythonanywhere.com/register", formData).then((value) => {
             console.log(value)
-            if (value.data.status=="success") {
-                // alert("successfully registered")
-            // dispatch(details(value.data.data))
+            if (value.data.status=="success"){
+                alert("successfully registered")
+            dispatch(details(value.data.data))
             navigate("/")
                }
                else{
@@ -126,9 +126,9 @@ export const User_Register = () => {
                                         </div>
 
                                         <div className="input-group no-border input-lg">
-                                            <div className="input-group-prepend">
+                                            {/* <div className="input-group-prepend">
                                                 <span className="input-group-text"></span>
-                                            </div>
+                                            </div> */}
 
                                             {/* <div className="input-group">
                                                 <div className="input-group-prepend">
@@ -139,9 +139,9 @@ export const User_Register = () => {
                                            
                                             <div className="input-group">
                                                 <div className="input-group-prepend">
-                                                    <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
+                                                    <span className="input-group-text"></span>
                                                 </div>
-                                                <input type="text" className="form-control" onKeyUp={(e)=>dispatch(details({...uservalue,address:e.target.value}))} placeholder="Address" autocomplete="fullname"/>
+                                                {/* <input type="text" className="form-control" onKeyUp={(e)=>dispatch(details({...uservalue,address:e.target.value}))} placeholder="Address" autocomplete="fullname"/> */}
 
                                             <input type="password" className="form-control bg-dark text-light" onKeyUp={(e) => dispatch(details({ ...uservalue, password: e.target.value }))} placeholder="password"  requried />
                                         </div>
