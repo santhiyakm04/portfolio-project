@@ -23,6 +23,7 @@
 }
 .navbar-expand-lg{
     width: 100%;
+
     padding: 20px;
 }
 .addbtn{
@@ -62,4 +63,7 @@
 }
 .colrs{
         color: orangered;
+=======
+    /* padding: 20px; */
+
 }

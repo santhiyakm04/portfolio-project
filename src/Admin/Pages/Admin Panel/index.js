@@ -13,10 +13,12 @@ export const Admin_Panel=()=>{
     
         const navigate=useNavigate();
         const Display=()=>{
-            axios.get(" https://subhashs.pythonanywhere.com/users").then((datavalue)=>{
-                setUserList(datavalue.data)
+
+            axios.get("https://SanthiyaKumarMallika.pythonanywhere.com/list").then((datavalue)=>{
+                // setUserList(datavalue.data)
                 setrecord(datavalue.data)
-                // console.log(datavalue)    
+                // console.log(datavalue)
+    
             })
     
         }
@@ -25,8 +27,9 @@ export const Admin_Panel=()=>{
           }
         
     const Deletelist=(idvalue)=>{
-        axios.delete(`https://subhashs.pythonanywhere.com/delete/${idvalue}`).then((value)=>{
-            // console.log(value)
+
+        axios.delete(`https://SanthiyaKumarMallika.pythonanywhere.com/delete/${idvalue}`).then((value)=>{
+            console.log(value)
             Display()
         })
         }
@@ -42,7 +45,7 @@ export const Admin_Panel=()=>{
 
 
         const Studio=()=>{
-            axios.get("https://subhashs.pythonanywhere.com/studiolist").then((datavalue)=>{
+            axios.get("https://SanthiyaKumarMallika.pythonanywhere.com/studiolist").then((datavalue)=>{
                 // setUserList(datavalue.data.data)
                 setstudio(datavalue.data)
                 // console.log(datavalue)
@@ -55,8 +58,10 @@ export const Admin_Panel=()=>{
           }
         
     const Delete=(idvalue)=>{
-        axios.delete(`https://subhashs.pythonanywhere.com/deletes/${idvalue}`).then((value)=>{
-            // console.log(value)
+
+        axios.delete(`https://SanthiyaKumarMallika.pythonanywhere.com/deletestudio/${idvalue}`).then((val)=>{
+            console.log(val)
+
             Studio()
         })
         }
@@ -109,10 +114,10 @@ export const Admin_Panel=()=>{
         {record.map((each)=>
                
             <tr className="table-light">
-                <td>{each.name}</td>
-                <td>{each.email}</td>
+                <td>{each.user_Name}</td>
+                <td>{each.user_Email}</td>
                 <td>{each.phone}</td>
-                <td><button onClick={()=>Deletelist(each.id)}>Delete</button></td>
+                <td><button onClick={()=>Deletelist(each.user_id)}>Delete</button></td>
                 <td><button onClick={()=>Viewlist(each.id)}>View</button></td>
             </tr>
         )}
@@ -138,10 +143,10 @@ export const Admin_Panel=()=>{
         {studio.map((each)=>
                
             <tr className="table-light">
-                <td>{each.name}</td>
-                <td>{each.email}</td>
+                <td>{each.studio_name}</td>
+                <td>{each.studio_email}</td>
                 <td>{each.city}</td>
-                <td><button onClick={()=>Delete(each.id)}>Delete</button></td>
+                <td><button onClick={()=>Delete(each.studio_id)}>Delete</button></td>
                 <td><button onClick={()=>View(each.id)}>View</button></td>
 
             </tr>
