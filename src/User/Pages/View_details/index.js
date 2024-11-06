@@ -43,7 +43,7 @@ export const View_Details = () => {
                       <li><h5>Location : {bookvalue.location}</h5></li>
                       <li><h5>Venue : {bookvalue.venue}</h5></li>
                       <li><h5>Event Type : {bookvalue.event_type}</h5></li>
-                      <li><h5>Package : {bookvalue.package}</h5></li>
+                      <li><h5>Package : {bookvalue.packages}</h5></li>
                     </ul>
           </div>
         </div>

@@ -21,8 +21,8 @@ const Viewlist=(idvalue)=>{
   navigate(`/user/studiodetails/${idvalue}`)
 }
 
-const Filterbtn =(event)=>{
-  setSearchData(studioData.filter(e=>e.name.toLowerCase().includes(event.target.value.toLowerCase())))
+const Filterbtn=(event)=>{
+  setSearchData(studioData.filter(e=>e.studio_name?.toLowerCase().includes(event.target.value.toLowerCase())))
 }
 
  

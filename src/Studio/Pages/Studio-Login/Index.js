@@ -1,12 +1,8 @@
-// import { Login_Component } from "../../../Component/Login";
 import { navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import { useSelector, useDispatch } from 'react-redux'
 import { userlog } from '../../Slices/loginslice';
 import { Link } from 'react-router-dom';
-
-
-
 
 export const Studio_Login = () => {
     const navigate = useNavigate();
@@ -15,38 +11,22 @@ export const Studio_Login = () => {
     const dispatch = useDispatch();
     const logged = () => {
         let formData = new FormData()
-
-
         formData.append("email", logup.email)
         formData.append("password", logup.password)
-
-
-        // axios.post("https://agaram.academy/api/action.php?request=studio_studio_login", formData).then((n) => {
-            axios.post("https://SanthiyaKumarMallika.pythonanywhere.com/studiologin", formData).then((n) => {
-                
-                console.log(n.data.data)
-
-            let s = n.data.status
-
-            if (s == "success") {
+        axios.post("https://SanthiyaKumarMallika.pythonanywhere.com/studiologin",formData).then((n) => {
+        console.log(n.data.data)
+        let s = n.data.status
+            if (s=="success"){
                 alert("login sucessfully")
-                navigate("/Studio/Orders")
+                navigate("/studio/home")
                 dispatch(userlog(n.data))
-
-            } else {
+            } else 
+                {
                 alert("login failed")
-            }
+                }
         })
-
-
-
-
-    }
-
-
-
-
-    return (
+}
+return (
         <div className="login-page sidebar-collapse">
             <nav className="navbar navbar-expand-lg bg-white fixed-top navbar-transparent" color-on-scroll="500">
                 <div className="container">
@@ -70,17 +50,14 @@ export const Studio_Login = () => {
                     <div className="collapse navbar-collapse" data-nav-image="../assets/img//blurred-image-1.jpg" data-color="orange">
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item ">
-                           
-                           <Link to={"/user/login"} className="back"><i> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 24 16">
-                           //                                     <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
-                           //                                 </svg></i> Go back</Link>
-                        
-                            </li>
+                           <Link to={"/"} className="back"><i><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 24 16">
+                            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
+                            </svg></i> Go back</Link>
+                        </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-            {/* // <!-- End Navbar --> */}
             <div className="page-header header-filter" filter-color="orange">
                 <div className="page-header-image" style={{ backgroundImage: "url(../assets/img/back3.jpg)" }}></div>
                 <div className="content">

@@ -5,15 +5,15 @@ import { User_Login } from './User/Pages/User-Login/Index';
 import { createBrowserRouter, RouterProvider}from "react-router-dom";
 import { User_Register } from './User/Pages/User-Register/Index';
 import { Studio_Register } from './Studio/Pages/Studio-Register/Index';
-import { Studio_Order } from './Studio/Pages/studio_orders';
-import { Viewdetails } from './Studio/Pages/client_details';
+import { Studio_Order } from './Studio/Pages/studio_home';
 import { Studio_Listing } from './User/Pages/Studios-List/';
 import { Studio_Details } from './User/Pages/Studio-Details';
-import { Admin_Panel } from './Admin/Pages/Admin Panel';
-import { Admin_View } from './Admin/Pages/Admin View';
+import { Admin_Panel } from './Admin/Pages/Admin-Panel';
+import {  User_View } from './Admin/Pages/User-View';
 import { Book_Details } from './User/Pages/Book_details';
 import { View_Details } from './User/Pages/View_details';
 import { Studio_Login } from './Studio/Pages/Studio-Login/Index';
+import { Studio_View } from './Admin/Pages/Studio-View';
 
 
 const router = createBrowserRouter([
@@ -21,13 +21,6 @@ const router = createBrowserRouter([
     path:"/",
     element: <div><User_Login/></div>
   },
-  
-  {
-    path:"/studio_register",
-    element: <div><Studio_Register/></div>
-  },
-  
-
   {
     path:"/studio/login",
     element: <div><Studio_Login/></div>
@@ -47,8 +40,12 @@ const router = createBrowserRouter([
     element: <div><Admin_Panel/></div>
   },
   {
-    path:"/admin/view/:id",
-    element: <div><Admin_View/></div>
+    path:"/admin/userview/:id",
+    element: <div><User_View/></div>
+  },
+  {
+    path:"/admin/studioview/:id",
+    element: <div><Studio_View/></div>
   },
 
   {
@@ -60,12 +57,8 @@ const router = createBrowserRouter([
     element: <div><Book_Details/></div>
   },
   {
-    path:"/Studio/Orders",
+    path:"/studio/home",
     element: <div><Studio_Order/></div>
-  },
-  {
-    path:"/clientdetails/:id",
-    element: <div><Viewdetails/></div>
   },
   {
     path:"/user/viewdetails",

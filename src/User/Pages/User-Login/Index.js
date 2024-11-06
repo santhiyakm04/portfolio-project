@@ -13,17 +13,6 @@ export const User_Login = () => {
       const formData=new FormData(); 
       formData.append("email",logvalue.email)
       formData.append("password",logvalue.password)
-      // axios.post("https://agaram.academy/api/action.php?request=studio_user_login",formData).then((res)=>{
-        //   console.log(log)
-          // if(res.data.status=="success"){
-            // alert("login successfull")
-          //   dispatch(log(res.data.data))
-          //   navigate("/user/studiolist")
-          // }
-          // else{
-          //   alert("login failed")
-          // }
-
           if((logvalue.email=="")||(logvalue.password=="")){
             console.log("plese fill all the feilds")
 
@@ -31,7 +20,7 @@ export const User_Login = () => {
           else{
             axios.post("https://SanthiyaKumarMallika.pythonanywhere.com/login",formData).then((res)=>{
               if(res.data.status=="success"){
-                // alert("login successfull")
+                alert("login successfull")
                 dispatch(log(res.data.data))
                 navigate("/user/studiolist")
               }
@@ -45,9 +34,6 @@ export const User_Login = () => {
       })
   }
    }
-//  const handleSubmit=(event)=>{
-//     event.preventDefault()
-//   } 
 
    return (
        <div className="login-page sidebar-collapse">
@@ -67,8 +53,8 @@ export const User_Login = () => {
                   <ul class="navbar-nav ml-auto">
                            <li>
                         <div  aria-labelledby="navbarDropdownMenuLink">
-                          <Link to="/" className="text-light m-3">Studio</Link>
-                          <Link to="/" className="text-light m-4">Admin</Link>
+                          <Link to="/studio/login" className="text-light m-3">Studio</Link>
+                          <Link to="/admin/login" className="text-light m-4">Admin</Link>
                         </div>
                       </li>
                   </ul>

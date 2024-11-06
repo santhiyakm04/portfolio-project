@@ -52,7 +52,7 @@ export const User_Register = () => {
             navigate("/")
                }
                else{
-                alert("fill the details")
+                alert("fill all the details")
               }
         })
 

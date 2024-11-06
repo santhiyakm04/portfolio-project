@@ -7,7 +7,6 @@ import { studio } from '../../Slices/profileslice'
 import { pack } from '../../Slices/profileslice'
 
 export const Studio_Order = () => {
-
     // const login_details = useSelector((state) => state.logs).studiolog;
     const det = useSelector((state) => state.details).studioProfile;
     //   console.log(det)
@@ -18,9 +17,8 @@ export const Studio_Order = () => {
     // --------------------------------------------------------------------------
 
     const [order, setorder] = useState([])
-    const[search,setsearch]=useState([order])
-    const[searchbar,setsearchbar]=useState({date:""})
-
+    const[search,setsearch]=useState(order)
+    
 
     
     // ----------------------------------------------------------------------------
@@ -36,21 +34,15 @@ export const Studio_Order = () => {
         // dispatch(pack([...det.packages, packages]))
 
         let formData = new FormData()
-
+        formData.append("studio_id",logup.data.id)
         formData.append("name_of_founder",det.name_of_founder)
         formData.append("no_of_branches",det.no_of_branches)
         formData.append("no_of_achievements",det.no_of_achievements)
         formData.append("no_of_employees",det.no_of_employees)
         formData.append("about_us",det.about_us)
         formData.append("packages",JSON.stringify(det.packages))
-        formData.append("studio_id",logup.data.id)
+        axios.put("https://SanthiyaKumarMallika.pythonanywhere.com/studioupdate",formData).then((e) =>{
 
-        // axios.post("https://agaram.academy/api/action.php?request=studio_update_profile", formData).then((e) => {
-        axios.put("https://subhashs.pythonanywhere.com/edit",formData).then((e) => {
-
-            // console.log(e)
-            // alert("upload profile sucessfully")
-            
         })
     }
 
@@ -64,87 +56,42 @@ export const Studio_Order = () => {
     //     navigate(`/clientdetails/${idvalue}`)
     // }
 
-    // const orderlist = () => {
-    //     axios.get(`https://agaram.academy/api/action.php?request=studio_getBookingDetails&studio_id=${logup.data.id}`).then((n) => {
-    //         // axios.get("https://agaram.academy/api/action.php?request=studio_getBookingDetails").then((n) => {
-    //             // axios.get("https://subhashs.pythonanywhere.com/users").then((n) => {
-
-    //        console.log(n.data.data)
-    //         setorder(n.data.data)
-    //         setsearch(n.data.data)
+    const orderlist = () => {
+        axios.get("http://santhiyakumarmallika.pythonanywhere.com/bookinglist").then((n) => {
+             console.log(n.data)
+            setorder(n.data)
+            setsearch(n.data)
             
-    //     })
-    // }
-    // useEffect(() => {
-    //     orderlist()
-    // },[])
+        })
+    }
+    useEffect(() => {
+        orderlist()
+    },[])
 
+    const Deletedlist=(idvalue)=>{
+        axios.delete(`https://santhiyakumarmallika.pythonanywhere.com/deletebooking/${idvalue}`).then((value) => {
+            console.log(value)
+            orderlist()
+        })
+        }
+
+       
+    
+        const Filter=(event)=>{
+            setsearch(order.filter(e=>e.event_date?.toLowerCase().includes(event.target.value.toLowerCase())))
+          }
     
 
 
 
     //  -----search-----------------------------------------------------------
 
-    const searchs =()=>{
-        let bar = order.filter((v)=>{                     
-             return  v.event_date.toLowerCase()==searchbar.event_date
-        }
-    )
-        setsearch(bar)
-    }
-
-    // ------------------------------------------------------------------------------
-
-
-    // const order_name = () => {
-    //     axios.get("https://agaram.academy/api/action.php?request=studio_getAllUser").then((e) => {
-    //         setordername(e.data.data)
-    //         console.log(e)
-    //     })
-    // }
-    // useEffect(() => {
-    //     order_name()
-    // }, [])
-
-    // ---------------------------------------------------------------------------
+    
 
 
 
     return (
         <>
-            {/* <nav className="navbar navbar-expand-lg navbar-transparent">
-                <div className="container card1">
-                    <div className="navbar-translate">
-                        <a className="navbar-brand" href="#pablo">portfolio</a>
-                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#example-navbar-transparent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-bar bar1"></span>
-                            <span className="navbar-toggler-bar bar2"></span>
-                            <span className="navbar-toggler-bar bar3"></span>
-                        </button>
-                    </div>
-                    <div className="collapse navbar-collapse" id="example-navbar-transparent">
-                        <ul className="navbar-nav ml-auto">
-
-                            <li className="nav-item">
-                                <a className="nav-link" href="#pablo">
-
-                                    <Link to={"/Studio/login"} className="back"><i> </i> logout</Link>
-                                </a>
-                            </li>
-
-                            <li className="nav-item">
-                                <a className="nav-link" href="#pablo">
-
-                                    <Link to={"/Studio/login"} className="back"><i> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 24 16">
-                                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
-                                    </svg></i> Go back</Link>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav> */}
-
 <nav class="navbar navbar-expand-lg bg-primary ">
               <div class="container">
               <div className="dropdown button-dropdown">
@@ -164,13 +111,6 @@ export const Studio_Order = () => {
                 </div>
                 <div class="collapse navbar-collapse" id="example-navbar-primary">
                   <ul class="navbar-nav ml-auto">
-                    
-                  <li class="nav-item">
-                      <a class="nav-link" href="#pablo">
-                        <Link to={"/"} className="back"><i class="now-ui-icons users_circle-08"></i> Edit profile</Link>
-                      </a>
-                    </li>
-
                     <li class="nav-item">
                       <a class="nav-link" href="#pablo">
                         <Link to={"/Studio/login"} className="back"><i class="now-ui-icons arrows-1_share-66"></i> logout</Link>
@@ -190,29 +130,16 @@ export const Studio_Order = () => {
                     <ul className="nav nav-pills nav-pills-primary " role="tablist">
                         <li className="nav-item">
                             <a className="nav-link active" data-toggle="tab" href="#profile" role="tablist">
-                                {/* <i className="now-ui-icons design_image"></i> */}
                                 <b>update profile</b>
                             </a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" data-toggle="tab" href="#home" role="tablist">
-                                {/* <i className="now-ui-icons location_world"></i> */}
                                 <b>orders</b>
                             </a>
                         </li>
-                        {/* <li className="nav-item"> */}
-                            {/* <a className="nav-link" data-toggle="tab" href="#messages" role="tablist"> */}
-                                {/* <i className="now-ui-icons design-2_ruler-pencil"></i> */}
-                                {/* <b>upload files </b> */}
-                            {/* </a> */}
-                        {/* </li> */}
                     </ul>
                 </div>
-                {/* -------------------------------------- */}
-
-               
-
-                {/* <!-- Tab panes --> */}
                 <div className="tab-content gallery">
                     <div className="tab-pane active" id="profile" role="tabpanel">
                         <div className="row">
@@ -237,11 +164,7 @@ export const Studio_Order = () => {
 
 
                             <form role="form" className="forms" id="contact-form" method="post">
-                                {/* <small>
-                                    {JSON.stringify(det)}
-                                </small> */}
-
-                                <label className="colrs">Name of founder:</label>
+                            <label className="colrs">Name of founder:</label>
                                 <div className="input-group">
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><i class=""></i></span>
@@ -336,14 +259,6 @@ export const Studio_Order = () => {
                                     <input type="text" className="form-control" placeholder="about us" onKeyUp={(e) => dispatch(studio({ ...det, about_us: e.target.value }))} aria-label="amount" autocomplete="amount" />
                                 </div>
                                 <br></br>
-
-
-
-
-
-
-
-
                                 <div className="submit text-center">
                                     <button type='button' className="btn btn-primary btn-round btn-lg" onClick={() => userdetail()}>upload</button>
                                 </div>
@@ -366,19 +281,8 @@ export const Studio_Order = () => {
                               <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="now-ui-icons ui-1_zoom-bold"></i></span>
                               </div>
-                              <input type="text" class="form-control " 
-
-                               onKeyUp={(s)=>setsearchbar({...searchbar,event_date:s.target.value})} 
-
-                               placeholder="  YYYY-MM-DD"/>
+                              <input type="text" class="form-control" onChange={Filter} placeholder="  YYYY-MM-DD"/>
                             </div>
-                          </div>
-                          <div class="col-sm-2 ">
-                            <button type="button" class="btn btn-primary btn-round btn-block bts" 
-
-                             onClick={()=>searchs(searchbar)}
-
-                             >search</button>
                           </div>
                         </div>
                       </form>
@@ -388,9 +292,7 @@ export const Studio_Order = () => {
 
                             <table className="  table-light clientlist" >
                                 <thead className="table table-dark tabbar">
-                                    <tr>
-                                        {/* <th>Name</th> */}
-                                        
+                                    <tr>                                        
                                         <th>Date</th>
                                         <th>package</th>
                                         <th>Event</th>
@@ -401,7 +303,7 @@ export const Studio_Order = () => {
                                     </tr>
                                 </thead>
                                 <tbody  >
-                                    {search.map((each) =>
+                                    {search.map((each,i) =>
 
                                         <tr className="table my-3">
                                             {/* {ordername.map((n) =>
@@ -411,16 +313,12 @@ export const Studio_Order = () => {
                                                 </tr>
                                             )} */}
                                             <td>{each.event_date}</td>
-                                            <td>{each.package}</td>
+                                            <td>{each.packages}</td>
                                             <td>{each.event_type}</td>
                                             <td>{each.event_time}</td>
                                             <td>{each.venue}</td>
                                             <td>{each.location}</td>
-
-                                            
-                                            
-                                            <td> <button  className="btn btn-danger"> <i className="now-ui-icons ui-1_simple-remove"></i></button>
-                                            </td>
+                                            <td><button  className="btn btn-danger" onClick={()=>Deletedlist(each.id)}> <i className="now-ui-icons ui-1_simple-remove"></i></button></td>
 
 
                                         </tr>

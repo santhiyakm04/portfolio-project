@@ -36,21 +36,15 @@ export const Book_Details = () => {
     formData.append("studio_id",param2)
     // formData.append("status",param3)
 
-    axios.post("https://santhiyakumarmallika.pythonanywhere.com/userbooking",formData).then((res)=>{
-      console.log(res.data)
-    })
-    // alert("Booked Successfully")
-    // navigate("/user/viewdetails")
-
-
-  }
-  const handleSubmit=(event)=>{
-    event.preventDefault()
-  }
-
+    axios.post("http://santhiyakumarmallika.pythonanywhere.com/userbooking",formData).then((res)=>{
+      })
+      alert("Booked Successfully")
+     navigate("/user/viewdetails")
+    }
+  
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form>
       <div className="page-header header-filter" filter-color="black">
         <div className="page-header-image" style={{ backgroundImage: "url(../assets/img/pexels-fwstudio-33348-129731.jpg)" }}></div>
         <div className="signup-page sidebar-collapse">
@@ -66,7 +60,7 @@ export const Book_Details = () => {
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
                     <a className="nav-link">
-                      <Link to="/" className='text-light'>Home</Link>
+                      <Link to="/user/studiolist" className='text-light'>Home</Link>
 
                     </a>
                   </li>

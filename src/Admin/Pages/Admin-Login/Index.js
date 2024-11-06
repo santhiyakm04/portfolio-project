@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import  { updatingDetails }  from "../../Slices/AdminLoginSlice";
 import axios from "axios";
 
+
 export const Admin_Login=()=>{
     let navigate=useNavigate();
    let statevalue=useSelector((e)=>e.AdminLogin).details
@@ -19,7 +20,7 @@ export const Admin_Login=()=>{
     axios.post("https://SanthiyaKumarMallika.pythonanywhere.com/adminlogin",loginformData).then((res)=>{
         if(res.data.status=="success"){
             alert("Login Successfully")
-            // navigate("/admin/panel")
+            navigate("/admin/panel")
         }else{
             alert("Login Failed")
         }
@@ -40,7 +41,7 @@ export const Admin_Login=()=>{
                     </div>
                     <div className="navbar-translate">
                         <a className="navbar-brand" href="https://demos.creative-tim.com/now-ui-kit-pro/index.html" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
-                            PORTFOLIO
+                            LIGHTS ON FOCUS
                         </a>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-bar top-bar"></span>
@@ -58,17 +59,17 @@ export const Admin_Login=()=>{
             </nav>
             {/* // <!-- End Navbar --> */}
             <div className="page-header header-filter" filter-color="orange">
-                <div className="page-header-image" style={{backgroundImage:"url(../assets/img/login.jpg)"}}></div>
+                <div className="page-header-image " style={{backgroundImage:"url(../assets/img/login.jpg)"}}></div>
                 <div className="content">
                     <div className="container">
                         <div className="col-md-5 ml-auto mr-auto">
                             <div className="card card-login card-plain">
                                 <form className="form" method="" action="">
-                                    <div className="card-header text-center">
+                                    {/* <div className="card-header text-center">
                                         <div className="logo-container">
                                             <img src="/assets/img/now-logo.png" alt="" />
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className="card-body" >
                                         <div className="input-group no-border input-lg">
                                             <div className="input-group-prepend">
@@ -80,7 +81,7 @@ export const Admin_Login=()=>{
                                             <div className="input-group-prepend">
                                                 <span className="input-group-text"><i className="now-ui-icons text_caps-small"></i></span>
                                             </div>
-                                            <input type="text" className="form-control" onKeyUp={(e)=>dispatch(updatingDetails({...statevalue, password:e.target.value}))} placeholder="Password" />
+                                            <input type="password" className="form-control" onKeyUp={(e)=>dispatch(updatingDetails({...statevalue, password:e.target.value}))} placeholder="Password" />
                                         </div> 
                                     </div>
                                     <div className="card-footer text-center">

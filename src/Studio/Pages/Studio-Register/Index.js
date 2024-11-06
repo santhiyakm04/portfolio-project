@@ -4,63 +4,38 @@ import { useSelector, useDispatch } from 'react-redux'
 import { user } from '../../Slices/Registerslice';
 import { Link } from 'react-router-dom';
 
-
-
 export const Studio_Register = () => {
     const navigate = useNavigate();
     const reg = useSelector((state) => state.regis).studioReg;
-
     const dispatch = useDispatch();
     const regist = () => {
-       
-        let formData = new FormData()
-        console.debug(reg)
-
-        
-
+       let formData = new FormData()
         formData.append("name",reg.name)
-        // formData.append("status",reg.status)
         formData.append("email",reg.email)
         formData.append("password",reg.password)
-        formData.append("address",reg.address)
         formData.append("phone",reg.phone)
-        formData.append("city",reg.city)
+        formData.append("address",reg.address)
         formData.append("area",reg.area)
+        formData.append("city",reg.city)
         formData.append("pin",reg.pin)
+        formData.append("status",reg.status)
 
         if((reg.name =="")||(reg.email =="")||(reg.password =="")||(reg.address =="")||(reg.phone =="")||(reg.area =="")||(reg.city =="")||(reg.pin =="") ){
             alert ("pls fill the data")
           }else{
-
-            // axios.post("https://agaram.academy/api/action.php?request=studio_create_studio", formData).then((e) => {
                 axios.post("https://SanthiyaKumarMallika.pythonanywhere.com/studioregister",formData).then((e) => {
-
-                // console.log(e.data.data)
                 let value = e.data.status
-                  
-            
-    
-                if (value == "success") {
+                if (value=="success"){
                     alert("Register sucessfully")
                     navigate("/studio/login")
                 }
-                     else {
+                else {
                     alert("Register failed")
                 }
-    
-               
-                
-            })
-            
-          }
-
-
-
-    }
-
-
-    return (
-        
+    })
+            }
+}
+return (
         <form >
         <div className="login-page sidebar-collapse">
         <nav className="navbar navbar-expand-lg bg-white fixed-top navbar-transparent" color-on-scroll="500">
@@ -89,30 +64,24 @@ export const Studio_Register = () => {
                            <button style={{backgroundColor:"orangered",
                                            border:"0px",
                                            borderRadius:"8px"
-                                           }}> <Link to={"/Studio/login"} className="back"><i> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 24 16">
-                              //                                     <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
-                              //                                 </svg></i> LOGIN</Link></button>
-                           
-                        
-                        </li>
-                    </ul>
+                                           }}><Link to={"/Studio/login"} className="back"><i> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 24 16">
+                                                <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
+                                                </svg></i>LOGIN</Link></button>
+                           </li>
+                           </ul>
+                     </div>
                 </div>
-            </div>
-        </nav>
-        {/* // <!-- End Navbar --> */}
+             </nav>
         <div className="page-header header-filter" filter-color="">
             <div className="page-header-image" style={{ backgroundImage: "url(../assets/img/back.jpg)",
                 opacity:"0.9"
              }}></div>
             <div className="content">
                 <div className="container ml-10">
-                     
                      <h2 style={{color:"",
                                     fontFamily:"helvitica",
                                     marginBottom:"0px"
-                                    
-                                    
-                    }}>Studio Registration  </h2>
+                                    }}>Studio Registration  </h2>
                    
                     <div className="col-md-5 ml-auto mr-auto">
                         <div className="card card-login card-plain">
