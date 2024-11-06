@@ -1,0 +1,68 @@
+
+
+.head{
+    margin-bottom: 60px;
+    margin-top: 20px;
+}
+.forms{
+    margin-left: 43.5%;
+    margin-top: 40px;
+}
+.clientlist{
+    margin-top: 40px;
+    margin-left: 5%;
+    width: 90%;
+    text-align: center;
+}
+.tab{
+    background-color: orangered;
+}
+
+.tablelist{
+    margin-top:30px;
+}
+.navbar-expand-lg{
+    width: 100%;
+
+    padding: 20px;
+}
+.addbtn{
+    margin-left: 40px;
+    border-radius: 5px;
+}
+.searchtab{
+    width: 40%;
+}
+.bts{
+   width: 120px ;
+}
+.cardb{
+    margin-top: 70px;
+}
+.searchbar{
+    
+    margin-left: 28%;
+}
+.searchbars{
+    width: 40%;
+}
+.textbar{
+    margin-left: 38%;
+    color: orangered;
+    vertical-align: middle;
+    align-items: center;
+}
+.text2{
+    margin-bottom: 10px;
+}
+.inputbar{
+    display: inline-block;
+}
+.tabbar{
+    background-color: orangered;
+}
+.colrs{
+        color: orangered;
+    /* padding: 20px; */
+
+}

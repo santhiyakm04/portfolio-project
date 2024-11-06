@@ -9,6 +9,7 @@ const initialstate={
         address :"" ,
         phone:"",
         city:"",
+        // gender:""
         area:"",
         pin:"",
         status:""
