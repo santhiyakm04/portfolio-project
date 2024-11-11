@@ -8,10 +8,8 @@ import { useSelector } from 'react-redux';
 
 export const Studio_Details = () => {
   let {id} = useParams()
-  // console.log(id)
   const navigate=useNavigate()
   const [viewdata, setviewdata] = useState({})
-  // console.log(viewdata.name_of_founder)
   const [review, setreview] = useState([])
   const [comment, setcomment] = useState({
     name: "",
@@ -21,9 +19,6 @@ export const Studio_Details = () => {
   const details=useSelector((state)=>state.login)
   const logvalue=details.logData
   console.log(logvalue)
-  // const registervalue = useSelector((state) => state.register)
-  // const uservalue = registervalue.user_details
-  // console.log(uservalue)
 
 
   const [update, setupdate] = useState([])
@@ -40,13 +35,6 @@ export const Studio_Details = () => {
       console.log(res.data.data)
     })
   }, [id])
-
-  // useEffect(() => {
-  //   axios.get(`https://agaram.academy/api/action.php?request=studio_getStudioProfile&studio_id=${id}`).then((value) => {
-  //     setupdate(JSON.parse(value.data.data.packages))
-  //     console.log(value.data.data)
-  //   })
-  // }, [])
   return (
     <div>
       <div className="header-3">
@@ -187,12 +175,7 @@ export const Studio_Details = () => {
         </div>
 
       </div>
-      {/* <div className='text-center'> */}
-        {/* <Link to="/book_details" className='btn btn-primary'>Book Now</Link></div><br/> */}
-       
-        {/* {update.map((each)=> */}
         <div>
-        {/* <div className='box' style={{ backgroundImage: "url('/assets/img/pexels-hatice-796619215-28191695.jpg')" }} > */}
         <div className="row no-gutters justify-content-center">
                         <div className="col-8">
                         <h3 className="title text-center text-dark">Packages</h3>
@@ -203,9 +186,6 @@ export const Studio_Details = () => {
                                             <h5 className="card-title mb-0">
                                                 <a className="btn-block text-left" role="button" data-toggle="collapse" data-target="#plandetail1" aria-expanded="true" aria-controls="plandetail1">
                                                    <h4 className='text-dark'>Basic</h4><span class="colored-red"></span>
-                                                    {/* <span class="pricepara float-right">
-                                                        <del class="money">125000</del>&nbsp;<span class="money">100000</span>
-                                                    </span> */}
                                                 </a>
                                             </h5>
                                         </div>
@@ -339,112 +319,6 @@ export const Studio_Details = () => {
                      <button className="btn btn-danger" onClick={()=>{navigate(`/user/bookdetails?user_id=${logvalue.id}&studio_id=${id}`)}}>Book Now</button>
                      </div>
                     </div>
-                    {/* </div> */}
-                  {/* )} */}
-    
-      {/* <h2 className="text-center">Client Review</h2>
-      {review.map((e) =>
-        <div>
-          <div id="comments">
-            <div className="row">
-              <div className="col-md-8 ml-auto mr-auto">
-                <div className="media-area">
-                  <div className="media">
-                      <div className="avatar">
-                        <img className="media-object img-raised" src="../assets/img/logo.png"/>
-                      </div>
-                
-                    <div className="media-body">
-                      <h3 className="media-heading">{e.name}</h3>
-                      <i>{e.comment}</i>
-                      <div className="media media-post">
-                        <a className="pull-left author" href="#pablo">
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              </div >
-          </div >
-        </div>
-      )}
-      <div id="comments">
-        <div className="row">
-          <div className="col-md-8 ml-auto mr-auto">
-            <div className="media-area border border-dark m-3 p-3">
-              <h3 className='text-center'>Post Comment</h3>
-              <div className="media-body">
-                <div className="form">
-                  <div className="row">
-                    <div className="col-md-6">
-                      <div className="form-group">
-                        <input type="text" className="form-control p-3 text-dark border border-dark" placeholder="Your Name" onKeyUp={(e) => setcomment({ ...comment, name: e.target.value })} />
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="form-group">
-                        <input type="email" className="form-control p-3 text-dark border border-dark" placeholder="Your email" onKeyUp={(e) => setcomment({ ...comment, email: e.target.value })} />
-                      </div>
-                    </div>
-                  </div>
-                  <textarea className="form-control p-3 text-dark border border-dark" placeholder="Write Something..." onKeyUp={(e) => setcomment({ ...comment, comment: e.target.value })}></textarea>
-                  <div className="media-footer">
-                    <h6 className="text-muted p-2">Sign in with</h6>
-                    <a href="" className="btn btn-icon btn-round btn-twitter">
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                    <a href="" className="btn btn-icon btn-round btn-facebook">
-                      <i className="fab fa-facebook-square"></i>
-                    </a>
-                    <a href="" className="btn btn-icon btn-round btn-google">
-                      <i className="fab fa-google-plus-square"></i>
-                    </a>
-                    <button className="btn btn-primary" onClick={postcomment}>post comment</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
-      {/* <footer className="footer footer-big" data-background-color="black">
-        <div className="container">
-          <div className="content">
-              <div>
-                <h2 className='text-center'>About Us</h2>
-                <h3 className="title text-center">{viewdata.about_us}</h3>
-
-              </div>
-              <div className="container">
-        <div className="photo-container">
-          <img src="../assets/img/ryan.jpg" alt=""/>
-        </div>
-        <div className="text-center">
-        <h3 className="title">{viewdata.name_of_founder}</h3>
-        <p className="category">Photographer</p>
-        </div>
-        <div className="content">
-             
-          <div className="social-description">
-            <h2 className="text-light">{viewdata.no_of_achievements}</h2>
-            <p>Achivements</p>
-          </div>
-          <div>
-            <h2 className="text-light">{viewdata.no_of_branches}</h2>
-            <p>Branches</p>
-          </div>
-          <div className="social-description">
-            <h2 className="text-light">{viewdata.no_of_employees}</h2>
-            <p>Employees</p>
-          </div>
-        </div>
-      </div>
-              </div>
-              </div>
-              
-      </footer> */}
-
 <section id="stats" className="stats section dark-background">
 
 <img src="../../../assets/img/pexels-fwstudio-33348-129731.jpg" alt="" data-aos="fade-in" />
@@ -492,7 +366,5 @@ export const Studio_Details = () => {
 
 </section>
     </div >
-    // )}
-    // </div>
   )
 }

@@ -7,21 +7,16 @@ import { studio } from '../../Slices/profileslice'
 import { pack } from '../../Slices/profileslice'
 
 export const Studio_Order = () => {
-    // const login_details = useSelector((state) => state.logs).studiolog;
     const det = useSelector((state) => state.details).studioProfile;
     //   console.log(det)
     const dispatch = useDispatch();
     const [packages, setPackages] = useState({ name: "", amount: "" })
 
     
-    // --------------------------------------------------------------------------
-
     const [order, setorder] = useState([])
     const[search,setsearch]=useState(order)
     
 
-    
-    // ----------------------------------------------------------------------------
     const logup = useSelector((state) => state.logs).studiolog;
     console.log(logup)
 
@@ -31,7 +26,6 @@ export const Studio_Order = () => {
     }
 
     const userdetail = () => {
-        // dispatch(pack([...det.packages, packages]))
 
         let formData = new FormData()
         formData.append("studio_id",logup.data.id)
@@ -46,28 +40,18 @@ export const Studio_Order = () => {
         })
     }
 
-    // -----------------------------------------------------------------------
-
-
-    // ----------------------------------------------------------------------------
-
-
-    // const Viewpage = (idvalue) => {
-    //     navigate(`/clientdetails/${idvalue}`)
-    // }
-
     const orderlist = () => {
-        axios.get("http://santhiyakumarmallika.pythonanywhere.com/bookinglist").then((n) => {
-             console.log(n.data)
-            setorder(n.data)
-            setsearch(n.data)
+        axios.get(`http://santhiyakumarmallika.pythonanywhere.com/bookinglist/${logup.data.id}`).then((n) => {
+             console.log(n.data.data)
+            setorder(n.data.data)
+            setsearch(n.data.data)
             
         })
     }
     useEffect(() => {
         orderlist()
     },[])
-
+    
     const Deletedlist=(idvalue)=>{
         axios.delete(`https://santhiyakumarmallika.pythonanywhere.com/deletebooking/${idvalue}`).then((value) => {
             console.log(value)
@@ -81,16 +65,7 @@ export const Studio_Order = () => {
             setsearch(order.filter(e=>e.event_date?.toLowerCase().includes(event.target.value.toLowerCase())))
           }
     
-
-
-
-    //  -----search-----------------------------------------------------------
-
-    
-
-
-
-    return (
+return (
         <>
 <nav class="navbar navbar-expand-lg bg-primary ">
               <div class="container">
@@ -112,7 +87,7 @@ export const Studio_Order = () => {
                 <div class="collapse navbar-collapse" id="example-navbar-primary">
                   <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                      <a class="nav-link" href="#pablo">
+                      <a class="nav-link">
                         <Link to={"/Studio/login"} className="back"><i class="now-ui-icons arrows-1_share-66"></i> logout</Link>
                       </a>
                     </li>
@@ -121,9 +96,6 @@ export const Studio_Order = () => {
                 </div>
               </div>
             </nav>
-
-
-            {/* ------------ */}
             <div className="col-md-12 ">
 
                 <div className="nav-align-center">
@@ -140,31 +112,11 @@ export const Studio_Order = () => {
                         </li>
                     </ul>
                 </div>
-                <div className="tab-content gallery">
+                <div className="tab-content gallery ">
                     <div className="tab-pane active" id="profile" role="tabpanel">
-                        <div className="row">
-
-                        <div className="card  card-form-horizontal cardb">
-                    <div className="card-body">
-                      <form method="" action="">
-                        <div className="row">
-                          <div className="col-sm-4  textbar ">
-                            <div className=" input-group ">
-                            <div class="input-group-prepend">
-                              <h2 className=" text2 "><b>upload ur profile </b> </h2>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-
-
-
-
-                            <form role="form" className="forms" id="contact-form" method="post">
-                            <label className="colrs">Name of founder:</label>
+                        <div className="row mx-auto updatechild">
+                <form role="form" className="forms" id="contact-form" method="post">
+                            <label className="mt-5">Name of founder:</label>
                                 <div className="input-group">
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><i class=""></i></span>
@@ -204,7 +156,7 @@ export const Studio_Order = () => {
                                     </div>
                                     <input type="number" className="form-control" placeholder="enter ur package amount"  onChange={(e) => setPackages({ name: "basic", amount: e.target.value })} aria-label="amount" autocomplete="amount" />
                                 </div>
-                                <button  className="btn btn-primary btn-round btn-sm addbtn" type="button" onClick={() => addlist()}>confirm amount</button>
+                                <button  className="btn-primary border-light ml-5" type="button" onClick={() => addlist()}>confirm amount</button>
                                 <br>
                                 </br>
                                 <br>
@@ -217,7 +169,7 @@ export const Studio_Order = () => {
                                     </div>
                                     <input type="number" className="form-control" placeholder="enter ur package amount" onChange={(e) => setPackages({ name: "silver", amount: e.target.value })} aria-label="amount" autocomplete="amount" />
                                 </div>
-                                <button  className="btn btn-primary btn-round btn-sm addbtn" type="button" onClick={() => addlist()}>confirm amount</button>
+                                <button  className="btn-primary border-light ml-5" type="button" onClick={() => addlist()}>confirm amount</button>
                                 <br>
                                 </br>
                                 <br>
@@ -232,7 +184,7 @@ export const Studio_Order = () => {
 
                                     
                                 </div>
-                                <button  className="btn btn-primary btn-round btn-sm addbtn" type="button" onClick={() => addlist()}>confirm amount</button>
+                                <button  className="btn-primary border-light ml-5" type="button" onClick={() => addlist()}>confirm amount</button>
                                 <br>
                                 </br>
                                 <br>
@@ -248,7 +200,7 @@ export const Studio_Order = () => {
                                     
 
                                 </div>
-                                <button  className="btn btn-primary btn-round btn-sm addbtn" type="button" onClick={() => addlist()}>confirm amount</button>
+                                <button  className="btn-primary border-light ml-5" type="button" onClick={() => addlist()}>confirm amount</button>
                                 <br>
                                 </br>
                                 <label className="colrs">About us:</label>
@@ -266,32 +218,33 @@ export const Studio_Order = () => {
 
                         </div>
                     </div>
- {/* ------------------------------------------------------------- */}
-
                     <div className="tab-pane" id="home" role="tabpanel">
                         <div className="row">
 
 
-                        <div class="card  card-form-horizontal cardb">
+                        {/* <div class="card  card-form-horizontal cardb">
                     <div class="card-body">
                       <form method="" action="">
                         <div class="row">
                           <div class="col-sm-4 searchbar">
                             <div class="   input-group ">
                               <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="now-ui-icons ui-1_zoom-bold"></i></span>
+                                <span class="input-group-text mx-auto"><i class="now-ui-icons ui-1_zoom-bold"></i></span>
                               </div>
-                              <input type="text" class="form-control" onChange={Filter} placeholder="  YYYY-MM-DD"/>
+                              <input type="text" className="form-control mx-auto" onChange={Filter} placeholder="  YYYY-MM-DD"/>
                             </div>
                           </div>
                         </div>
                       </form>
                     </div>
-                  </div>
+                  </div> */}
 
 
-                            <table className="  table-light clientlist" >
-                                <thead className="table table-dark tabbar">
+                            <table className="table mt-5 w-75 mx-auto" >
+                                <thead className="table-dark">
+                                <tr>
+                               <th colSpan={7} className="text-end"><input type="number" onChange={Filter}  placeholder="Search date Here"/></th>
+                               </tr>
                                     <tr>                                        
                                         <th>Date</th>
                                         <th>package</th>
@@ -302,16 +255,10 @@ export const Studio_Order = () => {
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                <tbody  >
-                                    {search.map((each,i) =>
+                                <tbody>
+                                    {search.map((each) =>
 
-                                        <tr className="table my-3">
-                                            {/* {ordername.map((n) =>
-                                                <tr>
-                                                    <td>{n.name}</td>
-
-                                                </tr>
-                                            )} */}
+                                        <tr>
                                             <td>{each.event_date}</td>
                                             <td>{each.packages}</td>
                                             <td>{each.event_type}</td>

@@ -25,9 +25,7 @@ const Filterbtn=(event)=>{
   setSearchData(studioData.filter(e=>e.studio_name?.toLowerCase().includes(event.target.value.toLowerCase())))
 }
 
- 
-
-    return(
+return(
       <>
          <div className="header-3">
         <nav className="navbar navbar-expand-lg bg-warning lsting-navbar">
@@ -38,7 +36,6 @@ const Filterbtn=(event)=>{
                 <span className="navbar-toggler-bar bar2"></span>
                 <span className="navbar-toggler-bar bar3"></span>
               </button>
-              {/* <a className="navbar-brand" href="#pablo">Portfolio</a> */}
             </div>
             
             <div className="collapse navbar-collapse show" data-nav-image="./assets/img//blurred-image-1.jpg">
@@ -49,55 +46,14 @@ const Filterbtn=(event)=>{
                 <li class="nav-item">
                 <a className="nav-link">
                 <Link to="/">Log out</Link>
-
-                  </a>
-
-                      </li>
+              </a>
+              </li>
               </ul>
             </div>
-           
-          </div>
+           </div>
         </nav>
         <div>
-          
-        </div>
-       
-  
-      {/* <div id="carouselExampleIndicators" className="carousel slide">
-
-      <ol className="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1" className=""></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2" className=""></li>
-      </ol>
-      <div className="carousel-inner" role="listbox">
-        <div className="carousel-item active">
-          <div className="page-header header-filter">
           </div>
-        </div>
-        <div className="carousel-item">
-          <div className="page-header header-filter">
-            <div className="page-header-image" style={{backgroundImage: "url('../assets/img/pexels-minhaz-box-55594885-13575969.jpg')"}}></div>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <div className="page-header header-filter">
-            <div className="page-header-image" style={{backgroundImage: "url('../assets/img/pexels-valentina-maros-128709290-13283497.jpg')"}}></div>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <div className="page-header header-filter">
-            <div className="page-header-image" style={{backgroundImage: "url('../assets/img/pexels-moon-wedding-studio-0915310196-20455850-8686986.jpg')"}}></div>
-          </div>
-        </div>
-      </div>
-      <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <i className="now-ui-icons arrows-1_minimal-left"></i>
-      </a>
-      <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <i className="now-ui-icons arrows-1_minimal-right"></i>
-      </a>
-    </div> */}
     <div id="carouselExampleIndicators" className="carousel slide">
         <ol className="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
@@ -191,14 +147,10 @@ const Filterbtn=(event)=>{
             )
                 })}
 
-            
-          </div>
+        </div>
         </div>
       </div>
       </div>
-
-        </>
+      </>
     )
-
-
 }

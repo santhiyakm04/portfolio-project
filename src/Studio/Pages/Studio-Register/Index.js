@@ -73,15 +73,11 @@ return (
                 </div>
              </nav>
         <div className="page-header header-filter" filter-color="">
-            <div className="page-header-image" style={{ backgroundImage: "url(../assets/img/back.jpg)",
+            <div className="page-header-image" style={{ backgroundImage: "url(../assets/img/pexels-wyxina-tresse-311038210-16542624.jpg)",
                 opacity:"0.9"
              }}></div>
             <div className="content">
                 <div className="container ml-10">
-                     <h2 style={{color:"",
-                                    fontFamily:"helvitica",
-                                    marginBottom:"0px"
-                                    }}>Studio Registration  </h2>
                    
                     <div className="col-md-5 ml-auto mr-auto">
                         <div className="card card-login card-plain">
