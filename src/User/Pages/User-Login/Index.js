@@ -36,9 +36,9 @@ export const User_Login = () => {
    }
 
    return (
-       <div className="login-page sidebar-collapse">
+       <div className="login-page sidebar-collapse border border-light">
            <div className="page-header header-filter" >
-               <div className="page-header-image" style={{backgroundImage:"url(../assets/img/pexels-bertellifotografia-2376991.jpg)"}}></div>
+               <div className="page-header-image" style={{backgroundImage:"url(../assets/img/pexels-alteredsnaps-12149885.jpg)"}}></div>
                <nav class="navbar navbar-expand-lg navbar-transparent">
               <div class="container">
                 <div class="navbar-translate">
@@ -74,19 +74,19 @@ export const User_Login = () => {
                                    <div className="card-body" >
                                        <div className="input-group no-border input-lg">
                                            <div className="input-group-prepend">
-                                               <span className="input-group-text"><i className="now-ui-icons users_circle-08"></i></span>
+                                               <span className="input-group-text mt-1"><i className="now-ui-icons users_circle-08"></i></span>
                                            </div>
-                                           <input type="email" className="form-control" onKeyUp={(e) => dispatch(log({ ...logvalue, email: e.target.value }))} placeholder="Email"/>
+                                           <input type="email" className="form-control mt-1" onKeyUp={(e) => dispatch(log({ ...logvalue, email: e.target.value }))} placeholder="Email"/>
                                        </div>
                                        <div className="input-group no-border input-lg" style={{marginBottom:"0 !important"}}> 
                                            <div className="input-group-prepend">
-                                               <span className="input-group-text"><i className="now-ui-icons text_caps-small"></i></span>
+                                               <span className="input-group-text mt-1"><i className="now-ui-icons text_caps-small"></i></span>
                                            </div>
-                                           <input type="password" className="form-control" onKeyUp={(e) => dispatch(log({ ...logvalue, password: e.target.value }))} placeholder="Password"/>
+                                           <input type="password" className="form-control mt-1" onKeyUp={(e) => dispatch(log({ ...logvalue, password: e.target.value }))} placeholder="Password"/>
                                        </div> 
                                    </div>
                                    <div className="pull-center mt-1">
-                                   <button className="btn btn-success mt-3" type="submit" onClick={login}>Login</button>
+                                   <button className="btn btn-success mt-2" type="submit" onClick={login}>Login</button>
                                
                                        <h6>
                                         <i className="child">Don't have an account?</i>   <Link to="/user/register" className="text-success">Register</Link>
