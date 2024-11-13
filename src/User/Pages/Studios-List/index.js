@@ -9,11 +9,14 @@ export const Studio_Listing = ()=>{
 
 const [studioData, setStudioData]=useState([])
 const [searchFilterData,setSearchData]=useState(studioData)
+const user_token=localStorage.getItem("user_token")
+const headers = {'Authorization':`Bearer ${user_token}`}
 
 useEffect(()=>{
-  axios.get("https://SanthiyaKumarMallika.pythonanywhere.com/studiolist").then((res)=>{
+  axios.get("https://SanthiyaKumarMallika.pythonanywhere.com/studiolist",{headers}).then((res)=>{
     setStudioData(res.data)
     setSearchData(res.data)
+
 })
 },[])
 

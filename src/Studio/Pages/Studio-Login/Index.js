@@ -18,8 +18,12 @@ export const Studio_Login = () => {
         let s = n.data.status
             if (s=="success"){
                 alert("login sucessfully")
-                navigate("/studio/home")
                 dispatch(userlog(n.data))
+                navigate("/studio/home")
+                localStorage.setItem("studio_token",n.data.data.studio_token)
+                localStorage.setItem("studio_id",n.data.data.id)
+
+
             } else 
                 {
                 alert("login failed")

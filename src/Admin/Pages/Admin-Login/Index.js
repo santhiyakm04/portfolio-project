@@ -21,6 +21,8 @@ export const Admin_Login=()=>{
         if(res.data.status=="success"){
             alert("Login Successfully")
             navigate("/admin/panel")
+            localStorage.setItem("admin_token",res.data.data.admin_token)
+
         }else{
             alert("Login Failed")
         }

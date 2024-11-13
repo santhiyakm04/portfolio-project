@@ -14,7 +14,17 @@ import { Book_Details } from './User/Pages/Book_details';
 import { View_Details } from './User/Pages/View_details';
 import { Studio_Login } from './Studio/Pages/Studio-Login/Index';
 import { Studio_View } from './Admin/Pages/Studio-View';
+import { Navigate } from 'react-router-dom';
 
+// const token=localStorage.getItem('user_token')  
+ 
+// const ProtectedRoute = ({ element }) => { 
+//   if (token==null) { 
+//     return <Navigate to="/"/> 
+//   } 
+//     return element 
+
+// };
 
 const router = createBrowserRouter([
   {
@@ -66,7 +76,8 @@ const router = createBrowserRouter([
   },
   {
     path:"/user/studiolist",
-    element: <div><Studio_Listing/></div>
+    element:<div><Studio_Listing/></div>
+
     
   },
   {
@@ -78,6 +89,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  
   return(<RouterProvider router={router} />)
   
 }
