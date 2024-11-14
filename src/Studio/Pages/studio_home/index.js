@@ -18,12 +18,16 @@ export const Studio_Order = () => {
     
 
     const logup = useSelector((state) => state.logs).studiolog;
-    console.log(logup)
+    const studio_id=localStorage.getItem("studio_id")
+    const studioId=logup?.data?.id || studio_id;
 
     const addlist = () => {
         dispatch(pack([...det.packages, packages]))
 
     }
+
+    const studio_token=localStorage.getItem("studio_token")
+    const headers = {'Authorization':`Bearer ${studio_token}`}
 
     const userdetail = () => {
 
@@ -35,13 +39,13 @@ export const Studio_Order = () => {
         formData.append("no_of_employees",det.no_of_employees)
         formData.append("about_us",det.about_us)
         formData.append("packages",JSON.stringify(det.packages))
-        axios.put("https://SanthiyaKumarMallika.pythonanywhere.com/studioupdate",formData).then((e) =>{
+        axios.put("https://SanthiyaKumarMallika.pythonanywhere.com/studioupdate",formData,{headers}).then((e) =>{
 
         })
     }
 
     const orderlist = () => {
-        axios.get(`http://santhiyakumarmallika.pythonanywhere.com/bookinglist/${logup.data.id}`).then((n) => {
+        axios.get(`http://santhiyakumarmallika.pythonanywhere.com/bookinglist/${studioId}`).then((n) => {
              console.log(n.data.data)
             setorder(n.data.data)
             setsearch(n.data.data)

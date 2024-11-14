@@ -12,11 +12,13 @@ export const Admin_Panel=()=>{
     const[userData,setUserData]=useState([])
     const[record,setrecord]=useState(userList)
     const[studio,setstudio]=useState(userData)
+    const admin_token=localStorage.getItem("admin_token")
+    const headers = {'Authorization':`Bearer ${admin_token}`}
     
         const navigate=useNavigate();
         const Display=()=>{
 
-            axios.get("https://SanthiyaKumarMallika.pythonanywhere.com/list").then((datavalue)=>{
+            axios.get("https://SanthiyaKumarMallika.pythonanywhere.com/list",{headers}).then((datavalue)=>{
                 setUserList(datavalue.data)
                 setrecord(datavalue.data)
                 // console.log(datavalue)
@@ -45,9 +47,9 @@ export const Admin_Panel=()=>{
             // console.log("test")
         },[])
 
-
+        
         const Studio=()=>{
-            axios.get("https://SanthiyaKumarMallika.pythonanywhere.com/studiolist").then((datavalue)=>{
+            axios.get("https://SanthiyaKumarMallika.pythonanywhere.com/studiolist",{headers}).then((datavalue)=>{
                 setUserData(datavalue.data)
                 setstudio(datavalue.data)
                 // console.log(datavalue)
