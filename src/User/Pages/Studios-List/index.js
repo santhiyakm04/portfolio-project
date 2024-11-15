@@ -11,6 +11,10 @@ const [studioData, setStudioData]=useState([])
 const [searchFilterData,setSearchData]=useState(studioData)
 const user_token=localStorage.getItem("user_token")
 const headers = {'Authorization':`Bearer ${user_token}`}
+const logout=()=>{
+  localStorage.removeItem("user_token")
+  navigate("/")
+}
 
 useEffect(()=>{
   axios.get("https://SanthiyaKumarMallika.pythonanywhere.com/studiolist",{headers}).then((res)=>{
@@ -18,6 +22,15 @@ useEffect(()=>{
     setSearchData(res.data)
 
 })
+.catch((error) => { 
+               
+  if (error.response && error.response.status === 401 || error.response.status === 422) { 
+    // return <Navigate to="/user/login"/> 
+    window.location.href = '/';  
+  } else { 
+    console.error('Error fetching doctor data:', error); 
+  } 
+});
 },[])
 
 const Viewlist=(idvalue)=>{
@@ -48,7 +61,7 @@ return(
                 </li>
                 <li class="nav-item">
                 <a className="nav-link">
-                <Link to="/">Log out</Link>
+                <button onClick={logout} className="btn-primary text-light border-light">Log out</button>
               </a>
               </li>
               </ul>
