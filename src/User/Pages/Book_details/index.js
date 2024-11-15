@@ -18,7 +18,11 @@ export const Book_Details = () => {
   const param1=searchparam.get('user_id')
   const param2=searchparam.get('studio_id')
   // const param3=searchparam.get('status')
-
+  
+  const logout=()=>{
+    localStorage.removeItem("user_token")
+    navigate("/")
+  }
 
 
   const submit = () => {
@@ -37,6 +41,15 @@ export const Book_Details = () => {
 
     axios.post("http://santhiyakumarmallika.pythonanywhere.com/userbooking",formData).then((res)=>{
       })
+      .catch((error) => { 
+               
+        if (error.response && error.response.status === 401 || error.response.status === 422) { 
+          // return <Navigate to="/user/login"/> 
+          window.location.href = '/';  
+        } else { 
+          console.error('Error fetching doctor data:', error); 
+        } 
+      });
       alert("Booked Successfully")
      navigate("/user/viewdetails")
     }
@@ -64,7 +77,7 @@ export const Book_Details = () => {
                   </li>
                   <li className="nav-item">
                     <a className="nav-link">
-                      <Link to="/" className='text-light'>Logout</Link>
+                      <button onClick={logout} className="btn-primary text-light border-light">Logout</button>
 
                     </a>
                   </li>

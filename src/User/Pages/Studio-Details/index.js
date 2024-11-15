@@ -27,6 +27,12 @@ export const Studio_Details = () => {
   const postcomment = () => {
     setreview([...review, comment])
   }
+
+  const logout=()=>{
+    localStorage.removeItem("user_token")
+    navigate("/")
+  }
+
   useEffect(() => {
     axios.get(`https://SanthiyaKumarMallika.pythonanywhere.com/viewlist/${id}`).then((res) => {
       setviewdata(res.data.data)
@@ -34,6 +40,14 @@ export const Studio_Details = () => {
      
       console.log(res.data.data)
     })
+    .catch((error) => { 
+               
+      if (error.response && error.response.status === 401 || error.response.status === 422) { 
+        window.location.href = '/';  
+      } else { 
+        console.error('Error fetching doctor data:', error); 
+      } 
+    });
   }, [id])
   return (
     <div>
@@ -65,7 +79,7 @@ export const Studio_Details = () => {
                 </li>
                 <li className="nav-item">
                   <a  className="nav-link">
-                  <Link to="/" className='text-light'>Logout</Link>
+                  <button onClick={logout} className="btn-primary text-light border-light">Logout</button>
 
                   </a>
                 </li>

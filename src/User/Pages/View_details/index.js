@@ -1,11 +1,16 @@
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export const View_Details = () => {
 
   const bookdetail = useSelector((state) => state.book)
   const bookvalue = bookdetail.book_details
-
+  const navigate=useNavigate()
+  const logout=()=>{
+    localStorage.removeItem("user_token")
+    navigate("/")
+  }
   return (
     <div>
       <nav class="navbar navbar-expand-lg bg-warning p-0">
@@ -20,7 +25,7 @@ export const View_Details = () => {
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
                 <a class="nav-link">
-                <Link to="/" className='text-light'>Logout</Link>
+                <button onClick={logout}>Logout</button>
               </a>
                </li>
                <li class="nav-item">

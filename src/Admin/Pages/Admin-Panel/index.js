@@ -14,7 +14,10 @@ export const Admin_Panel=()=>{
     const[studio,setstudio]=useState(userData)
     const admin_token=localStorage.getItem("admin_token")
     const headers = {'Authorization':`Bearer ${admin_token}`}
-    
+    const logout=()=>{
+      localStorage.removeItem("admin_token")
+      navigate("/admin/login")
+    }
         const navigate=useNavigate();
         const Display=()=>{
 
@@ -24,6 +27,14 @@ export const Admin_Panel=()=>{
                 // console.log(datavalue)
     
             })
+            .catch((error) => { 
+               
+              if (error.response && error.response.status === 401 || error.response.status === 422) { 
+                window.location.href = '/adnmin/login';  
+              } else { 
+                console.error('Error fetching doctor data:', error); 
+              } 
+            });
     
         }
         const Filter=(event)=>{
@@ -55,6 +66,15 @@ export const Admin_Panel=()=>{
                 // console.log(datavalue)
     
             })
+            .catch((error) => { 
+               
+              if (error.response && error.response.status === 401 || error.response.status === 422) { 
+                window.location.href = '/admin/login';  
+              } else { 
+                console.error('Error fetching doctor data:', error); 
+              } 
+            });
+      
     
         }
         const Search=(event)=>{
@@ -107,7 +127,7 @@ export const Admin_Panel=()=>{
                   <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                       <a class="nav-link" href="#pablo">
-                        <Link to={"/admin/login"} className="back"><i class="now-ui-icons arrows-1_share-66"></i> logout</Link>
+                        <button onClick={logout} className="btn-primary text-light border-light"><i class="now-ui-icons arrows-1_share-66"></i> logout</button>
                       </a>
                     </li>
                    

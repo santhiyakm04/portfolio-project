@@ -5,14 +5,19 @@ import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { studio } from '../../Slices/profileslice'
 import { pack } from '../../Slices/profileslice'
+import { useNavigate } from 'react-router-dom'
 
 export const Studio_Order = () => {
+    const navigate=useNavigate()
     const det = useSelector((state) => state.details).studioProfile;
     //   console.log(det)
     const dispatch = useDispatch();
     const [packages, setPackages] = useState({ name: "", amount: "" })
 
-    
+     const logout=()=>{
+        localStorage.removeItem("studio_token")
+        navigate("/studio/login")
+     }
     const [order, setorder] = useState([])
     const[search,setsearch]=useState(order)
     
@@ -51,6 +56,14 @@ export const Studio_Order = () => {
             setsearch(n.data.data)
             
         })
+        .catch((error) => { 
+               
+            if (error.response && error.response.status === 401 || error.response.status === 422) { 
+              window.location.href = '/studio/login';  
+            } else { 
+              console.error('Error fetching doctor data:', error); 
+            } 
+          });
     }
     useEffect(() => {
         orderlist()
@@ -61,6 +74,14 @@ export const Studio_Order = () => {
             console.log(value)
             orderlist()
         })
+        .catch((error) => { 
+               
+            if (error.response && error.response.status === 401 || error.response.status === 422) { 
+              window.location.href = '/studio/login';  
+            } else { 
+              console.error('Error fetching doctor data:', error); 
+            } 
+          });
         }
 
        
@@ -92,7 +113,7 @@ return (
                   <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                       <a class="nav-link">
-                        <Link to={"/Studio/login"} className="back"><i class="now-ui-icons arrows-1_share-66"></i> logout</Link>
+                        <button onClick={logout} className="btn-primary text-light border-light"><i class="now-ui-icons arrows-1_share-66"></i> logout</button>
                       </a>
                     </li>
                    
